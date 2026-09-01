@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendidikan Pancasila Kelas 3 SD</title>
+    <style>
+        :root {
+            --primary-color: #bf2626;
+            --secondary-color: #e63946;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #2b2d42;
+            --correct-color: #2a9d8f;
+            --incorrect-color: #e76f51;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-box {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-box h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+        }
+
+        .sila-box {
+            background-color: #fff8f8;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .img-placeholder {
+            text-align: center;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+            color: #6c757d;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .question-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .feedback-text {
+            margin-top: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback-text.correct {
+            color: var(--correct-color);
+            display: block;
+        }
+
+        .feedback-text.incorrect {
+            color: var(--incorrect-color);
+            display: block;
+        }
+
+        .score-board {
+            background-color: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 25px;
+            display: none;
+        }
+
+        .btn-check {
+            display: block;
+            width: 100%;
+            background-color: var(--correct-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-check:hover {
+            background-color: #21867a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-box">
+        <h1>PENDIDIKAN PANCASILA KELAS 3 SD</h1>
+    </div>
+
+    <!-- MATERI 1 -->
+    <div class="card">
+        <h2>Materi 1 — Bunyi dan Simbol Sila-Sila Pancasila</h2>
+        <p><strong>Apa itu Pancasila?</strong><br>
+        Pancasila adalah dasar negara Indonesia. Pancasila terdiri dari 5 sila. Setiap sila mempunyai bunyi dan simbol yang berbeda.</p>
+        
+<img src="pancasila.jpg" alt="Pancasila">
+
+        <div class="sila-box">
+            <h3>1️⃣ Sila Pertama</h3>
+            <p><strong>Bunyi:</strong> Ketuhanan Yang Maha Esa<br>
+            <strong>Simbol:</strong> ⭐ Bintang<br>
+            <strong>Makna sederhana:</strong> Kita percaya kepada Tuhan dan menghormati orang lain yang berbeda agama.<br>
+            <strong>Contoh:</strong> Berdoa sebelum belajar, rajin beribadah, menghormati teman yang sedang beribadah, tidak memaksakan agama kepada orang lain.</p>
+        </div>
+
+        <div class="sila-box">
+            <h3>2️⃣ Sila Kedua</h3>
+            <p><strong>Bunyi:</strong> Kemanusiaan yang Adil dan Beradab<br>
+            <strong>Simbol:</strong> ⛓️ Rantai<br>
+            <strong>Makna sederhana:</strong> Kita harus memperlakukan orang lain dengan baik, adil, sopan, dan penuh kasih sayang.<br>
+            <strong>Contoh:</strong> Menolong teman yang kesulitan, tidak mengejek teman, bersikap sopan, menghargai orang lain.</p>
+        </div>
+
+        <div class="sila-box">
+            <h3>3️⃣ Sila Ketiga</h3>
+            <p><strong>Bunyi:</strong> Persatuan Indonesia<br>
+            <strong>Simbol:</strong> 🌳 Pohon Beringin<br>
+            <strong>Makna sederhana:</strong> Kita harus menjaga persatuan dan kerukunan walaupun berbeda suku, agama, bahasa, atau daerah.<br>
+            <strong>Contoh:</strong> Berteman dengan siapa saja, bekerja sama, tidak membeda-bedakan teman, menjaga kerukunan di sekolah.</p>
+        </div>
+
+        <div class="sila-box">
+            <h3>4️⃣ Sila Keempat</h3>
+            <p><strong>Bunyi:</strong> Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan<br>
+            <strong>Simbol:</strong> 🐂 Kepala Banteng<br>
+            <strong>Makna sederhana:</strong> Kita menyelesaikan masalah dengan musyawarah dan menghargai pendapat orang lain.<br>
+            <strong>Contoh:</strong> Berdiskusi ketika memilih ketua kelas, mendengarkan pendapat teman, tidak memaksakan kehendak, menerima keputusan bersama.</p>
+        </div>
+
+        <div class="sila-box">
+            <h3>5️⃣ Sila Kelima</h3>
+            <p><strong>Bunyi:</strong> Keadilan Sosial bagi Seluruh Rakyat Indonesia<br>
+            <strong>Simbol:</strong> 🌾 Padi dan Kapas<br>
+            <strong>Makna sederhana:</strong> Kita harus bersikap adil dan menghargai hak orang lain.<br>
+            <strong>Contoh:</strong> Membagi tugas secara adil, berbagi dengan teman, tidak mengambil hak orang lain, memperlakukan semua teman dengan adil.</p>
+        </div>
+
+        <h3>🧠 Cara Mudah Mengingat Simbol Pancasila</h3>
+        <p><strong>Urutannya:</strong><br>
+        ⭐ Bintang → ⛓️ Rantai → 🌳 Beringin → 🐂 Banteng → 🌾 Padi & Kapas</p>
+    </div>
+
+    <!-- MATERI 2 -->
+    <div class="card">
+        <h2>📖 Materi 2 — Makna Sila-Sila Pancasila</h2>
+        <p>Agar lebih mudah, ingat kata kunci setiap sila:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Sila</th>
+                    <th>Kata Kunci</th>
+                    <th>Contoh Sederhana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Tuhan</td><td>Beribadah dan menghormati agama lain</td></tr>
+                <tr><td>2</td><td>Manusia</td><td>Menolong dan menghargai sesama</td></tr>
+                <tr><td>3</td><td>Persatuan</td><td>Rukun walaupun berbeda</td></tr>
+                <tr><td>4</td><td>Musyawarah</td><td>Berdiskusi dan menghargai keputusan</td></tr>
+                <tr><td>5</td><td>Keadilan</td><td>Bersikap adil dan berbagi</td></tr>
+            </tbody>
+        </table>
+
+        <p>⭐ <strong>Sila 1 → Tuhan:</strong> "Aku beriman dan menghormati orang lain."</p>
+        <p>⛓️ <strong>Sila 2 → Manusia:</strong> "Aku menyayangi dan menghargai sesama."</p>
+        <p>🌳 <strong>Sila 3 → Persatuan:</strong> "Walaupun berbeda, kita tetap bersatu."</p>
+        <p>🐂 <strong>Sila 4 → Musyawarah:</strong> "Kita berdiskusi untuk mengambil keputusan bersama."</p>
+        <p>🌾 <strong>Sila 5 → Keadilan:</strong> "Aku bersikap adil kepada semua orang."</p>
+    </div>
+
+    <!-- LATIHAN SOAL -->
+    <div class="card">
+        <h2>✏️ LATIHAN SOAL</h2>
+        <form id="quizForm">
+            
+            <!-- BAGIAN A -->
+            <h3>A. Pilihlah jawaban yang tepat!</h3>
+            
+            <div class="question-item" id="q1">
+                <div class="question-text">1. Pancasila terdiri dari ... sila.</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> A. 3</label>
+                    <label><input type="radio" name="q1" value="B"> B. 4</label>
+                    <label><input type="radio" name="q1" value="C"> C. 5</label>
+                    <label><input type="radio" name="q1" value="D"> D. 6</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q2">
+                <div class="question-text">2. Simbol sila pertama adalah ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> A. Rantai</label>
+                    <label><input type="radio" name="q2" value="B"> B. Bintang</label>
+                    <label><input type="radio" name="q2" value="C"> C. Banteng</label>
+                    <label><input type="radio" name="q2" value="D"> D. Padi dan kapas</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q3">
+                <div class="question-text">3. Bunyi sila kedua adalah ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> A. Persatuan Indonesia</label>
+                    <label><input type="radio" name="q3" value="B"> B. Ketuhanan Yang Maha Esa</label>
+                    <label><input type="radio" name="q3" value="C"> C. Kemanusiaan yang Adil dan Beradab</label>
+                    <label><input type="radio" name="q3" value="D"> D. Keadilan Sosial bagi Seluruh Rakyat Indonesia</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q4">
+                <div class="question-text">4. Pohon beringin merupakan simbol sila ke ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> A. 1</label>
+                    <label><input type="radio" name="q4" value="B"> B. 2</label>
+                    <label><input type="radio" name="q4" value="C"> C. 3</label>
+                    <label><input type="radio" name="q4" value="D"> D. 4</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q5">
+                <div class="question-text">5. Simbol sila keempat adalah ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> A. Bintang</label>
+                    <label><input type="radio" name="q5" value="B"> B. Rantai</label>
+                    <label><input type="radio" name="q5" value="C"> C. Kepala banteng</label>
+                    <label><input type="radio" name="q5" value="D"> D. Padi dan kapas</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q6">
+                <div class="question-text">6. Padi dan kapas merupakan simbol sila ke ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> A. 2</label>
+                    <label><input type="radio" name="q6" value="B"> B. 3</label>
+                    <label><input type="radio" name="q6" value="C"> C. 4</label>
+                    <label><input type="radio" name="q6" value="D"> D. 5</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q7">
+                <div class="question-text">7. Sila pertama mengajarkan kita untuk ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> A. bermusyawarah</label>
+                    <label><input type="radio" name="q7" value="B"> B. menghormati Tuhan dan agama</label>
+                    <label><input type="radio" name="q7" value="C"> C. membagi tugas</label>
+                    <label><input type="radio" name="q7" value="D"> D. menjaga persatuan</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q8">
+                <div class="question-text">8. Menolong teman yang jatuh merupakan contoh sila ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> A. pertama</label>
+                    <label><input type="radio" name="q8" value="B"> B. kedua</label>
+                    <label><input type="radio" name="q8" value="C"> C. ketiga</label>
+                    <label><input type="radio" name="q8" value="D"> D. keempat</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q9">
+                <div class="question-text">9. Berteman dengan siapa saja tanpa membeda-bedakan suku merupakan contoh sila ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> A. pertama</label>
+                    <label><input type="radio" name="q9" value="B"> B. kedua</label>
+                    <label><input type="radio" name="q9" value="C"> C. ketiga</label>
+                    <label><input type="radio" name="q9" value="D"> D. kelima</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q10">
+                <div class="question-text">10. Memutuskan ketua kelas melalui diskusi merupakan contoh sila ....</div>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> A. pertama</label>
+                    <label><input type="radio" name="q10" value="B"> B. kedua</label>
+                    <label><input type="radio" name="q10" value="C"> C. keempat</label>
+                    <label><input type="radio" name="q10" value="D"> D. kelima</label>
+                </div>
+                <div class="feedback-text"></div>
+            </div>
+
+            <!-- BAGIAN B -->
+            <h3>B. Tentukan sila yang sesuai! (Tuliskan: 1, 2, 3, 4, atau 5)</h3>
+
+            <div class="question-item" id="q11">
+                <div class="question-text">11. Menghormati teman yang sedang beribadah. → Sila ke-</div>
+                <input type="text" name="q11" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q12">
+                <div class="question-text">12. Membantu teman yang kesulitan. → Sila ke-</div>
+                <input type="text" name="q12" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q13">
+                <div class="question-text">13. Bermain bersama tanpa membeda-bedakan teman. → Sila ke-</div>
+                <input type="text" name="q13" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q14">
+                <div class="question-text">14. Bermusyawarah menentukan ketua kelas. → Sila ke-</div>
+                <input type="text" name="q14" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q15">
+                <div class="question-text">15. Membagi tugas piket secara adil. → Sila ke-</div>
+                <input type="text" name="q15" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <!-- BAGIAN C -->
+            <h3>C. Lengkapi kalimat berikut!</h3>
+
+            <div class="question-item" id="q16">
+                <div class="question-text">16. Sila pertama berbunyi Ketuhanan Yang Maha ....</div>
+                <input type="text" name="q16" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q17">
+                <div class="question-text">17. Simbol sila kedua adalah ....</div>
+                <input type="text" name="q17" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q18">
+                <div class="question-text">18. Sila ketiga berbunyi .... Indonesia.</div>
+                <input type="text" name="q18" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q19">
+                <div class="question-text">19. Simbol sila keempat adalah ....</div>
+                <input type="text" name="q19" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q20">
+                <div class="question-text">20. Sila kelima berbunyi Keadilan Sosial bagi .... Rakyat Indonesia.</div>
+                <input type="text" name="q20" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <!-- BAGIAN D -->
+            <h3>🧩 D. Latihan Pemahaman</h3>
+
+            <div class="question-item" id="q21">
+                <div class="question-text">21. Rudi melihat temannya tidak membawa alat tulis. Rudi meminjamkan pensilnya. Sikap Rudi sesuai dengan sila ke ....</div>
+                <input type="text" name="q21" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q22">
+                <div class="question-text">22. Siti mempunyai teman yang berbeda agama. Saat temannya beribadah, Siti tidak mengganggunya. Sikap Siti sesuai dengan sila ke ....</div>
+                <input type="text" name="q22" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q23">
+                <div class="question-text">23. Anak-anak kelas 3 berbeda suku dan daerah asal. Mereka tetap bermain dan belajar bersama. Sikap tersebut sesuai dengan sila ke ....</div>
+                <input type="text" name="q23" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q24">
+                <div class="question-text">24. Dalam menentukan permainan yang akan dilakukan, anak-anak berdiskusi terlebih dahulu. Sikap tersebut sesuai dengan sila ke ....</div>
+                <input type="text" name="q24" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q25">
+                <div class="question-text">25. Guru membagi tugas kelompok secara merata kepada semua siswa. Sikap tersebut sesuai dengan sila ke ....</div>
+                <input type="text" name="q25" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <!-- TANTANGAN -->
+            <h3>⭐ Tantangan</h3>
+
+            <div class="question-item" id="q26">
+                <div class="question-text">26. Apa bunyi sila pertama?</div>
+                <input type="text" name="q26" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q27">
+                <div class="question-text">27. Apa simbol sila kedua?</div>
+                <input type="text" name="q27" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q28">
+                <div class="question-text">28. Apa bunyi sila ketiga?</div>
+                <input type="text" name="q28" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q29">
+                <div class="question-text">29. Apa simbol sila keempat?</div>
+                <input type="text" name="q29" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <div class="question-item" id="q30">
+                <div class="question-text">30. Apa bunyi sila kelima?</div>
+                <input type="text" name="q30" autocomplete="off">
+                <div class="feedback-text"></div>
+            </div>
+
+            <!-- SCORE BOARD & BUTTON -->
+            <div id="scoreBoard" class="score-board"></div>
+            <button type="button" class="btn-check" onclick="checkAnswers()">PERIKSA JAWABAN</button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    const keys = {
+        q1: ["C"],
+        q2: ["B"],
+        q3: ["C"],
+        q4: ["C"],
+        q5: ["C"],
+        q6: ["D"],
+        q7: ["B"],
+        q8: ["B"],
+        q9: ["C"],
+        q10: ["C"],
+        q11: ["1", "ke-1", "kesatu", "satu"],
+        q12: ["2", "ke-2", "kedua", "dua"],
+        q13: ["3", "ke-3", "ketiga", "tiga"],
+        q14: ["4", "ke-4", "keempat", "empat"],
+        q15: ["5", "ke-5", "kelima", "lima"],
+        q16: ["Esa"],
+        q17: ["Rantai", "Rantai emas"],
+        q18: ["Persatuan"],
+        q19: ["Kepala banteng", "Banteng"],
+        q20: ["Seluruh"],
+        q21: ["2", "ke-2", "kedua", "dua"],
+        q22: ["1", "ke-1", "kesatu", "satu"],
+        q23: ["3", "ke-3", "ketiga", "tiga"],
+        q24: ["4", "ke-4", "keempat", "empat"],
+        q25: ["5", "ke-5", "kelima", "lima"],
+        q26: ["Ketuhanan Yang Maha Esa"],
+        q27: ["Rantai", "Rantai emas"],
+        q28: ["Persatuan Indonesia"],
+        q29: ["Kepala banteng", "Banteng"],
+        q30: ["Keadilan Sosial bagi Seluruh Rakyat Indonesia"]
+    };
+
+    // Fungsi menghitung Levenshtein Distance untuk kalkulasi persentase kemiripan 70%
+    function levenshteinDistance(str1, str2) {
+        const track = Array(str2.length + 1).fill(null).map(() =>
+        Array(str1.length + 1).fill(null));
+        for (let i = 0; i <= str1.length; i += 1) track[0][i] = i;
+        for (let j = 0; j <= str2.length; j += 1) track[j][0] = j;
+        for (let j = 1; j <= str2.length; j += 1) {
+            for (let i = 1; i <= str1.length; i += 1) {
+                const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+                track[j][i] = Math.min(
+                    track[j][i - 1] + 1,
+                    track[j - 1][i] + 1,
+                    track[j - 1][i - 1] + indicator
+                );
+            }
+        }
+        return track[str2.length][str1.length];
+    }
+
+    function calculateSimilarity(str1, str2) {
+        const distance = levenshteinDistance(str1.toLowerCase().trim(), str2.toLowerCase().trim());
+        const maxLength = Math.max(str1.length, str2.length);
+        if (maxLength === 0) return 1.0;
+        return (maxLength - distance) / maxLength;
+    }
+
+    function checkAnswers() {
+        let correctCount = 0;
+        let totalQuestions = 30;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            let qId = 'q' + i;
+            let qDiv = document.getElementById(qId);
+            let feedbackDiv = qDiv.querySelector('.feedback-text');
+            let isCorrect = false;
+            let correctAnsText = keys[qId][0];
+
+            if (i <= 10) { // Radio Buttons (PG)
+                let selected = document.querySelector(`input[name="${qId}"]:checked`);
+                let userVal = selected ? selected.value : "";
+                if (userVal === keys[qId][0]) {
+                    isCorrect = true;
+                }
+            } else { // Text Inputs
+                let inputElem = document.querySelector(`input[name="${qId}"]`);
+                let userVal = inputElem ? inputElem.value.trim() : "";
+                
+                // Evaluasi kemiripan teks
+                for (let keyAns of keys[qId]) {
+                    let similarity = calculateSimilarity(userVal, keyAns);
+                    if (similarity >= 0.7) { 
+                        isCorrect = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isCorrect) {
+                correctCount++;
+                feedbackDiv.className = "feedback-text correct";
+                feedbackDiv.innerHTML = `✓ Benar! (Jawaban: ${correctAnsText})`;
+            } else {
+                feedbackDiv.className = "feedback-text incorrect";
+                feedbackDiv.innerHTML = `✗ Salah. Jawaban yang benar: ${correctAnsText}`;
+            }
+        }
+
+        let wrongCount = totalQuestions - correctCount;
+        let scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+
+        let scoreBoard = document.getElementById('scoreBoard');
+        scoreBoard.style.display = 'block';
+        scoreBoard.innerHTML = `Benar: ${correctCount} | Salah: ${wrongCount} | Nilai: ${scorePercentage}`;
+        
+        // Auto scroll ke papan nilai
+        scoreBoard.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
