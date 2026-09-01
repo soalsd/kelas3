@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi & Latihan Matematika</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section-card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .example-box {
+            background-color: #eef7ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .question {
+            margin-bottom: 12px;
+        }
+        input[type="text"] {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .btn-check {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .btn-check:hover {
+            background-color: #27ae60;
+        }
+        .result-score {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #2c3e50;
+        }
+        .key-feedback {
+            display: none;
+            color: #27ae60;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Kisi-Kisi Matematika</h1>
+
+    <!-- BAB 1 -->
+    <div class="section-card" id="bab1">
+        <h2>1. Bilangan Cacah sampai 1.000</h2>
+        
+        <!-- A. Nama dan Lambang Bilangan -->
+        <h3>A. Nama dan lambang bilangan</h3>
+        <p>Lambang bilangan adalah bilangan yang ditulis menggunakan angka.</p>
+        <div class="example-box">
+            <strong>Contoh:</strong><br>
+            125 → seratus dua puluh lima<br>
+            307 → tiga ratus tujuh<br>
+            450 → empat ratus lima puluh<br>
+            999 → sembilan ratus sembilan puluh sembilan
+        </div>
+
+        <h4>Latihan A:</h4>
+        <div class="question">
+            1. Tuliskan nama bilangan 246! <br>
+            <input type="text" data-ans="seratus dua puluh lima,dua ratus empat puluh enam" id="q1">
+            <span class="key-feedback" id="feedback-q1">Jawaban: dua ratus empat puluh enam</span>
+        </div>
+        <div class="question">
+            2. Tuliskan nama bilangan 508! <br>
+            <input type="text" data-ans="lima ratus delapan" id="q2">
+            <span class="key-feedback" id="feedback-q2">Jawaban: lima ratus delapan</span>
+        </div>
+        <div class="question">
+            3. Tuliskan lambang bilangan tiga ratus dua puluh satu! <br>
+            <input type="text" data-ans="321" id="q3">
+            <span class="key-feedback" id="feedback-q3">Jawaban: 321</span>
+        </div>
+        <div class="question">
+            4. Tuliskan lambang bilangan sembilan ratus lima! <br>
+            <input type="text" data-ans="905" id="q4">
+            <span class="key-feedback" id="feedback-q4">Jawaban: 905</span>
+        </div>
+
+        <hr>
+
+        <!-- B. Nilai Tempat dan Nilai Angka -->
+        <h3>B. Nilai tempat dan nilai angka</h3>
+        <p>Perhatikan bilangan 583.</p>
+        <table>
+            <tr>
+                <th>Angka</th>
+                <th>Nilai Tempat</th>
+                <th>Nilai Angka</th>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Ratusan</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Puluhan</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Satuan</td>
+                <td>3</td>
+            </tr>
+        </table>
+        <p>Jadi: <strong>583 = 500 + 80 + 3</strong></p>
+
+        <h4>Latihan B:</h4>
+        <div class="question">
+            5. Pada bilangan 724, angka 7 menempati tempat .... <br>
+            <input type="text" data-ans="ratusan" id="q5">
+            <span class="key-feedback" id="feedback-q5">Jawaban: ratusan</span>
+        </div>
+        <div class="question">
+            6. Pada bilangan 639, angka 3 bernilai .... <br>
+            <input type="text" data-ans="30" id="q6">
+            <span class="key-feedback" id="feedback-q6">Jawaban: 30</span>
+        </div>
+        <div class="question">
+            7. Nilai angka 8 pada bilangan 481 adalah .... <br>
+            <input type="text" data-ans="80" id="q7">
+            <span class="key-feedback" id="feedback-q7">Jawaban: 80</span>
+        </div>
+        <div class="question">
+            8. Bentuk panjang dari 562 adalah .... <br>
+            <input type="text" data-ans="500 + 60 + 2,500+60+2" id="q8">
+            <span class="key-feedback" id="feedback-q8">Jawaban: 500 + 60 + 2</span>
+        </div>
+
+        <hr>
+
+        <!-- C. Membandingkan Bilangan Cacah -->
+        <h3>C. Membandingkan bilangan cacah</h3>
+        <p>Gunakan tanda:</p>
+        <ul>
+            <li><strong>&gt;</strong> = lebih besar dari</li>
+            <li><strong>&lt;</strong> = lebih kecil dari</li>
+            <li><strong>=</strong> = sama dengan</li>
+        </ul>
+        <div class="example-box">
+            <strong>Contoh:</strong><br>
+            456 &gt; 345 (karena 4 ratusan lebih besar daripada 3 ratusan)
+        </div>
+
+        <h4>Latihan C:</h4>
+        <div class="question">
+            9. 235 <input type="text" style="width:50px" data-ans="<" id="q9"> 253
+            <span class="key-feedback" id="feedback-q9">Jawaban: &lt;</span>
+        </div>
+        <div class="question">
+            10. 678 <input type="text" style="width:50px" data-ans="<" id="q10"> 687
+            <span class="key-feedback" id="feedback-q10">Jawaban: &lt;</span>
+        </div>
+        <div class="question">
+            11. 450 <input type="text" style="width:50px" data-ans="=" id="q11"> 450
+            <span class="key-feedback" id="feedback-q11">Jawaban: =</span>
+        </div>
+        <div class="question">
+            12. 901 <input type="text" style="width:50px" data-ans=">" id="q12"> 899
+            <span class="key-feedback" id="feedback-q12">Jawaban: &gt;</span>
+        </div>
+
+        <hr>
+
+        <!-- D. Mengurutkan Bilangan Cacah -->
+        <h3>D. Mengurutkan bilangan cacah</h3>
+        <div class="example-box">
+            <strong>Contoh dari terkecil ke terbesar:</strong> 245, 125, 350, 210<br>
+            <strong>Jawaban:</strong> 125, 210, 245, 350<br><br>
+            <strong>Contoh dari terbesar ke terkecil:</strong> 125, 350, 245, 210<br>
+            <strong>Jawaban:</strong> 350, 245, 210, 125
+        </div>
+
+        <h4>Latihan D:</h4>
+        <div class="question">
+            13. Urutkan dari terkecil: 321, 123, 231, 312 <br>
+            <input type="text" style="width: 250px;" data-ans="123, 231, 312, 321,123,231,312,321" id="q13">
+            <span class="key-feedback" id="feedback-q13">Jawaban: 123, 231, 312, 321</span>
+        </div>
+        <div class="question">
+            14. Urutkan dari terbesar: 456, 654, 546, 465 <br>
+            <input type="text" style="width: 250px;" data-ans="654, 546, 465, 456,654,546,465,456" id="q14">
+            <span class="key-feedback" id="feedback-q14">Jawaban: 654, 546, 465, 456</span>
+        </div>
+
+        <div class="result-score" id="score-bab1"></div>
+        <button class="btn-check" onclick="checkAnswers('bab1')">Periksa Jawaban</button>
+    </div>
+
+    <!-- BAB 2 -->
+    <div class="section-card" id="bab2">
+        <h2>2. Penjumlahan Bilangan Cacah sampai 100</h2>
+        <div class="example-box">
+            <strong>Contoh:</strong><br>
+            35 + 24 = ...<br>
+            35 + 20 = 55<br>
+            55 + 4 = 59<br>
+            <strong>Jadi: 35 + 24 = 59</strong>
+        </div>
+
+        <h4>Latihan:</h4>
+        <div class="question">
+            1. 23 + 15 = <input type="text" style="width:80px" data-ans="38" id="q2_1">
+            <span class="key-feedback" id="feedback-q2_1">Jawaban: 38</span>
+        </div>
+        <div class="question">
+            2. 42 + 37 = <input type="text" style="width:80px" data-ans="79" id="q2_2">
+            <span class="key-feedback" id="feedback-q2_2">Jawaban: 79</span>
+        </div>
+        <div class="question">
+            3. 56 + 28 = <input type="text" style="width:80px" data-ans="84" id="q2_3">
+            <span class="key-feedback" id="feedback-q2_3">Jawaban: 84</span>
+        </div>
+        <div class="question">
+            4. 34 + 46 = <input type="text" style="width:80px" data-ans="80" id="q2_4">
+            <span class="key-feedback" id="feedback-q2_4">Jawaban: 80</span>
+        </div>
+        <div class="question">
+            5. 27 + 63 = <input type="text" style="width:80px" data-ans="90" id="q2_5">
+            <span class="key-feedback" id="feedback-q2_5">Jawaban: 90</span>
+        </div>
+        <div class="question">
+            6. 48 + 25 = <input type="text" style="width:80px" data-ans="73" id="q2_6">
+            <span class="key-feedback" id="feedback-q2_6">Jawaban: 73</span>
+        </div>
+
+        <div class="result-score" id="score-bab2"></div>
+        <button class="btn-check" onclick="checkAnswers('bab2')">Periksa Jawaban</button>
+    </div>
+
+    <!-- BAB 3 -->
+    <div class="section-card" id="bab3">
+        <h2>3. Soal Cerita Pengurangan</h2>
+        <p>Untuk soal cerita, perhatikan formula dasar berikut:</p>
+        <div class="example-box">
+            <strong>Jumlah awal − jumlah yang diambil = sisa</strong><br><br>
+            <strong>Contoh:</strong><br>
+            Rina mempunyai 75 permen. Ia memberikan 28 permen kepada temannya.<br>
+            Berapa permen Rina yang tersisa?<br>
+            75 − 28 = 47<br>
+            <em>Jadi, permen Rina yang tersisa adalah 47 permen.</em>
+        </div>
+
+        <h4>Latihan:</h4>
+        <div class="question">
+            1. Budi memiliki 65 kelereng. Ia memberikan 23 kelereng kepada adiknya. Berapa kelereng Budi yang tersisa?<br>
+            <input type="text" style="width: 300px;" data-ans="42,42 kelereng" id="q3_1">
+            <span class="key-feedback" id="feedback-q3_1">Jawaban: 42 (atau 42 kelereng)</span>
+        </div>
+        <div class="question">
+            2. Ibu mempunyai 90 buah jeruk. Sebanyak 35 jeruk diberikan kepada tetangga. Berapa jeruk yang tersisa?<br>
+            <input type="text" style="width: 300px;" data-ans="55,55 jeruk,55 buah jeruk" id="q3_2">
+            <span class="key-feedback" id="feedback-q3_2">Jawaban: 55 (atau 55 jeruk)</span>
+        </div>
+        <div class="question">
+            3. Di perpustakaan ada 78 buku. Sebanyak 26 buku dipinjam siswa. Berapa buku yang masih ada di perpustakaan?<br>
+            <input type="text" style="width: 300px;" data-ans="52,52 buku" id="q3_3">
+            <span class="key-feedback" id="feedback-q3_3">Jawaban: 52 (atau 52 buku)</span>
+        </div>
+        <div class="question">
+            4. Ayah membeli 100 telur. Sebanyak 42 telur digunakan untuk membuat kue. Berapa telur yang tersisa?<br>
+            <input type="text" style="width: 300px;" data-ans="58,58 telur,58 butir telur" id="q3_4">
+            <span class="key-feedback" id="feedback-q3_4">Jawaban: 58 (atau 58 telur)</span>
+        </div>
+        <div class="question">
+            5. Siti mempunyai 84 stiker. Ia memberikan 31 stiker kepada temannya. Berapa stiker Siti sekarang?<br>
+            <input type="text" style="width: 300px;" data-ans="53,53 stiker" id="q3_5">
+            <span class="key-feedback" id="feedback-q3_5">Jawaban: 53 (atau 53 stiker)</span>
+        </div>
+
+        <div class="result-score" id="score-bab3"></div>
+        <button class="btn-check" onclick="checkAnswers('bab3')">Periksa Jawaban</button>
+    </div>
+
+    <script>
+        // Fungsi untuk menghitung kemiripan teks menggunakan Levenshtein Distance (Similarity threshold 70%)
+        function calculateSimilarity(str1, str2) {
+            let s1 = str1.toLowerCase().trim();
+            let s2 = str2.toLowerCase().trim();
+            
+            if (s1 === s2) return 1.0;
+            if (s1.length === 0 || s2.length === 0) return 0.0;
+
+            let track = Array(s2.length + 1).fill(null).map(() =>
+                Array(s1.length + 1).fill(null));
+
+            for (let i = 0; i <= s1.length; i += 1) track[0][i] = i;
+            for (let j = 0; j <= s2.length; j += 1) track[j][0] = j;
+
+            for (let j = 1; j <= s2.length; j += 1) {
+                for (let i = 1; i <= s1.length; i += 1) {
+                    let indicator = s1[i - 1] === s2[j - 1] ? 0 : 1;
+                    track[j][i] = Math.min(
+                        track[j][i - 1] + 1,
+                        track[j - 1][i] + 1,
+                        track[j - 1][i - 1] + indicator
+                    );
+                }
+            }
+
+            let distance = track[s2.length][s1.length];
+            let maxLength = Math.max(s1.length, s2.length);
+            return (maxLength - distance) / maxLength;
+        }
+
+        function checkAnswers(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input[type="text"]');
+            
+            let total = inputs.length;
+            let correctCount = 0;
+
+            inputs.forEach(input => {
+                let userAns = input.value.trim();
+                let validAnswers = input.getAttribute('data-ans').split(',');
+                let feedback = document.getElementById('feedback-' + input.id);
+                
+                let isCorrect = false;
+
+                // Cek tiap kemungkinan jawaban benar
+                for (let targetAns of validAnswers) {
+                    let similarity = calculateSimilarity(userAns, targetAns);
+                    if (similarity >= 0.7) {
+                        isCorrect = true;
+                        break;
+                    }
+                }
+
+                // Tampilkan kunci jawaban berwarna hijau
+                if (feedback) {
+                    feedback.style.display = 'inline';
+                }
+
+                if (isCorrect) {
+                    correctCount++;
+                    input.style.borderColor = "#2ecc71";
+                    input.style.backgroundColor = "#e8f8f5";
+                } else {
+                    input.style.borderColor = "#e74c3c";
+                    input.style.backgroundColor = "#fadbd8";
+                }
+            });
+
+            let wrongCount = total - correctCount;
+            let percentage = Math.round((correctCount / total) * 100);
+
+            let scoreText = `Benar: ${correctCount} | Salah: ${wrongCount} | nilai ${percentage}`;
+            document.getElementById('score-' + sectionId).innerText = scoreText;
+        }
+    </script>
+</body>
+</html>
