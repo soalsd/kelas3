@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Pancasila - Soal Latihan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        .section-header {
+            background-color: #eef2f7;
+            padding: 12px 20px;
+            border-left: 6px solid #3498db;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .section-header.bagian2 {
+            border-left-color: #27ae60;
+        }
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+        .question-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            white-space: pre-line;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #f1f5f9;
+        }
+        .option input[type="radio"] {
+            margin-right: 12px;
+        }
+        .option.correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724 !important;
+            font-weight: bold;
+        }
+        .control-panel {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .score-box {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #1e293b;
+        }
+        .btn-check {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-check:hover {
+            background-color: #2980b9;
+        }
+        .btn-check.bagian2-btn {
+            background-color: #27ae60;
+        }
+        .btn-check.bagian2-btn:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Kuis Pancasila</h1>
+
+    <!-- BAGIAN 1 -->
+    <div class="section-header">
+        <h2>🟢 BAGIAN 1 — Soal Dasar (Nomor 1–25)</h2>
+    </div>
+    <div id="quiz-bagian1"></div>
+
+    <div class="control-panel">
+        <div id="result-b1" class="score-box">nilai : -</div>
+        <button class="btn-check" onclick="checkAnswers(1, 1, 25)">Periksa Jawaban Bagian 1</button>
+    </div>
+
+    <!-- BAGIAN 2 -->
+    <div class="section-header bagian2">
+        <h2>🔵 BAGIAN 2 — Soal Lanjutan (Nomor 26–50)</h2>
+    </div>
+    <div id="quiz-bagian2"></div>
+
+    <div class="control-panel">
+        <div id="result-b2" class="score-box">nilai : -</div>
+        <button class="btn-check bagian2-btn" onclick="checkAnswers(2, 26, 50)">Periksa Jawaban Bagian 2</button>
+    </div>
+</div>
+
+<script>
+const quizData = [
+    // BAGIAN 1 (1-25)
+    { id: 1, q: "1. Dasar negara Indonesia adalah ....", options: ["Garuda Indonesia", "Pancasila", "Undang-Undang", "Bendera Merah Putih"], answer: 1 },
+    { id: 2, q: "2. Sila pertama Pancasila berbunyi ....", options: ["Persatuan Indonesia", "Keadilan Sosial bagi Seluruh Rakyat Indonesia", "Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab"], answer: 2 },
+    { id: 3, q: "3. Simbol sila pertama Pancasila adalah ....", options: ["🌳 Pohon beringin", "⭐ Bintang", "🐂 Kepala banteng", "🌾 Padi dan kapas"], answer: 1 },
+    { id: 4, q: "4. Bunyi sila kedua Pancasila adalah ....", options: ["Kemanusiaan yang Adil dan Beradab", "Persatuan Indonesia", "Ketuhanan Yang Maha Esa", "Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan"], answer: 0 },
+    { id: 5, q: "5. Simbol sila kedua adalah ....", options: ["Rantai", "Bintang", "Banteng", "Padi dan kapas"], answer: 0 },
+    { id: 6, q: "6. Sila ketiga Pancasila berbunyi ....", options: ["Persatuan Indonesia", "Keadilan Sosial bagi Seluruh Rakyat Indonesia", "Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab"], answer: 0 },
+    { id: 7, q: "7. Simbol sila ketiga adalah ....", options: ["Rantai", "Pohon beringin", "Bintang", "Kepala banteng"], answer: 1 },
+    { id: 8, q: "8. Simbol sila keempat Pancasila adalah ....", options: ["Padi dan kapas", "Pohon beringin", "Kepala banteng", "Rantai"], answer: 2 },
+    { id: 9, q: "9. Sila kelima Pancasila berbunyi ....", options: ["Persatuan Indonesia", "Keadilan Sosial bagi Seluruh Rakyat Indonesia", "Ketuhanan Yang Maha Esa", "Kemanusiaan yang Adil dan Beradab"], answer: 1 },
+    { id: 10, q: "10. Simbol sila kelima adalah ....", options: ["Padi dan kapas", "Rantai", "Bintang", "Pohon beringin"], answer: 0 },
+    { id: 11, q: "11. Menghormati teman yang sedang beribadah merupakan contoh pengamalan sila ....", options: ["pertama", "kedua", "ketiga", "keempat"], answer: 0 },
+    { id: 12, q: "12. Menolong teman yang sedang kesusahan merupakan pengamalan sila ....", options: ["pertama", "kedua", "ketiga", "kelima"], answer: 1 },
+    { id: 13, q: "13. Bermain bersama tanpa membeda-bedakan suku merupakan contoh sila ....", options: ["pertama", "kedua", "ketiga", "kelima"], answer: 2 },
+    { id: 14, q: "14. Sila keempat mengajarkan kita untuk menyelesaikan masalah dengan ....", options: ["pertengkaran", "musyawarah", "kemarahan", "paksaan"], answer: 1 },
+    { id: 15, q: "15. Membagi tugas piket secara adil merupakan contoh pengamalan sila ....", options: ["kedua", "ketiga", "keempat", "kelima"], answer: 3 },
+    { id: 16, q: "16. Lambang negara Indonesia adalah ....", options: ["Garuda Pancasila", "Burung Merpati", "Burung Elang", "Rajawali"], answer: 0 },
+    { id: 17, q: "17. Gambar rantai merupakan simbol sila ke ....", options: ["satu", "dua", "tiga", "empat"], answer: 1 },
+    { id: 18, q: "18. Gambar kepala banteng merupakan simbol sila ke ....", options: ["dua", "tiga", "empat", "lima"], answer: 2 },
+    { id: 19, q: "19. Sila yang dilambangkan dengan pohon beringin adalah sila ke ....", options: ["satu", "dua", "tiga", "empat"], answer: 2 },
+    { id: 20, q: "20. Sikap berdoa sebelum belajar sesuai dengan sila ....", options: ["pertama", "kedua", "ketiga", "kelima"], answer: 0 },
+    { id: 21, q: "21. Tidak mengejek teman yang berbeda agama menunjukkan sikap ....", options: ["menghormati", "memusuhi", "sombong", "egois"], answer: 0 },
+    { id: 22, q: "22. Jika ada teman jatuh, sebaiknya kita ....", options: ["menertawakannya", "meninggalkannya", "menolongnya", "mengejeknya"], answer: 2 },
+    { id: 23, q: "23. Mengikuti kerja bakti membersihkan lingkungan merupakan contoh sikap ....", options: ["persatuan", "permusuhan", "kesombongan", "kemalasan"], answer: 0 },
+    { id: 24, q: "24. Saat berdiskusi, kita harus ....", options: ["memaksakan pendapat", "menghargai pendapat orang lain", "berbicara sendiri", "marah jika pendapat ditolak"], answer: 1 },
+    { id: 25, q: "25. Bersikap adil kepada semua teman sesuai dengan sila ....", options: ["pertama", "kedua", "ketiga", "kelima"], answer: 3 },
+
+    // BAGIAN 2 (26-50)
+    { id: 26, q: "26. Rani mempunyai teman yang berbeda agama. Ketika temannya beribadah, Rani sebaiknya ....", options: ["mengganggunya", "menghormatinya", "mengajaknya bermain", "menertawakannya"], answer: 1 },
+    { id: 27, q: "27. Edo melihat seorang teman kesulitan membawa banyak buku. Sikap yang sesuai dengan nilai Pancasila adalah ....", options: ["pura-pura tidak melihat", "menyuruh teman lain membantu", "membantu membawa buku tersebut", "menertawakannya"], answer: 2 },
+    { id: 28, q: "28. Di kelas terdapat teman dari berbagai suku. Agar sesuai dengan sila ketiga, siswa harus ....", options: ["hanya berteman dengan suku yang sama", "saling menghargai dan menjaga persatuan", "memilih teman berdasarkan suku", "membentuk kelompok berdasarkan daerah asal"], answer: 1 },
+    { id: 29, q: "29. Dalam pemilihan ketua kelas, setiap siswa memiliki pendapat yang berbeda. Sikap yang tepat adalah ....", options: ["memaksakan pilihan sendiri", "bertengkar dengan teman", "melakukan musyawarah", "tidak mau mendengarkan orang lain"], answer: 2 },
+    { id: 30, q: "30. Setelah musyawarah, keputusan yang telah disepakati sebaiknya ....", options: ["dilaksanakan bersama", "diabaikan", "hanya dilakukan oleh ketua", "ditolak oleh siswa yang kalah pendapat"], answer: 0 },
+    { id: 31, q: "31. Andi selalu mau berbagi makanan dengan temannya yang lupa membawa bekal. Perilaku Andi terutama menunjukkan nilai ....", options: ["kemanusiaan", "persatuan", "musyawarah", "ketuhanan"], answer: 0 },
+    { id: 32, q: "32. Perhatikan kegiatan berikut!\n(1) Berdoa sebelum makan\n(2) Menolong korban bencana\n(3) Mengikuti upacara dengan tertib\n(4) Bermusyawarah menentukan ketua kelompok\n\nKegiatan yang paling tepat menunjukkan sila kedua adalah ....", options: ["(1)", "(2)", "(3)", "(4)"], answer: 1 },
+    { id: 33, q: "33. Perhatikan pasangan berikut!\nA. Bintang — sila pertama\nB. Rantai — sila ketiga\nC. Pohon beringin — sila keempat\nD. Padi dan kapas — sila kedua\n\nPasangan yang benar adalah ....", options: ["A", "B", "C", "D"], answer: 0 },
+    { id: 34, q: "34. Jika temanmu memiliki pendapat yang berbeda saat berdiskusi, sebaiknya kamu ....", options: ["langsung menyalahkannya", "tetap menghargai pendapatnya", "memintanya keluar dari kelompok", "tidak mau berbicara dengannya"], answer: 1 },
+    { id: 35, q: "35. Mengapa kita harus menghargai perbedaan agama?", options: ["Agar semua orang memiliki agama yang sama", "Agar kehidupan menjadi rukun dan damai", "Agar dapat memilih agama teman", "Agar dapat menentukan ibadah orang lain"], answer: 1 },
+    { id: 36, q: "36. Sila ketiga mengajarkan pentingnya persatuan. Contoh sikap yang paling tepat adalah ....", options: ["bekerja sama membersihkan kelas", "memilih-milih teman", "mengejek daerah asal teman", "bertengkar karena perbedaan pendapat"], answer: 0 },
+    { id: 37, q: "37. Ketika hasil musyawarah tidak sesuai dengan keinginan kita, sikap yang tepat adalah ....", options: ["marah", "meninggalkan kelompok", "menerima dengan lapang dada", "memaksa agar keputusan diubah"], answer: 2 },
+    { id: 38, q: "38. Guru membagi tugas kelompok secara merata. Sikap guru tersebut sesuai dengan nilai ....", options: ["keadilan", "permusuhan", "perselisihan", "kesombongan"], answer: 0 },
+    { id: 39, q: "39. Sila kelima mengajarkan kita untuk ....", options: ["bersikap adil kepada sesama", "mengutamakan diri sendiri", "memaksakan kehendak", "membeda-bedakan teman"], answer: 0 },
+    { id: 40, q: "40. Budi melihat dua temannya bertengkar karena berbeda pendapat. Sikap Budi yang paling sesuai dengan Pancasila adalah ....", options: ["ikut bertengkar", "mendukung salah satu teman", "mengajak mereka menyelesaikan masalah dengan baik", "membiarkan mereka terus bertengkar"], answer: 2 },
+    { id: 41, q: "41. Mengapa simbol sila-sila Pancasila terdapat pada perisai Garuda Pancasila?", options: ["Untuk memperindah gambar Garuda", "Untuk menunjukkan nilai-nilai yang terkandung dalam Pancasila", "Untuk menunjukkan jumlah provinsi", "Untuk menunjukkan nama-nama pahlawan"], answer: 1 },
+    { id: 42, q: "42. Perhatikan perilaku berikut:\nDina memberikan kesempatan kepada semua anggota kelompok untuk menyampaikan pendapat. Perilaku tersebut paling sesuai dengan sila ....", options: ["pertama", "kedua", "ketiga", "keempat"], answer: 3 },
+    { id: 43, q: "43. Perhatikan perilaku berikut:\nFajar tidak membeda-bedakan teman berdasarkan kaya atau miskin. Sikap tersebut sesuai dengan nilai ....", options: ["keadilan", "permusuhan", "kepentingan pribadi", "kesombongan"], answer: 0 },
+    { id: 44, q: "44. Hubungan yang tepat antara simbol dan maknanya adalah ....", options: ["bintang — percaya dan bertakwa kepada Tuhan Yang Maha Esa", "rantai — mengutamakan kepentingan pribadi", "pohon beringin — suka bertengkar", "padi dan kapas — memaksakan pendapat"], answer: 0 },
+    { id: 45, q: "45. Ketika kerja kelompok, semua anggota mendapat tugas. Ada seorang teman yang tidak mampu mengerjakan bagiannya. Apa yang sebaiknya dilakukan?", options: ["memarahinya", "mengeluarkannya dari kelompok", "membantunya agar dapat menyelesaikan tugas", "membiarkannya mendapat nilai jelek"], answer: 2 },
+    { id: 46, q: "46. Jika setiap siswa hanya mementingkan dirinya sendiri, kehidupan di kelas akan ....", options: ["semakin rukun", "semakin kompak", "mudah terjadi perselisihan", "semakin tertib"], answer: 2 },
+    { id: 47, q: "47. Sikap berikut yang menunjukkan penerapan beberapa sila Pancasila sekaligus adalah ....", options: ["bekerja sama membersihkan kelas dan membagi tugas dengan adil", "bermain sendiri dan tidak peduli kepada teman", "memaksakan pendapat kepada kelompok", "mengejek teman yang berbeda daerah"], answer: 0 },
+    { id: 48, q: "48. Perhatikan tindakan berikut:\n\"Para siswa berdiskusi untuk menentukan kegiatan kelas. Setelah semua pendapat didengar, mereka mengambil keputusan bersama.\"\n\nNilai Pancasila yang paling kuat ditunjukkan oleh tindakan tersebut adalah ....", options: ["musyawarah", "persaingan", "kepentingan pribadi", "permusuhan"], answer: 0 },
+    { id: 49, q: "49. Sinta memiliki teman yang berbeda suku dan agama. Mereka tetap bermain dan belajar bersama dengan rukun. Perilaku tersebut menunjukkan bahwa Pancasila dapat menjadi pedoman untuk ....", options: ["memisahkan teman", "menjaga kerukunan dalam keberagaman", "memilih teman yang sama", "menghilangkan perbedaan"], answer: 1 },
+    { id: 50, q: "50. Perhatikan situasi berikut!\nDalam sebuah kelompok, terjadi perbedaan pendapat. Ketua kelompok tidak langsung menentukan keputusan, tetapi meminta semua anggota menyampaikan pendapat. Setelah itu mereka menentukan keputusan bersama.\n\nSikap tersebut merupakan penerapan utama sila ....", options: ["pertama", "kedua", "ketiga", "keempat"], answer: 3 }
+];
+
+const prefixes = ["A. ", "B. ", "C. ", "D. "];
+
+function renderQuiz() {
+    const containerB1 = document.getElementById('quiz-bagian1');
+    const containerB2 = document.getElementById('quiz-bagian2');
+
+    quizData.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${item.id}`;
+
+        let optionsHTML = '';
+        item.options.forEach((opt, idx) => {
+            optionsHTML += `
+                <label class="option" id="opt-${item.id}-${idx}">
+                    <input type="radio" name="q${item.id}" value="${idx}">
+                    ${prefixes[idx]}${opt}
+                </label>
+            `;
+        });
+
+        card.innerHTML = `
+            <div class="question-text">${item.q}</div>
+            <div class="options">${optionsHTML}</div>
+        `;
+
+        if (item.id <= 25) {
+            containerB1.appendChild(card);
+        } else {
+            containerB2.appendChild(card);
+        }
+    });
+}
+
+function checkAnswers(partNum, startId, endId) {
+    let correctCount = 0;
+    let wrongCount = 0;
+    const total = (endId - startId) + 1;
+
+    for (let id = startId; id <= endId; id++) {
+        const item = quizData.find(q => q.id === id);
+        const selectedOption = document.querySelector(`input[name="q${id}"]:checked`);
+
+        // Tandai opsi jawaban benar dengan warna hijau
+        const correctLabel = document.getElementById(`opt-${id}-${item.answer}`);
+        if (correctLabel) {
+            correctLabel.classList.add('correct');
+        }
+
+        if (selectedOption) {
+            const userAns = parseInt(selectedOption.value);
+            if (userAns === item.answer) {
+                correctCount++;
+            } else {
+                wrongCount++;
+            }
+        } else {
+            wrongCount++; // Menganggap jawaban kosong sebagai salah
+        }
+    }
+
+    // Hitung persentase dalam angka bulat tanpa tanda %
+    const scorePercentage = Math.round((correctCount / total) * 100);
+
+    const resultElement = document.getElementById(`result-b${partNum}`);
+    resultElement.innerHTML = `nilai : Benar ${correctCount}, Salah ${wrongCount} | Nilai ${scorePercentage}`;
+}
+
+window.onload = renderQuiz;
+</script>
+
+</body>
+</html>
