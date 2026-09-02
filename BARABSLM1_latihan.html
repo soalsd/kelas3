@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Bahasa Arab - Alat Tulis</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 22px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    margin-bottom: 15px;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+}
+
+.question {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 16px;
+}
+
+.question.correct {
+    background: #d9f7dc;
+    border: 2px solid #2e7d32;
+}
+
+.question.wrong {
+    background: #ffd9d9;
+    border: 2px solid #c62828;
+}
+
+.qtitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.arabic {
+    direction: rtl;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.option {
+    display: block;
+    padding: 9px;
+    margin: 5px 0;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #eef6ff;
+}
+
+.answer {
+    display: none;
+    margin-top: 10px;
+    padding: 9px;
+    background: #fff3cd;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    background: #1565c0;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+#result {
+    display: none;
+    margin-top: 18px;
+    padding: 18px;
+    text-align: center;
+    background: #e3f2fd;
+    border-radius: 12px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.small {
+    color: #666;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇸🇦 Latihan Bahasa Arab</h1>
+    <div>الدرس الأول: أَدَوَاتُ الْكِتَابَةِ</div>
+    <div>Alat Tulis dan Benda di Kelas</div>
+</header>
+
+<div class="container">
+
+<div class="card">
+    <h2>📝 20 Soal Pilihan Ganda</h2>
+    <p>
+        Pilihlah jawaban yang paling tepat.
+        Setelah selesai, tekan tombol <b>PERIKSA JAWABAN</b>.
+    </p>
+    <p class="small">
+        Nilai dihitung dari 20 soal.
+    </p>
+</div>
+
+<form id="quiz">
+
+<!-- 1 -->
+<div class="question" id="q1">
+<div class="qtitle">1. Apa arti dari <span class="arabic">مِسْطَرَةٌ</span>?</div>
+
+<label class="option"><input type="radio" name="q1" value="A"> A. Penghapus</label>
+<label class="option"><input type="radio" name="q1" value="B"> B. Penggaris</label>
+<label class="option"><input type="radio" name="q1" value="C"> C. Pensil</label>
+<label class="option"><input type="radio" name="q1" value="D"> D. Kertas</label>
+
+<div class="answer">Jawaban benar: B. Penggaris</div>
+</div>
+
+<!-- 2 -->
+<div class="question" id="q2">
+<div class="qtitle">2. Bahasa Arab dari "penghapus" adalah ...</div>
+
+<label class="option"><input type="radio" name="q2" value="A"> A. مِقْلَمَةٌ</label>
+<label class="option"><input type="radio" name="q2" value="B"> B. كُرَّاسَةٌ</label>
+<label class="option"><input type="radio" name="q2" value="C"> C. مِمْسَحَةٌ</label>
+<label class="option"><input type="radio" name="q2" value="D"> D. فُرْشَاةٌ</label>
+
+<div class="answer">Jawaban benar: C. مِمْسَحَةٌ</div>
+</div>
+
+<!-- 3 -->
+<div class="question" id="q3">
+<div class="qtitle">3. Kata tunjuk untuk benda mudzakkar yang dekat adalah ...</div>
+
+<label class="option"><input type="radio" name="q3" value="A"> A. هَذَا</label>
+<label class="option"><input type="radio" name="q3" value="B"> B. تِلْكَ</label>
+<label class="option"><input type="radio" name="q3" value="C"> C. ذَلِكَ</label>
+<label class="option"><input type="radio" name="q3" value="D"> D. هَذِهِ</label>
+
+<div class="answer">Jawaban benar: A. هَذَا</div>
+</div>
+
+<!-- 4 -->
+<div class="question" id="q4">
+<div class="qtitle">4. <span class="arabic">كُرَّاسَةٌ</span> artinya ...</div>
+
+<label class="option"><input type="radio" name="q4" value="A"> A. Buku</label>
+<label class="option"><input type="radio" name="q4" value="B"> B. Buku tulis</label>
+<label class="option"><input type="radio" name="q4" value="C"> C. Kertas</label>
+<label class="option"><input type="radio" name="q4" value="D"> D. Tempat pensil</label>
+
+<div class="answer">Jawaban benar: B. Buku tulis</div>
+</div>
+
+<!-- 5 -->
+<div class="question" id="q5">
+<div class="qtitle">5. Kata <span class="arabic">هَذِهِ</span> digunakan untuk menunjuk ...</div>
+
+<label class="option"><input type="radio" name="q5" value="A"> A. Benda mudzakkar jauh</label>
+<label class="option"><input type="radio" name="q5" value="B"> B. Benda muannas jauh</label>
+<label class="option"><input type="radio" name="q5" value="C"> C. Benda mudzakkar dekat</label>
+<label class="option"><input type="radio" name="q5" value="D"> D. Benda muannas dekat</label>
+
+<div class="answer">Jawaban benar: D. Benda muannas dekat</div>
+</div>
+
+<!-- 6 -->
+<div class="question" id="q6">
+<div class="qtitle">6. Apa arti <span class="arabic">فِرْجَارٌ</span>?</div>
+
+<label class="option"><input type="radio" name="q6" value="A"> A. Jangka</label>
+<label class="option"><input type="radio" name="q6" value="B"> B. Busur derajat</label>
+<label class="option"><input type="radio" name="q6" value="C"> C. Kuas</label>
+<label class="option"><input type="radio" name="q6" value="D"> D. Spidol</label>
+
+<div class="answer">Jawaban benar: A. Jangka</div>
+</div>
+
+<!-- 7 -->
+<div class="question" id="q7">
+<div class="qtitle">7. Bahasa Arab dari "tinta" adalah ...</div>
+
+<label class="option"><input type="radio" name="q7" value="A"> A. قِرْطَاسٌ</label>
+<label class="option"><input type="radio" name="q7" value="B"> B. حِبْرٌ</label>
+<label class="option"><input type="radio" name="q7" value="C"> C. قَلَمٌ</label>
+<label class="option"><input type="radio" name="q7" value="D"> D. كِتَابٌ</label>
+
+<div class="answer">Jawaban benar: B. حِبْرٌ</div>
+</div>
+
+<!-- 8 -->
+<div class="question" id="q8">
+<div class="qtitle">8. Apa arti <span class="arabic">قِرْطَاسٌ</span>?</div>
+
+<label class="option"><input type="radio" name="q8" value="A"> A. Kertas</label>
+<label class="option"><input type="radio" name="q8" value="B"> B. Buku</label>
+<label class="option"><input type="radio" name="q8" value="C"> C. Pensil</label>
+<label class="option"><input type="radio" name="q8" value="D"> D. Tinta</label>
+
+<div class="answer">Jawaban benar: A. Kertas</div>
+</div>
+
+<!-- 9 -->
+<div class="question" id="q9">
+<div class="qtitle">9. Kata tunjuk untuk benda mudzakkar yang jauh adalah ...</div>
+
+<label class="option"><input type="radio" name="q9" value="A"> A. هَذِهِ</label>
+<label class="option"><input type="radio" name="q9" value="B"> B. هَذَا</label>
+<label class="option"><input type="radio" name="q9" value="C"> C. ذَلِكَ</label>
+<label class="option"><input type="radio" name="q9" value="D"> D. تِلْكَ</label>
+
+<div class="answer">Jawaban benar: C. ذَلِكَ</div>
+</div>
+
+<!-- 10 -->
+<div class="question" id="q10">
+<div class="qtitle">10. <span class="arabic">مِنْقَلَةٌ</span> artinya ...</div>
+
+<label class="option"><input type="radio" name="q10" value="A"> A. Jangka</label>
+<label class="option"><input type="radio" name="q10" value="B"> B. Busur derajat</label>
+<label class="option"><input type="radio" name="q10" value="C"> C. Penggaris</label>
+<label class="option"><input type="radio" name="q10" value="D"> D. Penghapus</label>
+
+<div class="answer">Jawaban benar: B. Busur derajat</div>
+</div>
+
+<!-- 11 -->
+<div class="question" id="q11">
+<div class="qtitle">11. Kalimat yang benar untuk "Ini buku tulis" adalah ...</div>
+
+<label class="option"><input type="radio" name="q11" value="A"> A. هَذَا كُرَّاسَةٌ</label>
+<label class="option"><input type="radio" name="q11" value="B"> B. ذَلِكَ كُرَّاسَةٌ</label>
+<label class="option"><input type="radio" name="q11" value="C"> C. هَذِهِ كُرَّاسَةٌ</label>
+<label class="option"><input type="radio" name="q11" value="D"> D. تِلْكَ كُرَّاسَةٌ</label>
+
+<div class="answer">Jawaban benar: C. هَذِهِ كُرَّاسَةٌ</div>
+</div>
+
+<!-- 12 -->
+<div class="question" id="q12">
+<div class="qtitle">12. Bahasa Arab dari "pensil" adalah ...</div>
+
+<label class="option"><input type="radio" name="q12" value="A"> A. قَلَمُ الرَّصَاصِ</label>
+<label class="option"><input type="radio" name="q12" value="B"> B. قَلَمُ الْحِبْرِ</label>
+<label class="option"><input type="radio" name="q12" value="C"> C. فِرْجَارٌ</label>
+<label class="option"><input type="radio" name="q12" value="D"> D. مِسْطَرَةٌ</label>
+
+<div class="answer">Jawaban benar: A. قَلَمُ الرَّصَاصِ</div>
+</div>
+
+<!-- 13 -->
+<div class="question" id="q13">
+<div class="qtitle">13. <span class="arabic">فُرْشَاةٌ</span> artinya ...</div>
+
+<label class="option"><input type="radio" name="q13" value="A"> A. Spidol</label>
+<label class="option"><input type="radio" name="q13" value="B"> B. Kuas</label>
+<label class="option"><input type="radio" name="q13" value="C"> C. Kapur</label>
+<label class="option"><input type="radio" name="q13" value="D"> D. Kertas</label>
+
+<div class="answer">Jawaban benar: B. Kuas</div>
+</div>
+
+<!-- 14 -->
+<div class="question" id="q14">
+<div class="qtitle">14. Kata benda yang termasuk muannas adalah ...</div>
+
+<label class="option"><input type="radio" name="q14" value="A"> A. كِتَابٌ</label>
+<label class="option"><input type="radio" name="q14" value="B"> B. قَلَمٌ</label>
+<label class="option"><input type="radio" name="q14" value="C"> C. بَابٌ</label>
+<label class="option"><input type="radio" name="q14" value="D"> D. مِقْلَمَةٌ</label>
+
+<div class="answer">Jawaban benar: D. مِقْلَمَةٌ</div>
+</div>
+
+<!-- 15 -->
+<div class="question" id="q15">
+<div class="qtitle">15. Kata tunjuk untuk benda muannas yang jauh adalah ...</div>
+
+<label class="option"><input type="radio" name="q15" value="A"> A. تِلْكَ</label>
+<label class="option"><input type="radio" name="q15" value="B"> B. هَذِهِ</label>
+<label class="option"><input type="radio" name="q15" value="C"> C. ذَلِكَ</label>
+<label class="option"><input type="radio" name="q15" value="D"> D. هَذَا</label>
+
+<div class="answer">Jawaban benar: A. تِلْكَ</div>
+</div>
+
+<!-- 16 -->
+<div class="question" id="q16">
+<div class="qtitle">16. Pilih kalimat yang benar untuk "Itu sebuah pena" (mudzakkar, jauh).</div>
+
+<label class="option"><input type="radio" name="q16" value="A"> A. هَذَا قَلَمٌ</label>
+<label class="option"><input type="radio" name="q16" value="B"> B. هَذِهِ قَلَمٌ</label>
+<label class="option"><input type="radio" name="q16" value="C"> C. ذَلِكَ قَلَمٌ</label>
+<label class="option"><input type="radio" name="q16" value="D"> D. تِلْكَ قَلَمٌ</label>
+
+<div class="answer">Jawaban benar: C. ذَلِكَ قَلَمٌ</div>
+</div>
+
+<!-- 17 -->
+<div class="question" id="q17">
+<div class="qtitle">17. Apa arti <span class="arabic">طَبَاشِيرُ</span>?</div>
+
+<label class="option"><input type="radio" name="q17" value="A"> A. Kapur tulis</label>
+<label class="option"><input type="radio" name="q17" value="B"> B. Spidol</label>
+<label class="option"><input type="radio" name="q17" value="C"> C. Tinta</label>
+<label class="option"><input type="radio" name="q17" value="D"> D. Kuas</label>
+
+<div class="answer">Jawaban benar: A. Kapur tulis</div>
+</div>
+
+<!-- 18 -->
+<div class="question" id="q18">
+<div class="qtitle">18. Ciri yang biasanya menunjukkan isim muannas adalah ...</div>
+
+<label class="option"><input type="radio" name="q18" value="A"> A. Memiliki alif di awal</label>
+<label class="option"><input type="radio" name="q18" value="B"> B. Memiliki ta' marbutah (ة)</label>
+<label class="option"><input type="radio" name="q18" value="C"> C. Selalu berakhiran ن</label>
+<label class="option"><input type="radio" name="q18" value="D"> D. Selalu terdiri dari dua kata</label>
+
+<div class="answer">Jawaban benar: B. Memiliki ta' marbutah (ة)</div>
+</div>
+
+<!-- 19 -->
+<div class="question" id="q19">
+<div class="qtitle">19. Perhatikan kalimat berikut:</div>
+
+<div class="arabic">تِلْكَ مِقْلَمَةٌ</div>
+
+<div class="qtitle">Arti kalimat tersebut adalah ...</div>
+
+<label class="option"><input type="radio" name="q19" value="A"> A. Ini tempat pensil</label>
+<label class="option"><input type="radio" name="q19" value="B"> B. Ini sebuah pena</label>
+<label class="option"><input type="radio" name="q19" value="C"> C. Itu tempat pensil</label>
+<label class="option"><input type="radio" name="q19" value="D"> D. Itu sebuah buku</label>
+
+<div class="answer">Jawaban benar: C. Itu tempat pensil</div>
+</div>
+
+<!-- 20 -->
+<div class="question" id="q20">
+<div class="qtitle">20. Manakah pasangan yang benar?</div>
+
+<label class="option"><input type="radio" name="q20" value="A">
+A. هَذَا — benda muannas dekat
+</label>
+
+<label class="option"><input type="radio" name="q20" value="B">
+B. هَذِهِ — benda mudzakkar dekat
+</label>
+
+<label class="option"><input type="radio" name="q20" value="C">
+C. ذَلِكَ — benda mudzakkar jauh
+</label>
+
+<label class="option"><input type="radio" name="q20" value="D">
+D. تِلْكَ — benda mudzakkar jauh
+</label>
+
+<div class="answer">Jawaban benar: C. ذَلِكَ — benda mudzakkar jauh</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">
+    ✅ PERIKSA JAWABAN
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const kunci = {
+    q1:"B",
+    q2:"C",
+    q3:"A",
+    q4:"B",
+    q5:"D",
+    q6:"A",
+    q7:"B",
+    q8:"A",
+    q9:"C",
+    q10:"B",
+    q11:"C",
+    q12:"A",
+    q13:"B",
+    q14:"D",
+    q15:"A",
+    q16:"C",
+    q17:"A",
+    q18:"B",
+    q19:"C",
+    q20:"C"
+};
+
+function checkAnswers() {
+
+    let benar = 0;
+    let total = 20;
+
+    for (let i = 1; i <= total; i++) {
+
+        const question = document.getElementById("q" + i);
+
+        question.classList.remove("correct", "wrong");
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        const answer =
+            question.querySelector(".answer");
+
+        answer.style.display = "block";
+
+        if (selected && selected.value === kunci["q" + i]) {
+
+            question.classList.add("correct");
+            benar++;
+
+        } else {
+
+            question.classList.add("wrong");
+
+        }
+    }
+
+    const nilai = Math.round((benar / total) * 100);
+
+    const result = document.getElementById("result");
+
+    result.style.display = "block";
+
+    let pesan = "";
+
+    if (nilai >= 90) {
+        pesan = "🌟 Sangat baik!";
+    } else if (nilai >= 75) {
+        pesan = "👏 Bagus!";
+    } else if (nilai >= 60) {
+        pesan = "👍 Terus berlatih!";
+    } else {
+        pesan = "💪 Semangat belajar lagi!";
+    }
+
+    result.innerHTML =
+        "Nilai: <b>" + nilai + "</b><br>" +
+        "Benar: " + benar + " dari " + total + " soal<br>" +
+        pesan;
+
+    window.scrollTo({
+        top: result.offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>

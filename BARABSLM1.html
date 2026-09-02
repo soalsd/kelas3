@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahasa Arab - Alat Tulis dan Benda di Kelas</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f7fb;
+        color: #222;
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, #1565c0, #42a5f5);
+        color: white;
+        padding: 25px 15px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 26px;
+    }
+
+    header p {
+        margin: 5px 0 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 15px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 18px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        color: #1565c0;
+        border-bottom: 2px solid #e3f2fd;
+        padding-bottom: 8px;
+    }
+
+    h3 {
+        color: #1976d2;
+    }
+
+    .arabic {
+        direction: rtl;
+        text-align: center;
+        font-size: 27px;
+        font-weight: bold;
+        margin: 8px 0;
+    }
+
+    .translation {
+        text-align: center;
+        color: #555;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 10px;
+    }
+
+    .vocab {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        background: #fafafa;
+    }
+
+    .vocab .arabic {
+        font-size: 24px;
+    }
+
+    .isim-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .isim-table th,
+    .isim-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .isim-table th {
+        background: #e3f2fd;
+    }
+
+    .question {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        background: #fff;
+    }
+
+    .question-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .option {
+        display: block;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .option:hover {
+        background: #f0f7ff;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .correct {
+        background: #c8e6c9 !important;
+        border: 2px solid #2e7d32 !important;
+    }
+
+    .wrong {
+        background: #ffcdd2 !important;
+        border: 2px solid #c62828 !important;
+    }
+
+    .answer {
+        display: none;
+        margin-top: 8px;
+        padding: 8px;
+        border-radius: 6px;
+        background: #fff3cd;
+        color: #795548;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #1565c0;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #0d47a1;
+    }
+
+    #result {
+        display: none;
+        text-align: center;
+        background: #e3f2fd;
+        border-radius: 12px;
+        padding: 18px;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .note {
+        background: #fff8e1;
+        border-left: 5px solid #ffb300;
+        padding: 12px;
+        margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 22px;
+        }
+
+        .arabic {
+            font-size: 24px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Bahasa Arab</h1>
+    <p>الدرس الأول: أَدَوَاتُ الْكِتَابَةِ</p>
+    <p>Alat Tulis dan Benda di Kelas</p>
+</header>
+
+<div class="container">
+
+<!-- ================= MATERI ================= -->
+
+<div class="card">
+    <h2>📚 Materi Pembelajaran</h2>
+
+    <h3>1. أَدَوَاتُ الْكِتَابَةِ</h3>
+
+    <p>
+        <b>أَدَوَاتُ الْكِتَابَةِ</b> artinya
+        <b>alat-alat tulis</b>.
+    </p>
+
+    <p>
+        Dalam bahasa Arab, kita dapat bertanya tentang suatu benda
+        menggunakan kalimat:
+    </p>
+
+    <div class="arabic">مَا هَذَا؟</div>
+    <div class="translation">Apakah ini? (untuk benda mudzakkar)</div>
+
+    <div class="arabic">مَا هَذِهِ؟</div>
+    <div class="translation">Apakah ini? (untuk benda muannas)</div>
+
+    <div class="arabic">مَا ذَلِكَ؟</div>
+    <div class="translation">Apakah itu? (untuk benda mudzakkar)</div>
+
+    <div class="arabic">مَا تِلْكَ؟</div>
+    <div class="translation">Apakah itu? (untuk benda muannas)</div>
+</div>
+
+<div class="card">
+    <h2>2. Isim Isyarah (Kata Tunjuk)</h2>
+
+    <p>
+        Isim isyarah adalah kata yang digunakan untuk menunjuk suatu benda.
+        Ada empat kata penting yang dipelajari:
+    </p>
+
+    <table class="isim-table">
+        <tr>
+            <th>Isim Isyarah</th>
+            <th>Jenis</th>
+            <th>Jarak</th>
+            <th>Arti</th>
+        </tr>
+        <tr>
+            <td class="arabic">هَذَا</td>
+            <td>Mudzakkar</td>
+            <td>Dekat</td>
+            <td>Ini</td>
+        </tr>
+        <tr>
+            <td class="arabic">هَذِهِ</td>
+            <td>Muannas</td>
+            <td>Dekat</td>
+            <td>Ini</td>
+        </tr>
+        <tr>
+            <td class="arabic">ذَلِكَ</td>
+            <td>Mudzakkar</td>
+            <td>Jauh</td>
+            <td>Itu</td>
+        </tr>
+        <tr>
+            <td class="arabic">تِلْكَ</td>
+            <td>Muannas</td>
+            <td>Jauh</td>
+            <td>Itu</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        💡 <b>Tips:</b><br>
+        هَذَا = ini, laki-laki/mudzakkar<br>
+        هَذِهِ = ini, perempuan/muannas<br>
+        ذَلِكَ = itu, laki-laki/mudzakkar<br>
+        تِلْكَ = itu, perempuan/muannas
+    </div>
+
+    <h3>Contoh:</h3>
+
+    <div class="arabic">هَذَا كِتَابٌ</div>
+    <div class="translation">Ini sebuah buku.</div>
+
+    <div class="arabic">هَذِهِ كُرَّاسَةٌ</div>
+    <div class="translation">Ini sebuah buku tulis.</div>
+
+    <div class="arabic">ذَلِكَ قَلَمٌ</div>
+    <div class="translation">Itu sebuah pena.</div>
+
+    <div class="arabic">تِلْكَ مِقْلَمَةٌ</div>
+    <div class="translation">Itu sebuah tempat pensil.</div>
+</div>
+
+<div class="card">
+    <h2>3. Mudzakkar dan Muannas</h2>
+
+    <p>
+        Kata benda dalam bahasa Arab dibagi menjadi dua jenis:
+    </p>
+
+    <ul>
+        <li><b>Mudzakkar</b> = jenis laki-laki.</li>
+        <li><b>Muannas</b> = jenis perempuan.</li>
+    </ul>
+
+    <p>
+        Salah satu ciri kata benda muannas adalah biasanya memiliki
+        <b>ta' marbutah (ة)</b> di akhir kata.
+    </p>
+
+    <p>Contoh:</p>
+
+    <div class="arabic">مِمْسَحَةٌ</div>
+    <div class="translation">penghapus</div>
+
+    <div class="arabic">مِقْلَمَةٌ</div>
+    <div class="translation">tempat pensil</div>
+
+    <div class="arabic">مِسْطَرَةٌ</div>
+    <div class="translation">penggaris</div>
+</div>
+
+<div class="card">
+    <h2>4. Kosakata Alat Tulis</h2>
+
+    <div class="grid">
+
+        <div class="vocab">
+            <div class="arabic">قَلَمُ الرَّصَاصِ</div>
+            <b>Pensil</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">قَلَمٌ</div>
+            <b>Pena / Pulpen</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">قَلَمُ الْحِبْرِ</div>
+            <b>Pulpen tinta</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِسْطَرَةٌ</div>
+            <b>Penggaris</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِمْسَحَةٌ</div>
+            <b>Penghapus</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِقْلَمَةٌ</div>
+            <b>Tempat pensil</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">كُرَّاسَةٌ</div>
+            <b>Buku tulis</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">كِتَابٌ</div>
+            <b>Buku</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">قِرْطَاسٌ</div>
+            <b>Kertas</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">حِبْرٌ</div>
+            <b>Tinta</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">طَبَاشِيرُ</div>
+            <b>Kapur tulis</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مُثَلَّثٌ</div>
+            <b>Segitiga</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">فِرْجَارٌ</div>
+            <b>Jangka</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِنْقَلَةٌ</div>
+            <b>Busur derajat</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">فُرْشَاةٌ</div>
+            <b>Kuas</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">عَلَامَةٌ</div>
+            <b>Spidol</b>
+        </div>
+
+    </div>
+</div>
+
+<div class="card">
+    <h2>5. Kosakata Benda di Kelas</h2>
+
+    <div class="grid">
+
+        <div class="vocab">
+            <div class="arabic">فَصْلٌ</div>
+            <b>Kelas</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">دُرْجٌ</div>
+            <b>Laci</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مَكْتَبٌ</div>
+            <b>Meja</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">رَفٌّ</div>
+            <b>Rak</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">كُرْسِيٌّ</div>
+            <b>Kursi</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">بَابٌ</div>
+            <b>Pintu</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِصْبَاحٌ</div>
+            <b>Lampu</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مَقْعَدٌ</div>
+            <b>Bangku</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِفْتَاحٌ</div>
+            <b>Kunci</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِرْوَحَةٌ</div>
+            <b>Kipas angin</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">نَافِذَةٌ</div>
+            <b>Jendela</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">خِزَانَةٌ</div>
+            <b>Lemari</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">مِكْنَسَةٌ</div>
+            <b>Sapu</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">خَرِيطَةٌ</div>
+            <b>Peta</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">عَلَمٌ</div>
+            <b>Bendera</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">سَاعَةٌ</div>
+            <b>Jam</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">رُوزْنَامَةٌ</div>
+            <b>Kalender</b>
+        </div>
+
+        <div class="vocab">
+            <div class="arabic">بِلَاطٌ</div>
+            <b>Lantai</b>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= SOAL ================= -->
+
+<div class="card">
+    <h2>📝 Latihan Soal</h2>
+
+    <p>
+        Pilih jawaban yang paling tepat. Nilai hanya dihitung dari
+        soal pilihan ganda.
+    </p>
+
+    <form id="quiz">
+
+        <!-- PG 1 -->
+        <div class="question" id="q1">
+            <div class="question-title">
+                1. Apa arti dari <span class="arabic">هَذَا</span>?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q1" value="A">
+                A. Itu
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="B">
+                B. Ini untuk mudzakkar
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="C">
+                C. Ini untuk muannas
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="D">
+                D. Mereka
+            </label>
+
+            <div class="answer">
+                Jawaban benar: B. Ini untuk mudzakkar
+            </div>
+        </div>
+
+        <!-- PG 2 -->
+        <div class="question" id="q2">
+            <div class="question-title">
+                2. Kata tunjuk untuk benda muannas yang dekat adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q2" value="A">
+                A. ذَلِكَ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="B">
+                B. تِلْكَ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="C">
+                C. هَذِهِ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="D">
+                D. هَذَا
+            </label>
+
+            <div class="answer">
+                Jawaban benar: C. هَذِهِ
+            </div>
+        </div>
+
+        <!-- PG 3 -->
+        <div class="question" id="q3">
+            <div class="question-title">
+                3. Apa arti <span class="arabic">ذَلِكَ</span>?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q3" value="A">
+                A. Ini
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="B">
+                B. Itu untuk mudzakkar
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="C">
+                C. Itu untuk muannas
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="D">
+                D. Ini untuk muannas
+            </label>
+
+            <div class="answer">
+                Jawaban benar: B. Itu untuk mudzakkar
+            </div>
+        </div>
+
+        <!-- PG 4 -->
+        <div class="question" id="q4">
+            <div class="question-title">
+                4. Bahasa Arab dari "penggaris" adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q4" value="A">
+                A. مِمْسَحَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="B">
+                B. مِقْلَمَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="C">
+                C. مِسْطَرَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="D">
+                D. كُرَّاسَةٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: C. مِسْطَرَةٌ
+            </div>
+        </div>
+
+        <!-- PG 5 -->
+        <div class="question" id="q5">
+            <div class="question-title">
+                5. <span class="arabic">مِقْلَمَةٌ</span> artinya ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q5" value="A">
+                A. Penghapus
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="B">
+                B. Tempat pensil
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="C">
+                C. Penggaris
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="D">
+                D. Buku tulis
+            </label>
+
+            <div class="answer">
+                Jawaban benar: B. Tempat pensil
+            </div>
+        </div>
+
+        <!-- PG 6 -->
+        <div class="question" id="q6">
+            <div class="question-title">
+                6. Kata <span class="arabic">تِلْكَ</span> digunakan untuk ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q6" value="A">
+                A. benda mudzakkar dekat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="B">
+                B. benda muannas dekat
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="C">
+                C. benda mudzakkar jauh
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="D">
+                D. benda muannas jauh
+            </label>
+
+            <div class="answer">
+                Jawaban benar: D. benda muannas jauh
+            </div>
+        </div>
+
+        <!-- PG 7 -->
+        <div class="question" id="q7">
+            <div class="question-title">
+                7. Bahasa Arab dari "buku tulis" adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q7" value="A">
+                A. كِتَابٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="B">
+                B. كُرَّاسَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="C">
+                C. قِرْطَاسٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="D">
+                D. حِبْرٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: B. كُرَّاسَةٌ
+            </div>
+        </div>
+
+        <!-- PG 8 -->
+        <div class="question" id="q8">
+            <div class="question-title">
+                8. <span class="arabic">مِمْسَحَةٌ</span> artinya ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q8" value="A">
+                A. Penghapus
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="B">
+                B. Kertas
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="C">
+                C. Pensil
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="D">
+                D. Jangka
+            </label>
+
+            <div class="answer">
+                Jawaban benar: A. Penghapus
+            </div>
+        </div>
+
+        <!-- PG 9 -->
+        <div class="question" id="q9">
+            <div class="question-title">
+                9. Bahasa Arab dari "tinta" adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q9" value="A">
+                A. حِبْرٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="B">
+                B. قَلَمٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="C">
+                C. فِرْجَارٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="D">
+                D. فُرْشَاةٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: A. حِبْرٌ
+            </div>
+        </div>
+
+        <!-- PG 10 -->
+        <div class="question" id="q10">
+            <div class="question-title">
+                10. Bahasa Arab dari "jangka" adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q10" value="A">
+                A. مِنْقَلَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="B">
+                B. مُثَلَّثٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="C">
+                C. فِرْجَارٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="D">
+                D. فُرْشَاةٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: C. فِرْجَارٌ
+            </div>
+        </div>
+
+        <!-- PG 11 -->
+        <div class="question" id="q11">
+            <div class="question-title">
+                11. Kalimat yang tepat untuk "Ini sebuah buku" adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q11" value="A">
+                A. هَذِهِ كِتَابٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="B">
+                B. هَذَا كِتَابٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="C">
+                C. تِلْكَ كِتَابٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q11" value="D">
+                D. ذَلِكَ كُرَّاسَةٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: B. هَذَا كِتَابٌ
+            </div>
+        </div>
+
+        <!-- PG 12 -->
+        <div class="question" id="q12">
+            <div class="question-title">
+                12. Kata benda yang termasuk muannas adalah ...
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q12" value="A">
+                A. كِتَابٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="B">
+                B. قَلَمٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="C">
+                C. مِسْطَرَةٌ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q12" value="D">
+                D. بَابٌ
+            </label>
+
+            <div class="answer">
+                Jawaban benar: C. مِسْطَرَةٌ
+            </div>
+        </div>
+
+        <!-- ISIAN -->
+
+        <h2>✏️ Isian</h2>
+
+        <div class="question" id="q13">
+            <div class="question-title">
+                13. Lengkapi kalimat berikut:
+            </div>
+
+            <div class="arabic">
+                ______ كِتَابٌ
+            </div>
+
+            <input type="text" id="a13"
+                   placeholder="Tuliskan kata yang tepat">
+
+            <div class="answer">
+                Jawaban benar: هَذَا
+            </div>
+        </div>
+
+        <div class="question" id="q14">
+            <div class="question-title">
+                14. Lengkapi kalimat berikut:
+            </div>
+
+            <div class="arabic">
+                ______ كُرَّاسَةٌ
+            </div>
+
+            <input type="text" id="a14"
+                   placeholder="Tuliskan kata yang tepat">
+
+            <div class="answer">
+                Jawaban benar: هَذِهِ
+            </div>
+        </div>
+
+        <div class="question" id="q15">
+            <div class="question-title">
+                15. Lengkapi kalimat berikut:
+            </div>
+
+            <div class="arabic">
+                ______ قَلَمٌ
+            </div>
+
+            <input type="text" id="a15"
+                   placeholder="Tuliskan kata yang tepat">
+
+            <div class="answer">
+                Jawaban benar: ذَلِكَ
+            </div>
+        </div>
+
+        <div class="question" id="q16">
+            <div class="question-title">
+                16. Lengkapi kalimat berikut:
+            </div>
+
+            <div class="arabic">
+                ______ مِقْلَمَةٌ
+            </div>
+
+            <input type="text" id="a16"
+                   placeholder="Tuliskan kata yang tepat">
+
+            <div class="answer">
+                Jawaban benar: تِلْكَ
+            </div>
+        </div>
+
+        <div class="question" id="q17">
+            <div class="question-title">
+                17. Tuliskan bahasa Arab dari "penggaris".
+            </div>
+
+            <input type="text" id="a17"
+                   placeholder="Tuliskan jawaban">
+
+            <div class="answer">
+                Jawaban benar: مِسْطَرَةٌ
+            </div>
+        </div>
+
+        <div class="question" id="q18">
+            <div class="question-title">
+                18. Tuliskan bahasa Arab dari "penghapus".
+            </div>
+
+            <input type="text" id="a18"
+                   placeholder="Tuliskan jawaban">
+
+            <div class="answer">
+                Jawaban benar: مِمْسَحَةٌ
+            </div>
+        </div>
+
+        <div class="question" id="q19">
+            <div class="question-title">
+                19. Tuliskan bahasa Arab dari "buku tulis".
+            </div>
+
+            <input type="text" id="a19"
+                   placeholder="Tuliskan jawaban">
+
+            <div class="answer">
+                Jawaban benar: كُرَّاسَةٌ
+            </div>
+        </div>
+
+        <div class="question" id="q20">
+            <div class="question-title">
+                20. Tuliskan bahasa Arab dari "tinta".
+            </div>
+
+            <input type="text" id="a20"
+                   placeholder="Tuliskan jawaban">
+
+            <div class="answer">
+                Jawaban benar: حِبْرٌ
+            </div>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">
+            ✅ PERIKSA JAWABAN
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const answerKey = {
+    q1: "B",
+    q2: "C",
+    q3: "B",
+    q4: "C",
+    q5: "B",
+    q6: "D",
+    q7: "B",
+    q8: "A",
+    q9: "A",
+    q10: "C",
+    q11: "B",
+    q12: "C"
+};
+
+const essayAnswers = {
+    a13: ["هذا", "هَذَا"],
+    a14: ["هذه", "هَذِهِ"],
+    a15: ["ذلك", "ذَلِكَ"],
+    a16: ["تلك", "تِلْكَ"],
+    a17: ["مسطرة", "مِسْطَرَة", "مِسْطَرَةٌ"],
+    a18: ["ممسحة", "مِمْسَحَة", "مِمْسَحَةٌ"],
+    a19: ["كراسة", "كُرَّاسَة", "كُرَّاسَةٌ"],
+    a20: ["حبر", "حِبْر", "حِبْرٌ"]
+};
+
+// Menghapus harakat dan tanda baca
+function normalize(text) {
+    return text
+        .toLowerCase()
+        .replace(/[\u064B-\u065F\u0670]/g, "")
+        .replace(/[ًٌٍَُِّْـ]/g, "")
+        .replace(/[^\u0600-\u06FFa-zA-Z0-9]/g, "")
+        .trim();
+}
+
+// Levenshtein Distance
+function levenshtein(a, b) {
+
+    const matrix = [];
+
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+
+        for (let j = 1; j <= a.length; j++) {
+
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+function similarity(a, b) {
+
+    a = normalize(a);
+    b = normalize(b);
+
+    if (!a || !b) return 0;
+
+    const distance = levenshtein(a, b);
+    const maxLength = Math.max(a.length, b.length);
+
+    return 1 - (distance / maxLength);
+}
+
+function checkAnswers() {
+
+    let score = 0;
+    let total = Object.keys(answerKey).length;
+
+    // =====================
+    // PERIKSA PILIHAN GANDA
+    // =====================
+
+    for (const q in answerKey) {
+
+        const question = document.getElementById(q);
+        const selected = document.querySelector(
+            'input[name="' + q + '"]:checked'
+        );
+
+        question.classList.remove("correct", "wrong");
+
+        if (selected) {
+
+            if (selected.value === answerKey[q]) {
+
+                question.classList.add("correct");
+                score++;
+
+            } else {
+
+                question.classList.add("wrong");
+
+            }
+
+        } else {
+
+            question.classList.add("wrong");
+
+        }
+
+        question.querySelector(".answer").style.display = "block";
+    }
+
+    // =====================
+    // PERIKSA ISIAN
+    // =====================
+
+    for (const id in essayAnswers) {
+
+        const input = document.getElementById(id);
+        const question = input.closest(".question");
+
+        const userAnswer = input.value;
+
+        let bestSimilarity = 0;
+
+        essayAnswers[id].forEach(correctAnswer => {
+
+            const sim = similarity(
+                userAnswer,
+                correctAnswer
+            );
+
+            if (sim > bestSimilarity) {
+                bestSimilarity = sim;
+            }
+
+        });
+
+        question.classList.remove("correct", "wrong");
+
+        // Minimal kemiripan 50%
+        if (bestSimilarity >= 0.50) {
+
+            question.classList.add("correct");
+
+        } else {
+
+            question.classList.add("wrong");
+
+        }
+
+        question.querySelector(".answer").style.display = "block";
+    }
+
+    // =====================
+    // NILAI
+    // =====================
+
+    const nilai = Math.round((score / total) * 100);
+
+    const result = document.getElementById("result");
+
+    result.style.display = "block";
+
+    result.innerHTML =
+        "🎉 Nilai Pilihan Ganda: <b>" +
+        nilai +
+        "</b><br>" +
+        "Benar: " +
+        score +
+        " dari " +
+        total +
+        " soal pilihan ganda.";
+        
+    window.scrollTo({
+        top: result.offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>

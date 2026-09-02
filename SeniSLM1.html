@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Seni Rupa Kelas 3 SD</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        margin: 0;
+        padding: 15px;
+        color: #222;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.12);
+    }
+
+    h1 {
+        text-align: center;
+        color: #2457a6;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        background: #2457a6;
+        color: white;
+        padding: 12px 15px;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+
+    .question {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 15px;
+        margin: 15px 0;
+        background: #fafafa;
+    }
+
+    .question.correct {
+        border: 2px solid #2e9d50;
+        background: #e9f8ed;
+    }
+
+    .question.wrong {
+        border: 2px solid #d93636;
+        background: #ffeded;
+    }
+
+    .qtext {
+        font-weight: bold;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    label {
+        display: block;
+        padding: 10px;
+        margin: 6px 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    label:hover {
+        background: #eef5ff;
+    }
+
+    input[type="radio"] {
+        margin-right: 8px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #bbb;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .result {
+        margin-top: 12px;
+        font-weight: bold;
+    }
+
+    .correct-answer {
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #d9f2df;
+        color: #176b2c;
+    }
+
+    .wrong-answer {
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #ffe0e0;
+        color: #a51f1f;
+    }
+
+    #checkBtn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #2457a6;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 25px;
+    }
+
+    #checkBtn:hover {
+        background: #17437f;
+    }
+
+    #score {
+        display: none;
+        text-align: center;
+        padding: 18px;
+        margin-top: 20px;
+        background: #e8f1ff;
+        border-radius: 12px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2457a6;
+    }
+
+    .note {
+        font-size: 14px;
+        color: #666;
+        background: #fff8dc;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎨 Latihan Seni Rupa</h1>
+<div class="subtitle">Menggambar dan Berkarya — Kelas 3 SD</div>
+
+<div class="note">
+    <b>Petunjuk:</b><br>
+    • Pilihan ganda: pilih satu jawaban yang paling tepat.<br>
+    • Isian: tuliskan jawabanmu pada kotak yang tersedia.<br>
+    • Untuk soal isian/kalimat, jawaban dianggap benar jika kemiripannya minimal 50%.<br>
+    • Nilai hanya dihitung dari soal pilihan ganda.
+</div>
+
+<h2>A. Pilihan Ganda</h2>
+
+<div id="questions">
+
+<!-- 1 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">1. Perbandingan ukuran antara satu bagian benda dengan bagian lainnya disebut ....</div>
+<label><input type="radio" name="q1" value="A"> A. Komposisi</label>
+<label><input type="radio" name="q1" value="B"> B. Proporsi</label>
+<label><input type="radio" name="q1" value="C"> C. Tekstur</label>
+<label><input type="radio" name="q1" value="D"> D. Sketsa</label>
+<div class="result"></div>
+</div>
+
+<!-- 2 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">2. Saat menggambar rumah, ukuran pintu dan jendela harus diperhatikan agar sesuai. Hal ini berkaitan dengan prinsip ....</div>
+<label><input type="radio" name="q2" value="A"> A. Proporsi</label>
+<label><input type="radio" name="q2" value="B"> B. Gelap-terang</label>
+<label><input type="radio" name="q2" value="C"> C. Tekstur</label>
+<label><input type="radio" name="q2" value="D"> D. Warna</label>
+<div class="result"></div>
+</div>
+
+<!-- 3 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">3. Susunan atau tata letak benda dalam gambar disebut ....</div>
+<label><input type="radio" name="q3" value="A"> A. Objek</label>
+<label><input type="radio" name="q3" value="B"> B. Sketsa</label>
+<label><input type="radio" name="q3" value="C"> C. Komposisi</label>
+<label><input type="radio" name="q3" value="D"> D. Tekstur</label>
+<div class="result"></div>
+</div>
+
+<!-- 4 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">4. Pada komposisi sentral, objek utama diletakkan ....</div>
+<label><input type="radio" name="q4" value="A"> A. Di sebelah kanan</label>
+<label><input type="radio" name="q4" value="B"> B. Di sebelah kiri</label>
+<label><input type="radio" name="q4" value="C"> C. Di tengah</label>
+<label><input type="radio" name="q4" value="D"> D. Di bagian bawah</label>
+<div class="result"></div>
+</div>
+
+<!-- 5 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">5. Komposisi yang membuat posisi benda seimbang antara kiri dan kanan disebut ....</div>
+<label><input type="radio" name="q5" value="A"> A. Sentral</label>
+<label><input type="radio" name="q5" value="B"> B. Asimetris</label>
+<label><input type="radio" name="q5" value="C"> C. Simetris</label>
+<label><input type="radio" name="q5" value="D"> D. Bebas</label>
+<div class="result"></div>
+</div>
+
+<!-- 6 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">6. Komposisi asimetris berarti benda diletakkan ....</div>
+<label><input type="radio" name="q6" value="A"> A. Tepat di tengah</label>
+<label><input type="radio" name="q6" value="B"> B. Dengan posisi yang tidak sama</label>
+<label><input type="radio" name="q6" value="C"> C. Selalu sama besar</label>
+<label><input type="radio" name="q6" value="D"> D. Selalu berpasangan</label>
+<div class="result"></div>
+</div>
+
+<!-- 7 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">7. Fungsi gelap-terang dalam gambar adalah ....</div>
+<label><input type="radio" name="q7" value="A"> A. Membuat gambar tidak terlihat</label>
+<label><input type="radio" name="q7" value="B"> B. Membuat gambar lebih indah dan jelas</label>
+<label><input type="radio" name="q7" value="C"> C. Menghilangkan objek</label>
+<label><input type="radio" name="q7" value="D"> D. Menghapus sketsa</label>
+<div class="result"></div>
+</div>
+
+<!-- 8 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">8. Benda yang akan digambar disebut ....</div>
+<label><input type="radio" name="q8" value="A"> A. Objek gambar</label>
+<label><input type="radio" name="q8" value="B"> B. Panel</label>
+<label><input type="radio" name="q8" value="C"> C. Balon kata</label>
+<label><input type="radio" name="q8" value="D"> D. Komposisi</label>
+<div class="result"></div>
+</div>
+
+<!-- 9 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">9. Langkah pertama menggambar rumah adalah ....</div>
+<label><input type="radio" name="q9" value="A"> A. Mewarnai</label>
+<label><input type="radio" name="q9" value="B"> B. Menebalkan gambar</label>
+<label><input type="radio" name="q9" value="C"> C. Membuat sketsa</label>
+<label><input type="radio" name="q9" value="D"> D. Membuat komik</label>
+<div class="result"></div>
+</div>
+
+<!-- 10 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">10. Setelah sketsa selesai dibuat, langkah berikutnya adalah ....</div>
+<label><input type="radio" name="q10" value="A"> A. Menebalkan sketsa</label>
+<label><input type="radio" name="q10" value="B"> B. Membuang kertas</label>
+<label><input type="radio" name="q10" value="C"> C. Membuat komik</label>
+<label><input type="radio" name="q10" value="D"> D. Menggunting gambar</label>
+<div class="result"></div>
+</div>
+
+<!-- 11 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">11. Alat yang dapat digunakan untuk membuat garis lurus adalah ....</div>
+<label><input type="radio" name="q11" value="A"> A. Penggaris</label>
+<label><input type="radio" name="q11" value="B"> B. Kuas</label>
+<label><input type="radio" name="q11" value="C"> C. Krayon</label>
+<label><input type="radio" name="q11" value="D"> D. Penghapus</label>
+<div class="result"></div>
+</div>
+
+<!-- 12 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">12. Berikut yang termasuk alat untuk mewarnai adalah ....</div>
+<label><input type="radio" name="q12" value="A"> A. Penggaris</label>
+<label><input type="radio" name="q12" value="B"> B. Pensil warna</label>
+<label><input type="radio" name="q12" value="C"> C. Gunting</label>
+<label><input type="radio" name="q12" value="D"> D. Kertas</label>
+<div class="result"></div>
+</div>
+
+<!-- 13 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">13. Karya seni yang menggabungkan gambar dan dialog disebut ....</div>
+<label><input type="radio" name="q13" value="A"> A. Patung</label>
+<label><input type="radio" name="q13" value="B"> B. Komik</label>
+<label><input type="radio" name="q13" value="C"> C. Lukisan</label>
+<label><input type="radio" name="q13" value="D"> D. Patung</label>
+<div class="result"></div>
+</div>
+
+<!-- 14 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">14. Kotak yang berisi ilustrasi dan teks dalam komik disebut ....</div>
+<label><input type="radio" name="q14" value="A"> A. Panel</label>
+<label><input type="radio" name="q14" value="B"> B. Objek</label>
+<label><input type="radio" name="q14" value="C"> C. Sketsa</label>
+<label><input type="radio" name="q14" value="D"> D. Tekstur</label>
+<div class="result"></div>
+</div>
+
+<!-- 15 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">15. Percakapan tokoh dalam komik biasanya ditulis di dalam ....</div>
+<label><input type="radio" name="q15" value="A"> A. Penggaris</label>
+<label><input type="radio" name="q15" value="B"> B. Panel kosong</label>
+<label><input type="radio" name="q15" value="C"> C. Balon kata</label>
+<label><input type="radio" name="q15" value="D"> D. Bingkai gambar</label>
+<div class="result"></div>
+</div>
+
+<!-- 16 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">16. Tokoh dalam komik dapat berupa ....</div>
+<label><input type="radio" name="q16" value="A"> A. Manusia saja</label>
+<label><input type="radio" name="q16" value="B"> B. Hewan saja</label>
+<label><input type="radio" name="q16" value="C"> C. Manusia, hewan, atau benda</label>
+<label><input type="radio" name="q16" value="D"> D. Manusia dan tumbuhan saja</label>
+<div class="result"></div>
+</div>
+
+<!-- 17 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">17. Komik yang dibuat dengan cara menggambar tokoh disebut komik ....</div>
+<label><input type="radio" name="q17" value="A"> A. Montase</label>
+<label><input type="radio" name="q17" value="B"> B. Konvensional</label>
+<label><input type="radio" name="q17" value="C"> C. Tempel</label>
+<label><input type="radio" name="q17" value="D"> D. Cetak</label>
+<div class="result"></div>
+</div>
+
+<!-- 18 -->
+<div class="question" data-type="mc" data-answer="B">
+<div class="qtext">18. Komik montase dibuat dengan cara ....</div>
+<label><input type="radio" name="q18" value="A"> A. Melipat kertas</label>
+<label><input type="radio" name="q18" value="B"> B. Memotong dan menempel gambar</label>
+<label><input type="radio" name="q18" value="C"> C. Hanya menulis cerita</label>
+<label><input type="radio" name="q18" value="D"> D. Mewarnai satu gambar</label>
+<div class="result"></div>
+</div>
+
+<!-- 19 -->
+<div class="question" data-type="mc" data-answer="A">
+<div class="qtext">19. Sebelum membuat komik montase, kita perlu menyiapkan gambar dari ....</div>
+<label><input type="radio" name="q19" value="A"> A. Majalah atau koran</label>
+<label><input type="radio" name="q19" value="B"> B. Papan tulis</label>
+<label><input type="radio" name="q19" value="C"> C. Lantai</label>
+<label><input type="radio" name="q19" value="D"> D. Penggaris</label>
+<div class="result"></div>
+</div>
+
+<!-- 20 -->
+<div class="question" data-type="mc" data-answer="C">
+<div class="qtext">20. Urutan cerita dalam komik dapat dilihat dari ....</div>
+<label><input type="radio" name="q20" value="A"> A. Warna kertas</label>
+<label><input type="radio" name="q20" value="B"> B. Ukuran pensil</label>
+<label><input type="radio" name="q20" value="C"> C. Panel-panel komik</label>
+<label><input type="radio" name="q20" value="D"> D. Jenis penghapus</label>
+<div class="result"></div>
+</div>
+
+
+<h2>B. Isian Singkat</h2>
+
+<script>
+const isian = [
+    ["21","Perbandingan ukuran antara bagian-bagian benda disebut ....","proporsi"],
+    ["22","Susunan atau tata letak benda dalam gambar disebut ....","komposisi"],
+    ["23","Komposisi yang menempatkan objek utama di tengah disebut komposisi ....","sentral"],
+    ["24","Sebelum menebalkan gambar rumah, kita membuat ....","sketsa"],
+    ["25","Salah satu alat untuk membuat garis lurus adalah ....","penggaris"],
+    ["26","Kotak yang berisi gambar dan teks dalam komik disebut ....","panel"],
+    ["27","Percakapan tokoh dalam komik ditulis dalam ....","balon kata"],
+    ["28","Komik yang dibuat dengan memotong dan menempel gambar disebut komik ....","montase"],
+    ["29","Sifat permukaan benda yang dapat dilihat dan diraba disebut ....","tekstur"],
+    ["30","Tekstur yang terlihat kasar dan terasa kasar ketika diraba disebut tekstur ....","tekstur nyata"]
+];
+
+isian.forEach(q => {
+    document.write(`
+    <div class="question" data-type="text" data-answer="${q[2]}">
+        <div class="qtext">${q[0]}. ${q[1]}</div>
+        <input type="text" id="q${q[0]}" autocomplete="off">
+        <div class="result"></div>
+    </div>
+    `);
+});
+</script>
+
+
+<h2>C. Soal Pemahaman</h2>
+
+<script>
+const pemahaman = [
+    ["31",
+    "Rani menggambar sebuah rumah. Ia membuat pintu sangat kecil dibandingkan dengan rumahnya. Prinsip menggambar apa yang belum diperhatikan Rani?",
+    "proporsi"],
+
+    ["32",
+    "Budi meletakkan rumah tepat di tengah kertas gambar. Jenis komposisi apakah yang digunakan Budi?",
+    "komposisi sentral"],
+
+    ["33",
+    "Siti menggambar rumah dengan pohon di kiri dan pagar di kanan. Ia mengatur benda-benda tersebut agar gambar terlihat seimbang. Prinsip apa yang sedang diterapkan?",
+    "komposisi"],
+
+    ["34",
+    "Andi melihat gambar batu pada sebuah lukisan. Batu tersebut tampak kasar, tetapi ketika kertas lukisan diraba terasa halus. Termasuk tekstur apakah itu?",
+    "tekstur maya semu"],
+
+    ["35",
+    "Mengapa kita sebaiknya membuat sketsa terlebih dahulu sebelum menebalkan gambar?",
+    "agar bentuk gambar mudah diperbaiki sebelum ditebalkan"],
+
+    ["36",
+    "Apa fungsi panel dalam sebuah komik?",
+    "membagi gambar dan teks sehingga membentuk urutan atau alur cerita"],
+
+    ["37",
+    "Apa perbedaan komik konvensional dan komik montase?",
+    "komik konvensional dibuat dengan menggambar tokoh sedangkan komik montase dibuat dengan memotong dan menempel gambar"],
+
+    ["38",
+    "Sebutkan tiga contoh alat atau bahan yang dapat digunakan untuk menggambar rumah!",
+    "kertas gambar pensil penggaris"],
+
+    ["39",
+    "Sebutkan tiga jenis komposisi dalam menggambar!",
+    "simetris asimetris sentral"],
+
+    ["40",
+    "Jelaskan perbedaan tekstur nyata dan tekstur maya atau semu!",
+    "tekstur nyata terlihat dan terasa sama ketika diraba sedangkan tekstur maya semu hanya terlihat seperti bertekstur tetapi sebenarnya permukaannya berbeda ketika diraba"]
+];
+
+pemahaman.forEach(q => {
+    document.write(`
+    <div class="question" data-type="text" data-answer="${q[2]}">
+        <div class="qtext">${q[0]}. ${q[1]}</div>
+        <input type="text" id="q${q[0]}" autocomplete="off">
+        <div class="result"></div>
+    </div>
+    `);
+});
+</script>
+
+<button id="checkBtn" onclick="checkAnswers()">🔎 Periksa Jawaban</button>
+
+<div id="score"></div>
+
+</div>
+
+
+<script>
+
+/* ================================
+   MEMBERSIHKAN TEKS
+================================ */
+function cleanText(text) {
+    return text
+        .toLowerCase()
+        .replace(/[.,!?;:()"'`]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+
+/* ================================
+   MENGHITUNG KEMIRIPAN
+   Menggunakan Jaccard + Levenshtein
+================================ */
+
+function levenshtein(a, b) {
+
+    const matrix = [];
+
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+
+function similarity(a, b) {
+
+    a = cleanText(a);
+    b = cleanText(b);
+
+    if (!a || !b) return 0;
+
+    if (a === b) return 1;
+
+    const distance = levenshtein(a, b);
+    const maxLength = Math.max(a.length, b.length);
+
+    const levenshteinScore =
+        1 - (distance / maxLength);
+
+    const wordsA = new Set(a.split(" "));
+    const wordsB = new Set(b.split(" "));
+
+    let sameWords = 0;
+
+    wordsA.forEach(word => {
+        if (wordsB.has(word)) {
+            sameWords++;
+        }
+    });
+
+    const totalWords =
+        new Set([...wordsA, ...wordsB]).size;
+
+    const jaccard =
+        totalWords === 0 ? 0 : sameWords / totalWords;
+
+    return Math.max(
+        levenshteinScore,
+        jaccard
+    );
+}
+
+
+/* ================================
+   PERIKSA SEMUA JAWABAN
+================================ */
+
+function checkAnswers() {
+
+    let benarPG = 0;
+    let totalPG = 0;
+
+    const questions =
+        document.querySelectorAll(".question");
+
+    questions.forEach(q => {
+
+        const type = q.dataset.type;
+        const correct = q.dataset.answer;
+        const result = q.querySelector(".result");
+
+        q.classList.remove("correct", "wrong");
+
+        if (type === "mc") {
+
+            totalPG++;
+
+            const selected =
+                q.querySelector("input[type='radio']:checked");
+
+            if (!selected) {
+
+                q.classList.add("wrong");
+
+                result.innerHTML =
+                    `<div class="wrong-answer">
+                    ❌ Belum dijawab.<br>
+                    Jawaban benar: <b>${correct}</b>
+                    </div>`;
+
+                return;
+            }
+
+            if (selected.value === correct) {
+
+                benarPG++;
+
+                q.classList.add("correct");
+
+                result.innerHTML =
+                    `<div class="correct-answer">
+                    ✅ Benar!
+                    </div>`;
+
+            } else {
+
+                q.classList.add("wrong");
+
+                result.innerHTML =
+                    `<div class="wrong-answer">
+                    ❌ Salah.<br>
+                    Jawaban benar: <b>${correct}</b>
+                    </div>`;
+            }
+
+        }
+
+        else if (type === "text") {
+
+            const input =
+                q.querySelector("input[type='text']");
+
+            const userAnswer =
+                input.value.trim();
+
+            const correctAnswer =
+                correct;
+
+            const score =
+                similarity(userAnswer, correctAnswer);
+
+            const persen =
+                Math.round(score * 100);
+
+            if (score >= 0.50) {
+
+                q.classList.add("correct");
+
+                result.innerHTML =
+                    `<div class="correct-answer">
+                    ✅ Benar — kemiripan ${persen}%<br>
+                    Jawaban benar: <b>${correctAnswer}</b>
+                    </div>`;
+
+            } else {
+
+                q.classList.add("wrong");
+
+                result.innerHTML =
+                    `<div class="wrong-answer">
+                    ❌ Salah — kemiripan ${persen}%<br>
+                    Jawaban benar: <b>${correctAnswer}</b>
+                    </div>`;
+            }
+        }
+
+    });
+
+
+    /* ================================
+       NILAI HANYA PILIHAN GANDA
+    ================================= */
+
+    const nilai =
+        Math.round((benarPG / totalPG) * 100);
+
+    const scoreBox =
+        document.getElementById("score");
+
+    scoreBox.style.display = "block";
+
+    scoreBox.innerHTML =
+        `🏆 Nilai Pilihan Ganda<br>
+        <span style="font-size:32px">${nilai}</span>
+        <br>
+        <small>${benarPG} benar dari ${totalPG} soal</small>`;
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
