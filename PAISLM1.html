@@ -4,46 +4,239 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Materi PAI - Al-'Alaq 1-5, Qalqalah, dan Sifat Alloh</title>
+
 <style>
-body{font-family:Arial,sans-serif;line-height:1.7;margin:0;background:#f4f8f5;color:#26352b}
-.container{max-width:950px;margin:auto;padding:25px}
-header{background:#176b45;color:white;padding:28px;border-radius:16px;margin-bottom:22px}
-h1,h2{margin-top:0} section{background:white;padding:24px;margin:18px 0;border-radius:14px;box-shadow:0 2px 8px #0001}
-.arabic{font-size:30px;line-height:2.2;text-align:right;direction:rtl;background:#f8fbf8;padding:18px;border-radius:10px}
-.box{background:#eef7f1;padding:15px;border-left:5px solid #176b45;border-radius:8px}
-table{width:100%;border-collapse:collapse;margin-top:12px}th,td{border:1px solid #ccd8cf;padding:10px;text-align:left}th{background:#e8f2ec}
-.badge{display:inline-block;background:#176b45;color:#fff;padding:5px 10px;border-radius:20px;font-size:13px}
-li{margin:7px 0}
-footer{text-align:center;color:#667;margin:25px}
+body{
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+  margin:0;
+  background:#f4f8f5;
+  color:#26352b
+}
+
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:25px
+}
+
+header{
+  background:#176b45;
+  color:white;
+  padding:28px;
+  border-radius:16px;
+  margin-bottom:22px
+}
+
+h1,h2{
+  margin-top:0
+}
+
+section{
+  background:white;
+  padding:24px;
+  margin:18px 0;
+  border-radius:14px;
+  box-shadow:0 2px 8px #0001
+}
+
+.arabic{
+  font-size:30px;
+  line-height:2.2;
+  text-align:right;
+  direction:rtl;
+  background:#f8fbf8;
+  padding:18px;
+  border-radius:10px
+}
+
+.box{
+  background:#eef7f1;
+  padding:15px;
+  border-left:5px solid #176b45;
+  border-radius:8px
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px
+}
+
+th,td{
+  border:1px solid #ccd8cf;
+  padding:10px;
+  text-align:left
+}
+
+th{
+  background:#e8f2ec
+}
+
+.badge{
+  display:inline-block;
+  background:#176b45;
+  color:#fff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:13px
+}
+
+li{
+  margin:7px 0
+}
+
+footer{
+  text-align:center;
+  color:#667;
+  margin:25px
+}
 
 /* Style Latihan Soal */
-.question-item { margin-bottom: 20px; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0; transition: background 0.3s; }
-.options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
-.options label { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 10px; border-radius: 6px; background: #f9f9f9; }
-.options label:hover { background: #f0f0f0; }
-textarea, input[type="text"] { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-family: inherit; margin-top: 8px; }
-.btn-submit { background: #176b45; color: white; border: none; padding: 14px 28px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 20px; }
-.btn-submit:hover { background: #125234; }
-.correct { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724; }
-.incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24; }
-.feedback { font-weight: bold; margin-top: 8px; font-size: 14px; }
-.key-answer { margin-top: 6px; font-size: 13px; color: #2d5831; font-style: italic; background: #ffffff99; padding: 6px 10px; border-radius: 4px; border-left: 3px solid #176b45; display: none; }
-#result-board { display: none; background: #e8f2ec; padding: 18px; border-radius: 10px; border-left: 6px solid #176b45; margin-bottom: 20px; }
+.question-item{
+  margin-bottom:20px;
+  padding:15px;
+  border-radius:8px;
+  border:1px solid #e0e0e0;
+  transition:background 0.3s
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:10px
+}
+
+.options label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:6px;
+  background:#f9f9f9
+}
+
+.options label:hover{
+  background:#f0f0f0
+}
+
+textarea,
+input[type="text"]{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  box-sizing:border-box;
+  font-family:inherit;
+  margin-top:8px
+}
+
+.btn-submit{
+  background:#176b45;
+  color:white;
+  border:none;
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:8px;
+  cursor:pointer;
+  width:100%;
+  margin-top:20px
+}
+
+.btn-submit:hover{
+  background:#125234
+}
+
+.correct{
+  background-color:#d4edda !important;
+  border-color:#c3e6cb !important;
+  color:#155724
+}
+
+.incorrect{
+  background-color:#f8d7da !important;
+  border-color:#f5c6cb !important;
+  color:#721c24
+}
+
+.feedback{
+  font-weight:bold;
+  margin-top:8px;
+  font-size:14px
+}
+
+.key-answer{
+  margin-top:6px;
+  font-size:13px;
+  color:#2d5831;
+  font-style:italic;
+  background:#ffffff99;
+  padding:6px 10px;
+  border-radius:4px;
+  border-left:3px solid #176b45;
+  display:none
+}
+
+/* Kotak hasil dipindahkan ke bawah */
+#result-board{
+  display:none;
+  background:#e8f2ec;
+  padding:20px;
+  border-radius:10px;
+  border-left:6px solid #176b45;
+  margin-top:25px;
+  scroll-margin-top:20px
+}
+
+#result-board h3{
+  color:#176b45;
+  margin-top:0
+}
+
+.score-highlight{
+  font-size:24px;
+  font-weight:bold;
+  color:#176b45
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <header>
 <span class="badge">PAI / Al-Qur'an Hadis</span>
 <h1>Materi Pembelajaran</h1>
-<p>Surat Al-'Alaq ayat 1–5 • Hukum Bacaan Qalqalah • Sifat Wajib, Mustahil, dan Jaiz bagi Alloh SWT</p>
+<p>
+Surat Al-'Alaq ayat 1–5 • Hukum Bacaan Qalqalah •
+Sifat Wajib, Mustahil, dan Jaiz bagi Alloh SWT
+</p>
 </header>
+
+<!-- =====================================================
+     MATERI 1
+===================================================== -->
 
 <section>
 <h2>1. Surat Al-'Alaq Ayat 1–5</h2>
-<p><b>Tujuan:</b> Memahami dan menjelaskan pesan pokok Q.S. Al-'Alaq ayat 1–5 dengan baik.</p>
-<p>Q.S. Al-'Alaq adalah surat ke-96 dalam Al-Qur'an. Ayat 1–5 merupakan bagian awal wahyu yang diterima Nabi Muhammad SAW melalui Malaikat Jibril.</p>
+
+<p>
+<b>Tujuan:</b> Memahami dan menjelaskan pesan pokok
+Q.S. Al-'Alaq ayat 1–5 dengan baik.
+</p>
+
+<p>
+Q.S. Al-'Alaq adalah surat ke-96 dalam Al-Qur'an.
+Ayat 1–5 merupakan bagian awal wahyu yang diterima
+Nabi Muhammad SAW melalui Malaikat Jibril.
+</p>
+
 <h3>Bacaan Ayat</h3>
+
 <div class="arabic">
 اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ<br>
 خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ<br>
@@ -51,7 +244,9 @@ textarea, input[type="text"] { width: 100%; padding: 10px; border-radius: 6px; b
 الَّذِي عَلَّمَ بِالْقَلَمِ<br>
 عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ
 </div>
+
 <h3>Terjemah makna</h3>
+
 <ol>
 <li>Bacalah dengan nama Tuhanmu yang menciptakan.</li>
 <li>Dia telah menciptakan manusia dari segumpal darah.</li>
@@ -59,7 +254,9 @@ textarea, input[type="text"] { width: 100%; padding: 10px; border-radius: 6px; b
 <li>Yang mengajar manusia dengan pena.</li>
 <li>Dia mengajarkan manusia apa yang tidak diketahuinya.</li>
 </ol>
+
 <h3>Pesan Pokok</h3>
+
 <ul>
 <li>Alloh SWT adalah Pencipta seluruh makhluk.</li>
 <li>Manusia diciptakan oleh Alloh SWT dan harus bersyukur kepada-Nya.</li>
@@ -68,29 +265,97 @@ textarea, input[type="text"] { width: 100%; padding: 10px; border-radius: 6px; b
 <li>Pena merupakan sarana penting untuk menulis dan menyebarkan ilmu.</li>
 <li>Manusia memiliki keterbatasan pengetahuan, sedangkan Alloh SWT Maha Mengetahui.</li>
 </ul>
-<div class="box"><b>Contoh penerapan:</b> rajin membaca Al-Qur'an dan buku, belajar dengan sungguh-sungguh, mencatat ilmu, serta menggunakan ilmu untuk kebaikan.</div>
+
+<div class="box">
+<b>Contoh penerapan:</b>
+rajin membaca Al-Qur'an dan buku, belajar dengan sungguh-sungguh,
+mencatat ilmu, serta menggunakan ilmu untuk kebaikan.
+</div>
+
 </section>
+
+<!-- =====================================================
+     MATERI 2
+===================================================== -->
 
 <section>
 <h2>2. Hukum Bacaan Qalqalah</h2>
-<p><b>Tujuan:</b> Memahami hukum bacaan qalqalah.</p>
-<p><b>Qalqalah</b> adalah memantulkan suara ketika membaca huruf qalqalah dalam keadaan tertentu. Huruf qalqalah ada lima, yaitu:</p>
-<div class="arabic"> ب ج د ط ق</div>
-<p>Untuk memudahkan mengingatnya dapat digunakan rangkaian <b> بج دطق </b> (baju dithoqo).</p>
+
+<p>
+<b>Tujuan:</b> Memahami hukum bacaan qalqalah.
+</p>
+
+<p>
+<b>Qalqalah</b> adalah memantulkan suara ketika membaca
+huruf qalqalah dalam keadaan tertentu.
+Huruf qalqalah ada lima, yaitu:
+</p>
+
+<div class="arabic">
+ب ج د ط ق
+</div>
+
+<p>
+Untuk memudahkan mengingatnya dapat digunakan rangkaian
+<b>بج دطق</b> (baju dithoqo).
+</p>
+
 <h3>Macam-macam Qalqalah</h3>
+
 <table>
-<tr><th>Jenis</th><th>Penjelasan</th><th>Contoh</th></tr>
-<tr><td>Qalqalah Sughra</td><td>Huruf qalqalah berharakat sukun di tengah kata atau ketika bacaan tidak berhenti pada huruf tersebut.</td><td>يَجْعَلْ</td></tr>
-<tr><td>Qalqalah Kubra</td><td>Huruf qalqalah berada di akhir kata dan menjadi sukun karena waqaf (berhenti).</td><td>الْفَلَقْ</td></tr>
+<tr>
+<th>Jenis</th>
+<th>Penjelasan</th>
+<th>Contoh</th>
+</tr>
+
+<tr>
+<td>Qalqalah Sughra</td>
+<td>
+Huruf qalqalah berharakat sukun di tengah kata
+atau ketika bacaan tidak berhenti pada huruf tersebut.
+</td>
+<td>يَجْعَلْ</td>
+</tr>
+
+<tr>
+<td>Qalqalah Kubra</td>
+<td>
+Huruf qalqalah berada di akhir kata dan menjadi sukun
+karena waqaf (berhenti).
+</td>
+<td>الْفَلَقْ</td>
+</tr>
 </table>
-<div class="box"><b>Ingat:</b> qalqalah dibaca dengan pantulan suara, bukan dengan menambahkan harakat baru.</div>
+
+<div class="box">
+<b>Ingat:</b>
+qalqalah dibaca dengan pantulan suara,
+bukan dengan menambahkan harakat baru.
+</div>
+
 </section>
+
+<!-- =====================================================
+     MATERI 3
+===================================================== -->
 
 <section>
 <h2>3. Sifat Wajib bagi Alloh SWT</h2>
-<p>Sifat wajib adalah sifat yang pasti dimiliki oleh Alloh SWT. Dalam pembelajaran akidah, sifat wajib Alloh berjumlah 20.</p>
+
+<p>
+Sifat wajib adalah sifat yang pasti dimiliki oleh Alloh SWT.
+Dalam pembelajaran akidah, sifat wajib Alloh berjumlah 20.
+</p>
+
 <table>
-<tr><th>No.</th><th>Sifat</th><th>Arti</th></tr>
+
+<tr>
+<th>No.</th>
+<th>Sifat</th>
+<th>Arti</th>
+</tr>
+
 <tr><td>1</td><td>Wujud</td><td>Ada</td></tr>
 <tr><td>2</td><td>Qidam</td><td>Terdahulu / tidak memiliki permulaan</td></tr>
 <tr><td>3</td><td>Baqa'</td><td>Kekal</td></tr>
@@ -111,213 +376,530 @@ textarea, input[type="text"] { width: 100%; padding: 10px; border-radius: 6px; b
 <tr><td>18</td><td>Sami'an</td><td>Keadaan-Nya Yang Maha Mendengar</td></tr>
 <tr><td>19</td><td>Basiran</td><td>Keadaan-Nya Yang Maha Melihat</td></tr>
 <tr><td>20</td><td>Mutakalliman</td><td>Keadaan-Nya Yang Maha Berfirman</td></tr>
+
 </table>
+
 </section>
+
+<!-- =====================================================
+     MATERI 4
+===================================================== -->
 
 <section>
 <h2>4. Sifat Mustahil bagi Alloh SWT</h2>
-<p>Sifat mustahil adalah sifat yang tidak mungkin dimiliki oleh Alloh SWT. Sifat mustahil merupakan kebalikan dari sifat wajib.</p>
+
+<p>
+Sifat mustahil adalah sifat yang tidak mungkin dimiliki oleh
+Alloh SWT. Sifat mustahil merupakan kebalikan dari sifat wajib.
+</p>
+
 <table>
-<tr><th>Sifat Wajib</th><th>Sifat Mustahil</th><th>Makna Sifat Mustahil</th></tr>
-<tr><td>Wujud</td><td>'Adam</td><td>Tidak ada</td></tr>
-<tr><td>Qidam</td><td>Huduts</td><td>Baru / memiliki permulaan</td></tr>
-<tr><td>Baqa'</td><td>Fana'</td><td>Binasa</td></tr>
-<tr><td>Mukhalafatuhu lil-hawaditsi</td><td>Mumatsalatuhu lil-hawaditsi</td><td>Menyerupai makhluk</td></tr>
-<tr><td>Qiyamuhu binafsihi</td><td>Ihtiyajuhu ila ghairihi</td><td>Membutuhkan yang lain</td></tr>
-<tr><td>Wahdaniyah</td><td>Ta'addud</td><td>Berbilang / lebih dari satu</td></tr>
-<tr><td>Qudrah</td><td>'Ajz</td><td>Lemah</td></tr>
-<tr><td>Iradah</td><td>Karahah</td><td>Terpaksa / tidak berkehendak</td></tr>
-<tr><td>Ilmu</td><td>Jahl</td><td>Bodoh / tidak mengetahui</td></tr>
-<tr><td>Hayat</td><td>Maut</td><td>Mati</td></tr>
-<tr><td>Sama'</td><td>Shamam</td><td>Tuli</td></tr>
-<tr><td>Basar</td><td>'Ama</td><td>Buta</td></tr>
-<tr><td>Kalam</td><td>Bukm</td><td>Bisu</td></tr>
+
+<tr>
+<th>Sifat Wajib</th>
+<th>Sifat Mustahil</th>
+<th>Makna Sifat Mustahil</th>
+</tr>
+
+<tr>
+<td>Wujud</td>
+<td>'Adam</td>
+<td>Tidak ada</td>
+</tr>
+
+<tr>
+<td>Qidam</td>
+<td>Huduts</td>
+<td>Baru / memiliki permulaan</td>
+</tr>
+
+<tr>
+<td>Baqa'</td>
+<td>Fana'</td>
+<td>Binasa</td>
+</tr>
+
+<tr>
+<td>Mukhalafatuhu lil-hawaditsi</td>
+<td>Mumatsalatuhu lil-hawaditsi</td>
+<td>Menyerupai makhluk</td>
+</tr>
+
+<tr>
+<td>Qiyamuhu binafsihi</td>
+<td>Ihtiyajuhu ila ghairihi</td>
+<td>Membutuhkan yang lain</td>
+</tr>
+
+<tr>
+<td>Wahdaniyah</td>
+<td>Ta'addud</td>
+<td>Berbilang / lebih dari satu</td>
+</tr>
+
+<tr>
+<td>Qudrah</td>
+<td>'Ajz</td>
+<td>Lemah</td>
+</tr>
+
+<tr>
+<td>Iradah</td>
+<td>Karahah</td>
+<td>Terpaksa / tidak berkehendak</td>
+</tr>
+
+<tr>
+<td>Ilmu</td>
+<td>Jahl</td>
+<td>Bodoh / tidak mengetahui</td>
+</tr>
+
+<tr>
+<td>Hayat</td>
+<td>Maut</td>
+<td>Mati</td>
+</tr>
+
+<tr>
+<td>Sama'</td>
+<td>Shamam</td>
+<td>Tuli</td>
+</tr>
+
+<tr>
+<td>Basar</td>
+<td>'Ama</td>
+<td>Buta</td>
+</tr>
+
+<tr>
+<td>Kalam</td>
+<td>Bukm</td>
+<td>Bisu</td>
+</tr>
+
 </table>
-<p>Pasangan sifat mustahil lainnya mengikuti bentuk sifat mustahil dari sifat wajib nomor 14–20, yaitu: <i>'Ajizan, Karihan, Jahilan, Mayyitan, Ashamma, A'ma, Abkama</i>.</p>
+
+<p>
+Pasangan sifat mustahil lainnya mengikuti bentuk sifat mustahil
+dari sifat wajib nomor 14–20, yaitu:
+<i>'Ajizan, Karihan, Jahilan, Mayyitan, Ashamma, A'ma, Abkama</i>.
+</p>
+
 </section>
+
+<!-- =====================================================
+     MATERI 5
+===================================================== -->
 
 <section>
 <h2>5. Sifat Jaiz bagi Alloh SWT</h2>
-<p>Sifat jaiz adalah sifat yang boleh bagi Alloh SWT untuk melakukan atau tidak melakukan sesuatu menurut kehendak-Nya.</p>
+
+<p>
+Sifat jaiz adalah sifat yang boleh bagi Alloh SWT untuk melakukan
+atau tidak melakukan sesuatu menurut kehendak-Nya.
+</p>
+
 <div class="box">
-<b>Contoh sederhana:</b> Alloh SWT boleh memberikan rezeki yang banyak atau sedikit kepada seseorang sesuai dengan kehendak dan hikmah-Nya. Alloh SWT tidak terikat oleh kewajiban dari makhluk-Nya.
+<b>Contoh sederhana:</b>
+Alloh SWT boleh memberikan rezeki yang banyak atau sedikit
+kepada seseorang sesuai dengan kehendak dan hikmah-Nya.
+Alloh SWT tidak terikat oleh kewajiban dari makhluk-Nya.
 </div>
+
 <h3>Kesimpulan</h3>
+
 <ul>
 <li><b>Wajib:</b> sifat yang pasti ada pada Alloh SWT.</li>
 <li><b>Mustahil:</b> sifat yang tidak mungkin ada pada Alloh SWT.</li>
 <li><b>Jaiz:</b> sesuatu yang boleh dilakukan atau tidak dilakukan Alloh SWT sesuai kehendak-Nya.</li>
 </ul>
+
 </section>
 
-<!-- SECTION LATIHAN SOAL -->
+<!-- =====================================================
+     LATIHAN SOAL
+===================================================== -->
+
 <section>
+
 <h2>6. Lembar Latihan Soal</h2>
-<div id="result-board">
-  <h3>Hasil Pemeriksaan Jawaban</h3>
-  <p><b>Nilai Pilihan Ganda:</b> <span id="mc-score">0</span> / 100</p>
-  <p><b>Pilihan Ganda:</b> Benar <span id="mc-correct-count">0</span> dari 10 soal.</p>
-  <p><b>Isian:</b> <span id="ft-summary">-</span></p>
-</div>
 
 <h3>Bagian I: Pilihan Ganda (10 Soal)</h3>
 
+<!-- SOAL 1 -->
 <div class="question-item" id="mc-1">
-  <p><b>1. Surat Al-'Alaq ayat 1-5 merupakan wahyu yang pertama kali diterima Nabi Muhammad SAW melalui malaikat...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q1" value="A"> A. Mikail</label>
-    <label><input type="radio" name="q1" value="B"> B. Jibril</label>
-    <label><input type="radio" name="q1" value="C"> C. Israfil</label>
-    <label><input type="radio" name="q1" value="D"> D. Izrail</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+1. Surat Al-'Alaq ayat 1-5 merupakan wahyu yang pertama kali
+diterima Nabi Muhammad SAW melalui malaikat...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q1" value="A"> A. Mikail</label>
+<label><input type="radio" name="q1" value="B"> B. Jibril</label>
+<label><input type="radio" name="q1" value="C"> C. Israfil</label>
+<label><input type="radio" name="q1" value="D"> D. Izrail</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 2 -->
 <div class="question-item" id="mc-2">
-  <p><b>2. Arti dari kata "Al-'Alaq" pada ayat ke-2 adalah...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q2" value="A"> A. Segumpal darah</label>
-    <label><input type="radio" name="q2" value="B"> B. Pena tulisan</label>
-    <label><input type="radio" name="q2" value="C"> C. Cahaya terang</label>
-    <label><input type="radio" name="q2" value="D"> D. Segumpal tanah</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+2. Arti dari kata "Al-'Alaq" pada ayat ke-2 adalah...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q2" value="A"> A. Segumpal darah</label>
+<label><input type="radio" name="q2" value="B"> B. Pena tulisan</label>
+<label><input type="radio" name="q2" value="C"> C. Cahaya terang</label>
+<label><input type="radio" name="q2" value="D"> D. Segumpal tanah</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 3 -->
 <div class="question-item" id="mc-3">
-  <p><b>3. Huruf-huruf qalqalah terangkum dalam bacaan ringkas...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q3" value="A"> A. Yarmalun</label>
-    <label><input type="radio" name="q3" value="B"> B. Baju dithoqo</label>
-    <label><input type="radio" name="q3" value="C"> C. Izhar halqi</label>
-    <label><input type="radio" name="q3" value="D"> D. Idgham bighunnah</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+3. Huruf-huruf qalqalah terangkum dalam bacaan ringkas...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q3" value="A"> A. Yarmalun</label>
+<label><input type="radio" name="q3" value="B"> B. Baju dithoqo</label>
+<label><input type="radio" name="q3" value="C"> C. Izhar halqi</label>
+<label><input type="radio" name="q3" value="D"> D. Idgham bighunnah</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 4 -->
 <div class="question-item" id="mc-4">
-  <p><b>4. Apabila huruf qalqalah berharakat sukun di tengah kata, maka hukum bacaannya adalah...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q4" value="A"> A. Qalqalah Kubra</label>
-    <label><input type="radio" name="q4" value="B"> B. Qalqalah Sughra</label>
-    <label><input type="radio" name="q4" value="C"> C. Izhar</label>
-    <label><input type="radio" name="q4" value="D"> D. Ikhfa</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+4. Apabila huruf qalqalah berharakat sukun di tengah kata,
+maka hukum bacaannya adalah...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q4" value="A"> A. Qalqalah Kubra</label>
+<label><input type="radio" name="q4" value="B"> B. Qalqalah Sughra</label>
+<label><input type="radio" name="q4" value="C"> C. Izhar</label>
+<label><input type="radio" name="q4" value="D"> D. Ikhfa</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 5 -->
 <div class="question-item" id="mc-5">
-  <p><b>5. Sifat wajib bagi Alloh "Mukhalafatuhu lil-hawaditsi" memiliki arti...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q5" value="A"> A. Berdiri sendiri</label>
-    <label><input type="radio" name="q5" value="B"> B. Berbeda dengan makhluk</label>
-    <label><input type="radio" name="q5" value="C"> C. Maha Mendengar</label>
-    <label><input type="radio" name="q5" value="D"> D. Maha Berkuasa</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+5. Sifat wajib bagi Alloh "Mukhalafatuhu lil-hawaditsi"
+memiliki arti...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q5" value="A"> A. Berdiri sendiri</label>
+<label><input type="radio" name="q5" value="B"> B. Berbeda dengan makhluk</label>
+<label><input type="radio" name="q5" value="C"> C. Maha Mendengar</label>
+<label><input type="radio" name="q5" value="D"> D. Maha Berkuasa</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 6 -->
 <div class="question-item" id="mc-6">
-  <p><b>6. Kebalikan dari sifat wajib 'Wahdaniyah' (Esa) adalah sifat mustahil...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q6" value="A"> A. Ta'addud</label>
-    <label><input type="radio" name="q6" value="B"> B. Fana'</label>
-    <label><input type="radio" name="q6" value="C"> C. Jahl</label>
-    <label><input type="radio" name="q6" value="D"> D. 'Ajz</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+6. Kebalikan dari sifat wajib 'Wahdaniyah' (Esa)
+adalah sifat mustahil...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q6" value="A"> A. Ta'addud</label>
+<label><input type="radio" name="q6" value="B"> B. Fana'</label>
+<label><input type="radio" name="q6" value="C"> C. Jahl</label>
+<label><input type="radio" name="q6" value="D"> D. 'Ajz</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 7 -->
 <div class="question-item" id="mc-7">
-  <p><b>7. Sifat mustahil 'Huduts' berarti...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q7" value="A"> A. Binasa</label>
-    <label><input type="radio" name="q7" value="B"> B. Baru / memiliki permulaan</label>
-    <label><input type="radio" name="q7" value="C"> C. Tuli</label>
-    <label><input type="radio" name="q7" value="D"> D. Terpaksa</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+7. Sifat mustahil 'Huduts' berarti...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q7" value="A"> A. Binasa</label>
+<label><input type="radio" name="q7" value="B"> B. Baru / memiliki permulaan</label>
+<label><input type="radio" name="q7" value="C"> C. Tuli</label>
+<label><input type="radio" name="q7" value="D"> D. Terpaksa</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 8 -->
 <div class="question-item" id="mc-8">
-  <p><b>8. Sifat yang boleh dilakukan atau tidak dilakukan oleh Alloh SWT sesuai kehendak-Nya disebut...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q8" value="A"> A. Sifat Wajib</label>
-    <label><input type="radio" name="q8" value="B"> B. Sifat Mustahil</label>
-    <label><input type="radio" name="q8" value="C"> C. Sifat Jaiz</label>
-    <label><input type="radio" name="q8" value="D"> D. Sifat Sunnah</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+8. Sifat yang boleh dilakukan atau tidak dilakukan oleh
+Alloh SWT sesuai kehendak-Nya disebut...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q8" value="A"> A. Sifat Wajib</label>
+<label><input type="radio" name="q8" value="B"> B. Sifat Mustahil</label>
+<label><input type="radio" name="q8" value="C"> C. Sifat Jaiz</label>
+<label><input type="radio" name="q8" value="D"> D. Sifat Sunnah</label>
 </div>
 
+<div class="feedback"></div>
+</div>
+
+<!-- SOAL 9 -->
 <div class="question-item" id="mc-9">
-  <p><b>9. Sarana penting yang disebutkan dalam Q.S. Al-'Alaq ayat 4 untuk mengajar dan mencatat ilmu adalah...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q9" value="A"> A. Pedang</label>
-    <label><input type="radio" name="q9" value="B"> B. Pena (Al-Qalam)</label>
-    <label><input type="radio" name="q9" value="C"> C. Lisan</label>
-    <label><input type="radio" name="q9" value="D"> D. Batu</label>
-  </div>
-  <div class="feedback"></div>
+
+<p>
+<b>
+9. Sarana penting yang disebutkan dalam Q.S. Al-'Alaq ayat 4
+untuk mengajar dan mencatat ilmu adalah...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q9" value="A"> A. Pedang</label>
+<label><input type="radio" name="q9" value="B"> B. Pena (Al-Qalam)</label>
+<label><input type="radio" name="q9" value="C"> C. Lisan</label>
+<label><input type="radio" name="q9" value="D"> D. Batu</label>
 </div>
 
-<div class="question-item" id="mc-10">
-  <p><b>10. Jumlah sifat wajib bagi Alloh SWT yang umum dipelajari dalam akidah adalah...</b></p>
-  <div class="options">
-    <label><input type="radio" name="q10" value="A"> A. 99</label>
-    <label><input type="radio" name="q10" value="B"> B. 10</label>
-    <label><input type="radio" name="q10" value="C"> C. 20</label>
-    <label><input type="radio" name="q10" value="D"> D. 5</label>
-  </div>
-  <div class="feedback"></div>
+<div class="feedback"></div>
 </div>
+
+<!-- SOAL 10 -->
+<div class="question-item" id="mc-10">
+
+<p>
+<b>
+10. Jumlah sifat wajib bagi Alloh SWT yang umum dipelajari
+dalam akidah adalah...
+</b>
+</p>
+
+<div class="options">
+<label><input type="radio" name="q10" value="A"> A. 99</label>
+<label><input type="radio" name="q10" value="B"> B. 10</label>
+<label><input type="radio" name="q10" value="C"> C. 20</label>
+<label><input type="radio" name="q10" value="D"> D. 5</label>
+</div>
+
+<div class="feedback"></div>
+</div>
+
+<!-- =====================================================
+     FREE TEXT
+===================================================== -->
 
 <h3>Bagian II: Isian Singkat / Free Text (5 Soal)</h3>
 
 <div class="question-item" id="ft-1">
-  <p><b>1. Apakah pesan utama atau perintah pertama yang terkandung dalam Q.S. Al-'Alaq ayat 1-5?</b></p>
-  <textarea id="ft-ans-1" rows="2" placeholder="Tuliskan jawaban Anda di sini..."></textarea>
-  <div class="feedback"></div>
-  <div class="key-answer" id="key-1"><b>Kunci Jawaban Acuan:</b> Perintah untuk membaca, menuntut ilmu, belajar, serta mencatat ilmu dengan pena.</div>
+
+<p>
+<b>
+1. Apakah pesan utama atau perintah pertama yang terkandung
+dalam Q.S. Al-'Alaq ayat 1-5?
+</b>
+</p>
+
+<textarea
+id="ft-ans-1"
+rows="2"
+placeholder="Tuliskan jawaban Anda di sini..."
+></textarea>
+
+<div class="feedback"></div>
+
+<div class="key-answer" id="key-1">
+<b>Kunci Jawaban Acuan:</b>
+Perintah untuk membaca, menuntut ilmu, belajar,
+serta mencatat ilmu dengan pena.
+</div>
+
 </div>
 
 <div class="question-item" id="ft-2">
-  <p><b>2. Jelaskan perbedaan antara Qalqalah Sughra dan Qalqalah Kubra!</b></p>
-  <textarea id="ft-ans-2" rows="2" placeholder="Tuliskan jawaban Anda di sini..."></textarea>
-  <div class="feedback"></div>
-  <div class="key-answer" id="key-2"><b>Kunci Jawaban Acuan:</b> Qalqalah Sughra jika huruf qalqalah berharakat sukun di tengah kata, Qalqalah Kubra jika huruf qalqalah di akhir kata dan mati karena waqaf (berhenti).</div>
+
+<p>
+<b>
+2. Jelaskan perbedaan antara Qalqalah Sughra dan
+Qalqalah Kubra!
+</b>
+</p>
+
+<textarea
+id="ft-ans-2"
+rows="2"
+placeholder="Tuliskan jawaban Anda di sini..."
+></textarea>
+
+<div class="feedback"></div>
+
+<div class="key-answer" id="key-2">
+<b>Kunci Jawaban Acuan:</b>
+Qalqalah Sughra jika huruf qalqalah berharakat sukun
+di tengah kata, Qalqalah Kubra jika huruf qalqalah
+di akhir kata dan mati karena waqaf (berhenti).
+</div>
+
 </div>
 
 <div class="question-item" id="ft-3">
-  <p><b>3. Apa yang dimaksud dengan sifat wajib bagi Alloh SWT?</b></p>
-  <textarea id="ft-ans-3" rows="2" placeholder="Tuliskan jawaban Anda di sini..."></textarea>
-  <div class="feedback"></div>
-  <div class="key-answer" id="key-3"><b>Kunci Jawaban Acuan:</b> Sifat yang pasti ada dan dimiliki oleh Alloh SWT.</div>
+
+<p>
+<b>
+3. Apa yang dimaksud dengan sifat wajib bagi Alloh SWT?
+</b>
+</p>
+
+<textarea
+id="ft-ans-3"
+rows="2"
+placeholder="Tuliskan jawaban Anda di sini..."
+></textarea>
+
+<div class="feedback"></div>
+
+<div class="key-answer" id="key-3">
+<b>Kunci Jawaban Acuan:</b>
+Sifat yang pasti ada dan dimiliki oleh Alloh SWT.
+</div>
+
 </div>
 
 <div class="question-item" id="ft-4">
-  <p><b>4. Sebutkan kebalikan (sifat mustahil) dari sifat wajib 'Qudrah' dan jelaskan artinya!</b></p>
-  <textarea id="ft-ans-4" rows="2" placeholder="Tuliskan jawaban Anda di sini..."></textarea>
-  <div class="feedback"></div>
-  <div class="key-answer" id="key-4"><b>Kunci Jawaban Acuan:</b> Ajz, lemah atau tidak berkuasa</div>
+
+<p>
+<b>
+4. Sebutkan kebalikan (sifat mustahil) dari sifat wajib
+'Qudrah' dan jelaskan artinya!
+</b>
+</p>
+
+<textarea
+id="ft-ans-4"
+rows="2"
+placeholder="Tuliskan jawaban Anda di sini..."
+></textarea>
+
+<div class="feedback"></div>
+
+<div class="key-answer" id="key-4">
+<b>Kunci Jawaban Acuan:</b>
+Ajz, lemah atau tidak berkuasa.
+</div>
+
 </div>
 
 <div class="question-item" id="ft-5">
-  <p><b>5. Berikan satu contoh penerapan sifat jaiz bagi Alloh SWT dalam kehidupan sehari-hari!</b></p>
-  <textarea id="ft-ans-5" rows="2" placeholder="Tuliskan jawaban Anda di sini..."></textarea>
-  <div class="feedback"></div>
-  <div class="key-answer" id="key-5"><b>Kunci Jawaban Acuan:</b> Alloh boleh memberikan rezeki yang banyak atau sedikit, atau menjadikan seseorang kaya/miskin sesuai kehendak-Nya.</div>
+
+<p>
+<b>
+5. Berikan satu contoh penerapan sifat jaiz bagi Alloh SWT
+dalam kehidupan sehari-hari!
+</b>
+</p>
+
+<textarea
+id="ft-ans-5"
+rows="2"
+placeholder="Tuliskan jawaban Anda di sini..."
+></textarea>
+
+<div class="feedback"></div>
+
+<div class="key-answer" id="key-5">
+<b>Kunci Jawaban Acuan:</b>
+Alloh boleh memberikan rezeki yang banyak atau sedikit,
+atau menjadikan seseorang kaya/miskin sesuai kehendak-Nya.
 </div>
 
-<button class="btn-submit" onclick="checkAnswers()">PERIKSA JAWABAN</button>
+</div>
+
+<!-- TOMBOL PERIKSA -->
+<button class="btn-submit" onclick="checkAnswers()">
+PERIKSA JAWABAN
+</button>
+
+<!-- =====================================================
+     KOTAK HASIL - SEKARANG DI BAWAH
+===================================================== -->
+
+<div id="result-board">
+
+<h3>📊 Hasil Pemeriksaan Jawaban</h3>
+
+<p>
+<b>Nilai Pilihan Ganda:</b>
+<span id="mc-score" class="score-highlight">0</span> / 100
+</p>
+
+<p>
+<b>Pilihan Ganda:</b>
+Benar <span id="mc-correct-count">0</span>
+dari 10 soal.
+</p>
+
+<p>
+<b>Isian:</b>
+<span id="ft-summary">-</span>
+</p>
+
+</div>
 
 </section>
 
-<footer>Materi latihan PAI — Silakan gunakan untuk belajar dan berdiskusi dengan guru.</footer>
+<footer>
+Materi latihan PAI — Silakan gunakan untuk belajar
+dan berdiskusi dengan guru.
+</footer>
+
 </div>
 
 <script>
-// Kunci Jawaban Pilihan Ganda
+
+// =====================================================
+// KUNCI JAWABAN PILIHAN GANDA
+// =====================================================
+
 const mcAnswers = {
   q1: 'B',
   q2: 'A',
@@ -331,116 +913,336 @@ const mcAnswers = {
   q10: 'C'
 };
 
-// Kata kunci acuan pencocokan Free Text
+
+// =====================================================
+// KATA KUNCI JAWABAN FREE TEXT
+// =====================================================
+
 const ftAnswers = {
-  1: "perintah membaca belajar menuntut ilmu mencari ilmu tulisan pena pencipta",
-  2: "sughra mati tengah kata kubra mati akhir kata waqaf berhenti",
-  3: "sifat yang pasti ada milik dimiliki oleh Alloh swt",
-  4: "ajz artinya lemah tidak berkuasa",
-  5: "memberikan rezeki banyak atau sedikit menciptakan manusia kaya miskin sesuai kehendak Alloh"
+
+  1:
+  "perintah membaca belajar menuntut ilmu mencari ilmu tulisan pena pencipta",
+
+  2:
+  "sughra mati tengah kata kubra mati akhir kata waqaf berhenti",
+
+  3:
+  "sifat yang pasti ada milik dimiliki oleh alloh swt",
+
+  4:
+  "ajz artinya lemah tidak berkuasa",
+
+  5:
+  "memberikan rezeki banyak atau sedikit menciptakan manusia kaya miskin sesuai kehendak alloh"
+
 };
 
-// Fungsi perhitungan kemiripan teks menggunakan Sorensen-Dice Coefficient (Bigram)
+
+// =====================================================
+// FUNGSI MENGHITUNG KEMIRIPAN TEKS
+// SORENSEN-DICE COEFFICIENT (BIGRAM)
+// =====================================================
+
 function getSimilarityRatio(str1, str2) {
-  const cleanStr1 = str1.toLowerCase().replace(/[^a-z0-9]/g, '');
-  const cleanStr2 = str2.toLowerCase().replace(/[^a-z0-9]/g, '');
-  
-  if (cleanStr1 === cleanStr2) return 1.0;
+
+  const cleanStr1 =
+    str1.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  const cleanStr2 =
+    str2.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  if (cleanStr1 === cleanStr2) {
+    return 1.0;
+  }
+
   if (cleanStr1.length < 2 || cleanStr2.length < 2) {
-    return cleanStr1.includes(cleanStr2) || cleanStr2.includes(cleanStr1) ? 0.6 : 0.0;
+
+    return cleanStr1.includes(cleanStr2) ||
+           cleanStr2.includes(cleanStr1)
+           ? 0.6
+           : 0.0;
   }
 
   const getBigrams = (str) => {
+
     const bigrams = new Map();
-    for (let i = 0; i < str.length - 1; i++) {
-      const bigram = str.substring(i, i + 2);
-      const count = bigrams.has(bigram) ? bigrams.get(bigram) + 1 : 1;
+
+    for (
+      let i = 0;
+      i < str.length - 1;
+      i++
+    ) {
+
+      const bigram =
+        str.substring(i, i + 2);
+
+      const count =
+        bigrams.has(bigram)
+        ? bigrams.get(bigram) + 1
+        : 1;
+
       bigrams.set(bigram, count);
     }
+
     return bigrams;
   };
 
-  const bigrams1 = getBigrams(cleanStr1);
-  const bigrams2 = getBigrams(cleanStr2);
+  const bigrams1 =
+    getBigrams(cleanStr1);
+
+  const bigrams2 =
+    getBigrams(cleanStr2);
 
   let intersectionSize = 0;
-  for (const [bigram, count1] of bigrams1.entries()) {
+
+  for (
+    const [bigram, count1]
+    of bigrams1.entries()
+  ) {
+
     if (bigrams2.has(bigram)) {
-      intersectionSize += Math.min(count1, bigrams2.get(bigram));
+
+      intersectionSize += Math.min(
+        count1,
+        bigrams2.get(bigram)
+      );
+
     }
   }
 
-  const totalBigrams = (cleanStr1.length - 1) + (cleanStr2.length - 1);
-  return (2.0 * intersectionSize) / totalBigrams;
+  const totalBigrams =
+    (cleanStr1.length - 1) +
+    (cleanStr2.length - 1);
+
+  return (
+    2.0 * intersectionSize
+  ) / totalBigrams;
 }
+
+
+// =====================================================
+// FUNGSI MEMERIKSA SEMUA JAWABAN
+// =====================================================
 
 function checkAnswers() {
+
   let mcCorrectCount = 0;
-  
-  // 1. Periksa Jawaban Multiple Choice
-  for (let i = 1; i <= 10; i++) {
+
+
+  // ---------------------------------------------------
+  // 1. PERIKSA PILIHAN GANDA
+  // ---------------------------------------------------
+
+  for (
+    let i = 1;
+    i <= 10;
+    i++
+  ) {
+
     const qName = 'q' + i;
-    const selected = document.querySelector(`input[name="${qName}"]:checked`);
-    const qItem = document.getElementById(`mc-${i}`);
-    const feedback = qItem.querySelector('.feedback');
-    
-    qItem.classList.remove('correct', 'incorrect');
-    
-    if (selected && selected.value === mcAnswers[qName]) {
+
+    const selected =
+      document.querySelector(
+        `input[name="${qName}"]:checked`
+      );
+
+    const qItem =
+      document.getElementById(`mc-${i}`);
+
+    const feedback =
+      qItem.querySelector('.feedback');
+
+
+    // Reset warna
+    qItem.classList.remove(
+      'correct',
+      'incorrect'
+    );
+
+
+    // Jika benar
+    if (
+      selected &&
+      selected.value === mcAnswers[qName]
+    ) {
+
       mcCorrectCount++;
+
       qItem.classList.add('correct');
-      feedback.textContent = "Jawaban Benar!";
-    } else {
-      qItem.classList.add('incorrect');
-      const correctVal = mcAnswers[qName];
-      feedback.textContent = `Jawaban Salah. Jawaban yang benar adalah (${correctVal}).`;
+
+      feedback.textContent =
+        "Jawaban Benar!";
+
     }
+
+    // Jika salah
+    else {
+
+      qItem.classList.add('incorrect');
+
+      const correctVal =
+        mcAnswers[qName];
+
+      feedback.textContent =
+        `Jawaban Salah. Jawaban yang benar adalah (${correctVal}).`;
+    }
+
   }
 
-  // Hitung Nilai MC (Skala 100)
-  const mcScore = (mcCorrectCount / 10) * 100;
 
-  // 2. Periksa Jawaban Free Text & Tampilkan Kunci Jawaban
+  // ---------------------------------------------------
+  // HITUNG NILAI PILIHAN GANDA
+  // ---------------------------------------------------
+
+  const mcScore =
+    (mcCorrectCount / 10) * 100;
+
+
+  // ---------------------------------------------------
+  // 2. PERIKSA FREE TEXT
+  // ---------------------------------------------------
+
   let ftCorrectCount = 0;
-  for (let i = 1; i <= 5; i++) {
-    const userInput = document.getElementById(`ft-ans-${i}`).value;
-    const qItem = document.getElementById(`ft-${i}`);
-    const feedback = qItem.querySelector('.feedback');
-    const keyBox = document.getElementById(`key-${i}`);
-    const targetKey = ftAnswers[i];
-    
-    qItem.classList.remove('correct', 'incorrect');
-    
-    // Tampilkan Kunci Jawaban
+
+  for (
+    let i = 1;
+    i <= 5;
+    i++
+  ) {
+
+    const userInput =
+      document.getElementById(
+        `ft-ans-${i}`
+      ).value;
+
+    const qItem =
+      document.getElementById(
+        `ft-${i}`
+      );
+
+    const feedback =
+      qItem.querySelector(
+        '.feedback'
+      );
+
+    const keyBox =
+      document.getElementById(
+        `key-${i}`
+      );
+
+    const targetKey =
+      ftAnswers[i];
+
+
+    // Reset warna
+    qItem.classList.remove(
+      'correct',
+      'incorrect'
+    );
+
+
+    // Tampilkan kunci jawaban
     keyBox.style.display = 'block';
 
-    const similarity = getSimilarityRatio(userInput, targetKey);
-    
-    // Syarat 50% kemiripan (similarity >= 0.5)
-    if (similarity >= 0.5 && userInput.trim() !== "") {
+
+    // Hitung kemiripan
+    const similarity =
+      getSimilarityRatio(
+        userInput,
+        targetKey
+      );
+
+
+    // Jika kemiripan minimal 50%
+    if (
+      similarity >= 0.5 &&
+      userInput.trim() !== ""
+    ) {
+
       ftCorrectCount++;
-      qItem.classList.add('correct');
-      feedback.textContent = `Jawaban Benar / Sesuai! (Tingkat kemiripan: ${Math.round(similarity * 100)}%)`;
-    } else {
-      qItem.classList.add('incorrect');
-      if(userInput.trim() === "") {
-        feedback.textContent = "Jawaban belum diisi.";
-      } else {
-        feedback.textContent = `Jawaban kurang tepat (Tingkat kemiripan: ${Math.round(similarity * 100)}%). Pastikan menggunakan kata kunci materi.`;
-      }
+
+      qItem.classList.add(
+        'correct'
+      );
+
+      feedback.textContent =
+        `Jawaban Benar / Sesuai! (Tingkat kemiripan: ${Math.round(similarity * 100)}%)`;
+
     }
+
+    else {
+
+      qItem.classList.add(
+        'incorrect'
+      );
+
+      if (
+        userInput.trim() === ""
+      ) {
+
+        feedback.textContent =
+          "Jawaban belum diisi.";
+
+      }
+
+      else {
+
+        feedback.textContent =
+          `Jawaban kurang tepat (Tingkat kemiripan: ${Math.round(similarity * 100)}%). Pastikan menggunakan kata kunci materi.`;
+      }
+
+    }
+
   }
 
-  // Tampilkan Ringkasan Hasil
-  const resultBoard = document.getElementById('result-board');
-  resultBoard.style.display = 'block';
-  document.getElementById('mc-score').textContent = mcScore;
-  document.getElementById('mc-correct-count').textContent = mcCorrectCount;
-  document.getElementById('ft-summary').textContent = `${ftCorrectCount} dari 5 soal isian dijawab dengan baik (kemiripan ≥ 50%).`;
-  
-  // Gulir ke papan hasil
-  resultBoard.scrollIntoView({ behavior: 'smooth' });
+
+  // ---------------------------------------------------
+  // 3. TAMPILKAN KOTAK HASIL
+  // ---------------------------------------------------
+
+  const resultBoard =
+    document.getElementById(
+      'result-board'
+    );
+
+  resultBoard.style.display =
+    'block';
+
+
+  document.getElementById(
+    'mc-score'
+  ).textContent =
+    mcScore;
+
+
+  document.getElementById(
+    'mc-correct-count'
+  ).textContent =
+    mcCorrectCount;
+
+
+  document.getElementById(
+    'ft-summary'
+  ).textContent =
+    `${ftCorrectCount} dari 5 soal isian dijawab dengan baik (kemiripan ≥ 50%).`;
+
+
+  // ---------------------------------------------------
+  // 4. SCROLL OTOMATIS KE KOTAK NILAI
+  // ---------------------------------------------------
+
+  setTimeout(() => {
+
+    resultBoard.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  }, 100);
+
 }
+
 </script>
+
 </body>
 </html>
