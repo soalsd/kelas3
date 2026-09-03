@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan PAI - 30 Soal</title>
+<style>
+body{font-family:Arial,sans-serif;line-height:1.6;margin:0;background:#f4f8f5;color:#26352b}
+.container{max-width:900px;margin:auto;padding:25px}
+header{background:#176b45;color:white;padding:25px;border-radius:15px}
+.question{background:white;margin:16px 0;padding:20px;border-radius:12px;box-shadow:0 2px 7px #0001}
+.option{display:block;padding:8px;border-radius:7px;cursor:pointer;margin:4px 0}
+.option:hover{background:#eef7f1}
+button{background:#176b45;color:#fff;border:0;padding:14px 28px;border-radius:8px;font-size:16px;cursor:pointer;font-weight:bold;margin-top:20px;width:100%}
+button:hover{background:#115234}
+
+/* Kotak Nilai di Atas */
+#result{margin:20px 0;padding:18px;background:#eef7f1;border-radius:10px;font-weight:bold;display:none;border:2px solid #176b45}
+.score-number{font-size:36px;color:#176b45;margin:5px 0}
+
+/* Warna Koreksi */
+.correct-user{background:#dff3e5 !important; color:#176b45; font-weight:bold; border: 1px solid #2e7d32;} /* Jawaban benar pilihan user */
+.wrong-user{background:#fde4e4 !important; color:#c0392b; font-weight:bold; border: 1px solid #c0392b;}   /* Jawaban salah pilihan user */
+.show-correct{background:#e8f5e9 !important; color:#2e7d32; font-style:italic;}                      /* Kunci jawaban yang benar */
+</style>
+</head>
+<body>
+<div class="container">
+<header><h1>Latihan PAI</h1><p>30 soal pilihan ganda: Al-'Alaq ayat 1–5, Qalqalah, dan Sifat Allah SWT</p></header>
+
+<!-- Hasil Nilai Ditampilkan di Atas -->
+<div id="result"></div>
+
+<form id="quiz">
+
+<div class="question"><b>1. Q.S. Al-'Alaq merupakan surat ke-...</b>
+<label class="option"><input type="radio" name="q1" value="a"> 94</label><label class="option"><input type="radio" name="q1" value="b"> 95</label><label class="option"><input type="radio" name="q1" value="c"> 96</label><label class="option"><input type="radio" name="q1" value="d"> 97</label></div>
+
+<div class="question"><b>2. Kata pertama dalam Q.S. Al-'Alaq ayat 1 adalah...</b>
+<label class="option"><input type="radio" name="q2" value="a"> خَلَقَ</label><label class="option"><input type="radio" name="q2" value="b"> اقْرَأْ</label><label class="option"><input type="radio" name="q2" value="c"> عَلَّمَ</label><label class="option"><input type="radio" name="q2" value="d"> الْأَكْرَمُ</label></div>
+
+<div class="question"><b>3. Arti kata "اقْرَأْ" adalah...</b>
+<label class="option"><input type="radio" name="q3" value="a"> Tulislah</label><label class="option"><input type="radio" name="q3" value="b"> Dengarkanlah</label><label class="option"><input type="radio" name="q3" value="c"> Bacalah</label><label class="option"><input type="radio" name="q3" value="d"> Hafalkanlah</label></div>
+
+<div class="question"><b>4. Menurut Al-'Alaq ayat 1, manusia diperintah membaca dengan...</b>
+<label class="option"><input type="radio" name="q4" value="a"> nama manusia</label><label class="option"><input type="radio" name="q4" value="b"> nama gurunya</label><label class="option"><input type="radio" name="q4" value="c"> nama orang tuanya</label><label class="option"><input type="radio" name="q4" value="d"> nama Tuhannya</label></div>
+
+<div class="question"><b>5. Pesan utama Al-'Alaq ayat 1–5 berkaitan erat dengan pentingnya...</b>
+<label class="option"><input type="radio" name="q5" value="a"> bermain</label><label class="option"><input type="radio" name="q5" value="b"> mencari ilmu</label><label class="option"><input type="radio" name="q5" value="c"> berdagang</label><label class="option"><input type="radio" name="q5" value="d"> bepergian</label></div>
+
+<div class="question"><b>6. Dalam Al-'Alaq ayat 4, Allah mengajar manusia dengan...</b>
+<label class="option"><input type="radio" name="q6" value="a"> pedang</label><label class="option"><input type="radio" name="q6" value="b"> pena</label><label class="option"><input type="radio" name="q6" value="c"> suara</label><label class="option"><input type="radio" name="q6" value="d"> gambar</label></div>
+
+<div class="question"><b>7. Al-'Alaq ayat 5 mengajarkan bahwa Allah SWT...</b>
+<label class="option"><input type="radio" name="q7" value="a"> mengetahui sedikit hal</label><label class="option"><input type="radio" name="q7" value="b"> mengajarkan manusia apa yang tidak diketahuinya</label><label class="option"><input type="radio" name="q7" value="c"> tidak membutuhkan ilmu</label><label class="option"><input type="radio" name="q7" value="d"> melarang manusia belajar</label></div>
+
+<div class="question"><b>8. Sikap yang sesuai dengan pesan Al-'Alaq ayat 1–5 adalah...</b>
+<label class="option"><input type="radio" name="q8" value="a"> malas belajar</label><label class="option"><input type="radio" name="q8" value="b"> rajin membaca dan belajar</label><label class="option"><input type="radio" name="q8" value="c"> menyembunyikan ilmu</label><label class="option"><input type="radio" name="q8" value="d"> mengabaikan guru</label></div>
+
+<div class="question"><b>9. Huruf qalqalah berjumlah...</b>
+<label class="option"><input type="radio" name="q9" value="a"> 3</label><label class="option"><input type="radio" name="q9" value="b"> 4</label><label class="option"><input type="radio" name="q9" value="c"> 5</label><label class="option"><input type="radio" name="q9" value="d"> 6</label></div>
+
+<div class="question"><b>10. Berikut yang termasuk huruf qalqalah adalah...</b>
+<label class="option"><input type="radio" name="q10" value="a"> ق</label><label class="option"><input type="radio" name="q10" value="b"> س</label><label class="option"><input type="radio" name="q10" value="c"> م</label><label class="option"><input type="radio" name="q10" value="d"> ن</label></div>
+
+<div class="question"><b>11. Rangkaian untuk mengingat huruf qalqalah adalah...</b>
+<label class="option"><input type="radio" name="q11" value="a"> طْبُ جَدٍّ</label><label class="option"><input type="radio" name="q11" value="b"> بَسْمَلَة</label><label class="option"><input type="radio" name="q11" value="c"> بج  دطق </label><label class="option"><input type="radio" name="q11" value="d"> حُرُوفُ الْمَدِّ</label></div>
+
+<div class="question"><b>12. Qalqalah berarti membaca huruf dengan suara...</b>
+<label class="option"><input type="radio" name="q12" value="a"> panjang</label><label class="option"><input type="radio" name="q12" value="b"> samar</label><label class="option"><input type="radio" name="q12" value="c"> memantul</label><label class="option"><input type="radio" name="q12" value="d"> berbisik</label></div>
+
+<div class="question"><b>13. Qalqalah sughra terjadi ketika huruf qalqalah...</b>
+<label class="option"><input type="radio" name="q13" value="a"> bersukun di tengah kata</label><label class="option"><input type="radio" name="q13" value="b"> selalu berada di akhir surat</label><label class="option"><input type="radio" name="q13" value="c"> berharakat fathah</label><label class="option"><input type="radio" name="q13" value="d"> dibaca panjang</label></div>
+
+<div class="question"><b>14. Qalqalah kubra biasanya terjadi ketika huruf qalqalah di akhir kata menjadi sukun karena...</b>
+<label class="option"><input type="radio" name="q14" value="a"> mad</label><label class="option"><input type="radio" name="q14" value="b"> waqaf</label><label class="option"><input type="radio" name="q14" value="c"> idgham</label><label class="option"><input type="radio" name="q14" value="d"> ikhfa</label></div>
+
+<div class="question"><b>15. Huruf berikut yang BUKAN huruf qalqalah adalah...</b>
+<label class="option"><input type="radio" name="q15" value="a"> ط</label><label class="option"><input type="radio" name="q15" value="b"> ج</label><label class="option"><input type="radio" name="q15" value="c"> د</label><label class="option"><input type="radio" name="q15" value="d"> س</label></div>
+
+<div class="question"><b>16. Sifat wajib bagi Allah SWT adalah sifat yang...</b>
+<label class="option"><input type="radio" name="q16" value="a"> pasti dimiliki Allah</label><label class="option"><input type="radio" name="q16" value="b"> boleh dimiliki manusia saja</label><label class="option"><input type="radio" name="q16" value="c"> tidak mungkin dimiliki Allah</label><label class="option"><input type="radio" name="q16" value="d"> hanya dimiliki malaikat</label></div>
+
+<div class="question"><b>17. Jumlah sifat wajib bagi Allah yang dipelajari dalam materi ini adalah...</b>
+<label class="option"><input type="radio" name="q17" value="a"> 10</label><label class="option"><input type="radio" name="q17" value="b"> 15</label><label class="option"><input type="radio" name="q17" value="c"> 20</label><label class="option"><input type="radio" name="q17" value="d"> 25</label></div>
+
+<div class="question"><b>18. Wujud berarti Allah SWT...</b>
+<label class="option"><input type="radio" name="q18" value="a"> ada</label><label class="option"><input type="radio" name="q18" value="b"> mati</label><label class="option"><input type="radio" name="q18" value="c"> lemah</label><label class="option"><input type="radio" name="q18" value="d"> tidak mengetahui</label></div>
+
+<div class="question"><b>19. Qidam berarti Allah SWT...</b>
+<label class="option"><input type="radio" name="q19" value="a"> akan berakhir</label><label class="option"><input type="radio" name="q19" value="b"> terdahulu dan tidak memiliki permulaan</label><label class="option"><input type="radio" name="q19" value="c"> membutuhkan makhluk</label><label class="option"><input type="radio" name="q19" value="d"> menyerupai makhluk</label></div>
+
+<div class="question"><b>20. Baqa' berarti Allah SWT...</b>
+<label class="option"><input type="radio" name="q20" value="a"> kekal</label><label class="option"><input type="radio" name="q20" value="b"> lemah</label><label class="option"><input type="radio" name="q20" value="c"> baru</label><label class="option"><input type="radio" name="q20" value="d"> membutuhkan makhluk</label></div>
+
+<div class="question"><b>21. Wahdaniyah berarti Allah SWT itu...</b>
+<label class="option"><input type="radio" name="q21" value="a"> dua</label><label class="option"><input type="radio" name="q21" value="b"> banyak</label><label class="option"><input type="radio" name="q21" value="c"> Esa</label><label class="option"><input type="radio" name="q21" value="d"> berubah</label></div>
+
+<div class="question"><b>22. Qudrah berarti Allah SWT memiliki sifat...</b>
+<label class="option"><input type="radio" name="q22" value="a"> berkuasa</label><label class="option"><input type="radio" name="q22" value="b"> berkehendak</label><label class="option"><input type="radio" name="q22" value="c"> mendengar</label><label class="option"><input type="radio" name="q22" value="d"> berbicara</label></div>
+
+<div class="question"><b>23. Ilmu berarti Allah SWT...</b>
+<label class="option"><input type="radio" name="q23" value="a"> hidup</label><label class="option"><input type="radio" name="q23" value="b"> mengetahui</label><label class="option"><input type="radio" name="q23" value="c"> melihat</label><label class="option"><input type="radio" name="q23" value="d"> mendengar</label></div>
+
+<div class="question"><b>24. Sifat mustahil adalah sifat yang...</b>
+<label class="option"><input type="radio" name="q24" value="a"> pasti dimiliki Allah</label><label class="option"><input type="radio" name="q24" value="b"> tidak mungkin dimiliki Allah</label><label class="option"><input type="radio" name="q24" value="c"> wajib dimiliki manusia</label><label class="option"><input type="radio" name="q24" value="d"> boleh dimiliki Allah</label></div>
+
+<div class="question"><b>25. Lawan dari Wujud adalah...</b>
+<label class="option"><input type="radio" name="q25" value="a"> Baqa'</label><label class="option"><input type="radio" name="q25" value="b"> 'Adam</label><label class="option"><input type="radio" name="q25" value="c"> Qudrah</label><label class="option"><input type="radio" name="q25" value="d"> Ilmu</label></div>
+
+<div class="question"><b>26. Lawan dari Baqa' adalah...</b>
+<label class="option"><input type="radio" name="q26" value="a"> Fana'</label><label class="option"><input type="radio" name="q26" value="b"> Huduts</label><label class="option"><input type="radio" name="q26" value="c"> Jahl</label><label class="option"><input type="radio" name="q26" value="d"> Maut</label></div>
+
+<div class="question"><b>27. Lawan dari Qudrah adalah...</b>
+<label class="option"><input type="radio" name="q27" value="a"> Jahl</label><label class="option"><input type="radio" name="q27" value="b"> 'Ajz</label><label class="option"><input type="radio" name="q27" value="c"> Fana'</label><label class="option"><input type="radio" name="q27" value="d"> Bukm</label></div>
+
+<div class="question"><b>28. Sifat jaiz bagi Allah SWT berarti Allah...</b>
+<label class="option"><input type="radio" name="q28" value="a"> wajib melakukan semua yang diinginkan manusia</label><label class="option"><input type="radio" name="q28" value="b"> boleh melakukan atau tidak melakukan sesuatu sesuai kehendak-Nya</label><label class="option"><input type="radio" name="q28" value="c"> tidak boleh berbuat apa pun</label><label class="option"><input type="radio" name="q28" value="d"> memiliki sifat yang mustahil</label></div>
+
+<div class="question"><b>29. Pasangan yang tepat adalah...</b>
+<label class="option"><input type="radio" name="q29" value="a"> Sama' — mendengar</label><label class="option"><input type="radio" name="q29" value="b"> Basar — mati</label><label class="option"><input type="radio" name="q29" value="c"> Hayat — tuli</label><label class="option"><input type="radio" name="q29" value="d"> Ilmu — lemah</label></div>
+
+<div class="question"><b>30. Perilaku yang menunjukkan iman kepada sifat-sifat Allah adalah...</b>
+<label class="option"><input type="radio" name="q30" value="a"> merasa Allah tidak mengetahui perbuatan kita</label><label class="option"><input type="radio" name="q30" value="b"> sombong karena memiliki ilmu</label><label class="option"><input type="radio" name="q30" value="c"> rajin belajar dan menggunakan ilmu untuk kebaikan</label><label class="option"><input type="radio" name="q30" value="d"> malas membaca</label></div>
+
+<button type="button" onclick="checkQuiz()">Periksa Jawaban</button>
+</form>
+</div>
+
+<script>
+const key = {
+  q1:'c', q2:'b', q3:'c', q4:'d', q5:'b', q6:'b', q7:'b', q8:'b', q9:'c', q10:'a',
+  q11:'c', q12:'c', q13:'a', q14:'b', q15:'d', q16:'a', q17:'c', q18:'a', q19:'b', q20:'a',
+  q21:'c', q22:'a', q23:'b', q24:'b', q25:'b', q26:'a', q27:'b', q28:'b', q29:'a', q30:'c'
+};
+
+function checkQuiz() {
+  let score = 0;
+
+  for (const q in key) {
+    const correctVal = key[q];
+    const chosenInput = document.querySelector(`input[name="${q}"]:checked`);
+    const allInputs = document.querySelectorAll(`input[name="${q}"]`);
+
+    // Reset warna pada semua pilihan
+    allInputs.forEach(input => {
+      const label = input.closest('.option');
+      label.classList.remove('correct-user', 'wrong-user', 'show-correct');
+    });
+
+    // Tampilkan indikator kunci jawaban yang benar
+    const correctInput = document.querySelector(`input[name="${q}"][value="${correctVal}"]`);
+    if (correctInput) {
+      const correctLabel = correctInput.closest('.option');
+      correctLabel.classList.add('show-correct');
+    }
+
+    // Periksa jawaban pengguna
+    if (chosenInput) {
+      const chosenLabel = chosenInput.closest('.option');
+      if (chosenInput.value === correctVal) {
+        score++;
+        chosenLabel.classList.remove('show-correct');
+        chosenLabel.classList.add('correct-user'); // Hijau untuk pilihan benar
+      } else {
+        chosenLabel.classList.add('wrong-user');   // Merah untuk pilihan salah
+      }
+    }
+  }
+
+  // Hitung Nilai Persentase Bulat Tanpa Tanda Persen
+  const nilai = Math.round((score / 30) * 100);
+
+  // Tampilkan Hasil di Kotak Atas
+  const resultDiv = document.getElementById('result');
+  resultDiv.style.display = 'block';
+  resultDiv.innerHTML = `
+    <span>NILAI AKHIR:</span>
+    <div class="score-number">${nilai}</div>
+    <span>Skor Benar: ${score} dari 30 Soal</span>
+  `;
+
+  // Scroll otomatis ke paling atas
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Soal Latihan IPAS</title>
+    <style>
+        :root {
+            --primary-color: #1b5e20;
+            --secondary-color: #2e7d32;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --bg-color: #f1f8e9;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #1b5e20, #4caf50);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        .score-number {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question-card.correct {
+            border-left-color: var(--success-color);
+            background-color: #e8f8f5;
+        }
+
+        .question-card.incorrect {
+            border-left-color: var(--error-color);
+            background-color: #fdeaea;
+        }
+
+        .option-label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .option-label:hover {
+            background: #eef2f7;
+        }
+
+        .answer-key {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .correct .answer-key {
+            color: #27ae60;
+            display: block;
+        }
+
+        .incorrect .answer-key {
+            color: #c0392b;
+            display: block;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- KOTAK SKOR DI ATAS -->
+    <div id="scoreBox" class="score-box">
+        <h3>NILAI PERSENTASE ANDA</h3>
+        <div id="scoreVal" class="score-number">0</div>
+        <p id="scoreMsg">Tekun Kunci Sukses</p>
+    </div>
+
+    <div class="card">
+        <h1>Latihan 30 Soal Pilihan Ganda - IPAS</h1>
+        <form id="quiz30IPAS">
+            <script>
+                const dataIPAS = [
+                    {q: "Bagian tubuh yang digunakan untuk melihat adalah...", a: ["Mata", "Hidung", "Telinga"], c: "A"},
+                    {q: "Indra pendengar manusia adalah...", a: ["Lidah", "Telinga", "Kulit"], c: "B"},
+                    {q: "Indra peraba terletak pada...", a: ["Mata", "Kulit", "Hidung"], c: "B"},
+                    {q: "Fungsi utama hidung adalah...", a: ["Mendengar", "Membaui/Mencium aroma", "Mengecap rasa"], c: "B"},
+                    {q: "Lidah berfungsi untuk...", a: ["Mengecap rasa", "Meraba benda", "Melihat gambar"], c: "A"},
+                    {q: "Manusia memiliki panca indra sebanyak...", a: ["3", "5", "7"], c: "B"},
+                    {q: "Rasa gula terasa manis di indra...", a: ["Pengecap", "Pembau", "Penglihat"], c: "A"},
+                    {q: "Suara radio yang membahana didengar oleh...", a: ["Mata", "Telinga", "Hidung"], c: "B"},
+                    {q: "Benda yang bersuhu dingin dapat dirasakan oleh...", a: ["Kulit", "Mata", "Telinga"], c: "A"},
+                    {q: "Parfum yang harum dirasakan oleh indra...", a: ["Pembau", "Pengecap", "Peraba"], c: "A"},
+                    {q: "Membaca buku terlalu dekat dapat merusak...", a: ["Mata", "Hidung", "Telinga"], c: "A"},
+                    {q: "Mengapa kita tidak boleh menusuk telinga dengan benda tajam?", a: ["Agar tidak merusak gendang telinga", "Agar telinga makin bersih", "Agar pendengaran makin tajam"], c: "A"},
+                    {q: "Rasa garam dapur adalah...", a: ["Manis", "Asin", "Pahit"], c: "B"},
+                    {q: "Obat pusing umumnya terasa...", a: ["Manis", "Pahit", "Asam"], c: "B"},
+                    {q: "Buah lemon yang rasanya asam dirasakan oleh...", a: ["Lidah", "Kulit", "Hidung"], c: "A"},
+                    {q: "Tekstur batu yang kasar dapat dirasakan oleh...", a: ["Kulit", "Mata", "Telinga"], c: "A"},
+                    {q: "Indra penglihat disebut juga...", a: ["Mata", "Hidung", "Lidah"], c: "A"},
+                    {q: "Cara menjaga kebersihan hidung yang aman adalah...", a: ["Mengelapnya dengan kain/tisu bersih", "Menusuknya dengan kayu", "Memasukkan air sabun"], c: "A"},
+                    {q: "Bagian tubuh yang peka terhadap rangsangan sentuhan adalah...", a: ["Kulit", "Mata", "Telinga"], c: "A"},
+                    {q: "Asap kendaraan yang berbau tidak sedap dideteksi oleh...", a: ["Hidung", "Mata", "Lidah"], c: "A"},
+                    {q: "Membersihkan mata sebaiknya menggunakan...", a: ["Air bersih", "Air sabun", "Kain kotor"], c: "A"},
+                    {q: "Makanan yang sangat panas dapat merusak permukaan...", a: ["Lidah", "Telinga", "Mata"], c: "A"},
+                    {q: "Indra pembau sangat berguna saat...", a: ["Mencium bau kebocoran gas", "Melihat pemandangan", "Mendengarkan lagu"], c: "A"},
+                    {q: "Warna baju teman dapat kita ketahui dengan menggunakan...", a: ["Mata", "Kulit", "Hidung"], c: "A"},
+                    {q: "Halus dan lembutnya bulu kucing dirasakan oleh...", a: ["Kulit", "Lidah", "Telinga"], c: "A"},
+                    {q: "Rasa cabai yang pedas merangsang indra...", a: ["Pengecap", "Pendengar", "Penglihat"], c: "A"},
+                    {q: "Mendengarkan musik dengan volume tinggi terlalu lama tidak baik untuk...", a: ["Telinga", "Mata", "Hidung"], c: "A"},
+                    {q: "Memakai kacamata hitam di bawah sinar matahari bertujuan melindungi...", a: ["Mata", "Telinga", "Kulit"], c: "A"},
+                    {q: "Kulit melindungi bagian internal tubuh dan berfungsi sebagai indra...", a: ["Peraba", "Pembau", "Pengecap"], c: "A"},
+                    {q: "Lidah, mata, hidung, telinga, dan kulit dikelompokkan sebagai...", a: ["Panca Indra", "Organ Dalam", "Alat Gerak"], c: "A"}
+                ];
+
+                dataIPAS.forEach((item, index) => {
+                    document.write(`
+                        <div class="question-card" id="qdiv${index+1}">
+                            <p><strong>${index+1}. ${item.q}</strong></p>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="A"> A. ${item.a[0]}</label>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="B"> B. ${item.a[1]}</label>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="C"> C. ${item.a[2]}</label>
+                            <div class="answer-key" id="k${index+1}">Kunci Jawaban: ${item.c}. ${item.a[item.c === 'A' ? 0 : item.c === 'B' ? 1 : 2]}</div>
+                        </div>
+                    `);
+                });
+            </script>
+            <br>
+            <button type="button" class="btn-submit" onclick="check30IPAS()">Periksa Jawaban & Lihat Nilai</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function check30IPAS() {
+    let correctCount = 0;
+    const answers = ["A","B","B","B","A","B","A","B","A","A","A","A","B","B","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A","A"];
+
+    for (let i = 1; i <= 30; i++) {
+        let selected = document.querySelector(`input[name="q${i}"]:checked`);
+        let div = document.getElementById(`qdiv${i}`);
+        let keyDiv = document.getElementById(`k${i}`);
+
+        if (selected && selected.value === answers[i-1]) {
+            correctCount++;
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Hitung Nilai Persentase Tanpa % (0 - 100)
+    let scorePercentage = Math.round((correctCount / 30) * 100);
+
+    // Tampilkan Skor di Atas
+    let scoreBox = document.getElementById('scoreBox');
+    let scoreVal = document.getElementById('scoreVal');
+    scoreVal.innerText = scorePercentage;
+    scoreBox.style.display = 'block';
+
+    // Auto-scroll ke paling atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

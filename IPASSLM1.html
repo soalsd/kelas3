@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPAS - Materi Lengkap & Soal SLM 1</title>
+    <style>
+        :root {
+            --primary-color: #1b5e20;
+            --secondary-color: #2e7d32;
+            --accent-color: #4caf50;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --bg-color: #f1f8e9;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #1b5e20, #4caf50);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        .score-number {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .styled-table th, .styled-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .styled-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .question-card.correct {
+            border-left-color: var(--success-color);
+            background-color: #e8f8f5;
+        }
+
+        .question-card.incorrect {
+            border-left-color: var(--error-color);
+            background-color: #fdeaea;
+        }
+
+        .option-label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .option-label:hover {
+            background: #eef2f7;
+        }
+
+        .answer-key {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .correct .answer-key {
+            color: #27ae60;
+            display: block;
+        }
+
+        .incorrect .answer-key {
+            color: #c0392b;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- KOTAK SKOR DI ATAS -->
+    <div id="scoreBox" class="score-box">
+        <h3>NILAI PILIHAN GANDA</h3>
+        <div id="scoreVal" class="score-number">0</div>
+        <p id="scoreMsg">Klik tombol periksa jawaban untuk melihat hasil akhir Anda.</p>
+    </div>
+
+    <!-- MATERI LENGKAP -->
+    <div class="card">
+        <h1>Rangkuman Materi IPAS - SLM 1</h1>
+        <p><strong>Kelas:</strong> 3.3 Ibnu Khaldun | <strong>Guru Pengampu:</strong> Bagus Isra Pambudi</p>
+
+        <h2>1. Pengertian & Mengenal Panca Indra</h2>
+        <p>Manusia menggunakan organ tubuh khusus yang disebut <strong>Panca Indra</strong> untuk mengenali lingkungan sekitarnya. Terdapat 5 macam indra utama pada manusia:</p>
+        
+        <table class="styled-table">
+            <tr>
+                <th>No</th>
+                <th>Nama Indra</th>
+                <th>Organ Tubuh</th>
+                <th>Fungsi Utama</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Penglihat</td>
+                <td>Mata</td>
+                <td>Melihat warna, bentuk, ukuran, dan jarak benda.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Pendengar</td>
+                <td>Telinga</td>
+                <td>Mendengar gelombang suara, baik tinggi, rendah, keras, maupun pelan.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pembau / Penciuman</td>
+                <td>Hidung</td>
+                <td>Mendeteksi berbagai macam bau (wangi, busuk, asap).</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pengecap</td>
+                <td>Lidah</td>
+                <td>Merasakan rasa makanan (manis, asin, asam, pahit, umami).</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Peraba</td>
+                <td>Kulit</td>
+                <td>Merasakan tekstur (halus/kasar) serta suhu (panas/dingin).</td>
+            </tr>
+        </table>
+
+        <h2>2. Detail Cara Kerja & Peta Rasa Lidah</h2>
+        <ul>
+            <li><strong>Mata:</strong> Memiliki bagian pupil yang mengatur masuknya cahaya dan retina yang menangkap bayangan.</li>
+            <li><strong>Lidah:</strong> Memiliki bintik-bintik kecil bernama <em>papila</em>. 
+                <ul>
+                    <li>Ujung lidah lebih peka terhadap rasa <strong>manis</strong>.</li>
+                    <li>Samping depan merasakan <strong>asin</strong>.</li>
+                    <li>Samping belakang merasakan <strong>asam</strong>.</li>
+                    <li>Pangkal lidah (bagian belakang) merasakan <strong>pahit</strong>.</li>
+                </ul>
+            </li>
+            <li><strong>Kulit:</strong> Bagian tubuh terluas yang melindungi organ dalam serta menerima rangsangan sentuhan dan tekanan.</li>
+        </ul>
+
+        <h2>3. Penggunaan & Cara Merawat Panca Indra</h2>
+        <ul>
+            <li><strong>Merawat Mata:</strong> Membaca di tempat yang terang, tidak terlalu dekat dengan layar HP/TV.</li>
+            <li><strong>Merawat Telinga:</strong> Tidak mendengarkan musik sangat keras lewat earphone, tidak mengorek telinga dengan benda keras.</li>
+            <li><strong>Merawat Hidung:</strong> Menggunakan masker saat di tempat berdebu/berasap, tidak memasukkan benda kecil ke hidung.</li>
+            <li><strong>Merawat Lidah & Kulit:</strong> Hindari makan/minum yang terlalu panas, serta mandi 2 kali sehari secara teratur.</li>
+        </ul>
+    </div>
+
+    <!-- SOAL LATIHAN -->
+    <div class="card">
+        <h2>Latihan Soal SLM 1 (10 PG + 5 Isian)</h2>
+        <form id="quizForm">
+            <h3>Bagian A: Pilihan Ganda (10 Soal)</h3>
+
+            <div class="question-card" id="qdiv1">
+                <p>1. Organ tubuh manusia yang berfungsi sebagai indra pengecap adalah...</p>
+                <label class="option-label"><input type="radio" name="q1" value="A"> A. Hidung</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B. Lidah</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C. Kulit</label>
+                <div class="answer-key" id="k1">Kunci Jawaban: B. Lidah</div>
+            </div>
+
+            <div class="question-card" id="qdiv2">
+                <p>2. Kita dapat membedakan benda bertekstur halus dan kasar menggunakan...</p>
+                <label class="option-label"><input type="radio" name="q2" value="A"> A. Kulit</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B. Mata</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C. Telinga</label>
+                <div class="answer-key" id="k2">Kunci Jawaban: A. Kulit</div>
+            </div>
+
+            <div class="question-card" id="qdiv3">
+                <p>3. Indra pembau pada tubuh manusia adalah...</p>
+                <label class="option-label"><input type="radio" name="q3" value="A"> A. Telinga</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B. Hidung</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C. Mata</label>
+                <div class="answer-key" id="k3">Kunci Jawaban: B. Hidung</div>
+            </div>
+
+            <div class="question-card" id="qdiv4">
+                <p>4. Membaca buku di tempat yang gelap dapat merusak kesehatan organ...</p>
+                <label class="option-label"><input type="radio" name="q4" value="A"> A. Telinga</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> B. Mata</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> C. Hidung</label>
+                <div class="answer-key" id="k4">Kunci Jawaban: B. Mata</div>
+            </div>
+
+            <div class="question-card" id="qdiv5">
+                <p>5. Bagian ujung lidah umumnya paling peka untuk merasakan rasa...</p>
+                <label class="option-label"><input type="radio" name="q5" value="A"> A. Manis</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> B. Pahit</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> C. Asam</label>
+                <div class="answer-key" id="k5">Kunci Jawaban: A. Manis</div>
+            </div>
+
+            <div class="question-card" id="qdiv6">
+                <p>6. Rasa pahit pada obat dirasakan oleh indra pengecap pada bagian...</p>
+                <label class="option-label"><input type="radio" name="q6" value="A"> A. Pangkal/Belakang lidah</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> B. Ujung lidah</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> C. Samping depan lidah</label>
+                <div class="answer-key" id="k6">Kunci Jawaban: A. Pangkal/Belakang lidah</div>
+            </div>
+
+            <div class="question-card" id="qdiv7">
+                <p>7. Mendengarkan musik terlalu keras dengan headset dapat mengganggu fungsi...</p>
+                <label class="option-label"><input type="radio" name="q7" value="A"> A. Penglihat</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> B. Pendengar</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> C. Pengecap</label>
+                <div class="answer-key" id="k7">Kunci Jawaban: B. Pendengar</div>
+            </div>
+
+            <div class="question-card" id="qdiv8">
+                <p>8. Aroma wangi parfum dapat dirasakan karena peran indra...</p>
+                <label class="option-label"><input type="radio" name="q8" value="A"> A. Hidung</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> B. Lidah</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> C. Telinga</label>
+                <div class="answer-key" id="k8">Kunci Jawaban: A. Hidung</div>
+            </div>
+
+            <div class="question-card" id="qdiv9">
+                <p>9. Jumlah utama panca indra pada tubuh manusia adalah...</p>
+                <label class="option-label"><input type="radio" name="q9" value="A"> A. 4</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> B. 5</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> C. 6</label>
+                <div class="answer-key" id="k9">Kunci Jawaban: B. 5</div>
+            </div>
+
+            <div class="question-card" id="qdiv10">
+                <p>10. Salah satu cara merawat kesehatan kulit adalah...</p>
+                <label class="option-label"><input type="radio" name="q10" value="A"> A. Mandi teratur 2 kali sehari</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> B. Menggosok gigi secara teratur</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> C. Membaca di bawah lampu terang</label>
+                <div class="answer-key" id="k10">Kunci Jawaban: A. Mandi teratur 2 kali sehari</div>
+            </div>
+
+            <h3>Bagian B: Isian Singkat (5 Soal)</h3>
+
+            <div class="question-card" id="ediv1">
+                <p>1. Sebutkan fungsi utama dari mata!</p>
+                <input type="text" id="i1" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek1">Kunci Jawaban: Melihat / Indra Penglihat</div>
+            </div>
+
+            <div class="question-card" id="ediv2">
+                <p>2. Sebutkan minimal 2 jenis rasa yang dapat dirasakan oleh lidah!</p>
+                <input type="text" id="i2" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek2">Kunci Jawaban: Manis, Asin, Asam, Pahit</div>
+            </div>
+
+            <div class="question-card" id="ediv3">
+                <p>3. Indra yang berfungsi mendeteksi suhu panas dan dingin adalah...</p>
+                <input type="text" id="i3" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek3">Kunci Jawaban: Kulit / Peraba</div>
+            </div>
+
+            <div class="question-card" id="ediv4">
+                <p>4. Mengapa kita tidak boleh mendengarkan suara yang terlalu keras?</p>
+                <input type="text" id="i4" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek4">Kunci Jawaban: Dapat merusak gendang telinga / pendengaran</div>
+            </div>
+
+            <div class="question-card" id="ediv5">
+                <p>5. Sebutkan organ tubuh yang bertindak sebagai indra pembau!</p>
+                <input type="text" id="i5" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek5">Kunci Jawaban: Hidung</div>
+            </div>
+
+            <br>
+            <button type="button" class="btn-submit" onclick="submitQuiz()">Periksa Jawaban</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function submitQuiz() {
+    let scoreMC = 0;
+    const keysMC = { q1: 'B', q2: 'A', q3: 'B', q4: 'B', q5: 'A', q6: 'A', q7: 'B', q8: 'A', q9: 'B', q10: 'A' };
+
+    // Evaluasi PG
+    for (let i = 1; i <= 10; i++) {
+        let q = 'q' + i;
+        let selected = document.querySelector(`input[name="${q}"]:checked`);
+        let div = document.getElementById('qdiv' + i);
+        let keyDiv = document.getElementById('k' + i);
+
+        if (selected && selected.value === keysMC[q]) {
+            scoreMC += 10;
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Evaluasi Isian
+    const keysEssay = [
+        { keywords: ["melihat", "penglihat", "melihat benda"], target: "Melihat / Indra Penglihat" },
+        { keywords: ["manis", "asin", "pahit", "asam"], target: "Manis, Asin, Pahit, Asam" },
+        { keywords: ["kulit", "peraba"], target: "Kulit / Peraba" },
+        { keywords: ["telinga", "pendengaran", "merusak"], target: "Dapat merusak gendang telinga/pendengaran" },
+        { keywords: ["hidung"], target: "Hidung" }
+    ];
+
+    for (let i = 1; i <= 5; i++) {
+        let val = document.getElementById('i' + i).value.toLowerCase().trim();
+        let div = document.getElementById('ediv' + i);
+        let keyDiv = document.getElementById('ek' + i);
+        let item = keysEssay[i-1];
+
+        let isMatch = item.keywords.some(kw => val.includes(kw));
+
+        if (isMatch && val !== "") {
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Tampilkan Skor di Atas (Hanya Angka)
+    let scoreBox = document.getElementById('scoreBox');
+    let scoreVal = document.getElementById('scoreVal');
+    scoreVal.innerText = scoreMC;
+    scoreBox.style.display = 'block';
+
+    // Auto-scroll ke paling atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

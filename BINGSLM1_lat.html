@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Soal Latihan Bahasa Inggris</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        .score-number {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question-card.correct {
+            border-left-color: var(--success-color);
+            background-color: #e8f8f5;
+        }
+
+        .question-card.incorrect {
+            border-left-color: var(--error-color);
+            background-color: #fdeaea;
+        }
+
+        .option-label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .option-label:hover {
+            background: #eef2f7;
+        }
+
+        .answer-key {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .correct .answer-key {
+            color: #27ae60;
+            display: block;
+        }
+
+        .incorrect .answer-key {
+            color: #c0392b;
+            display: block;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- KOTAK SKOR DI ATAS -->
+    <div id="scoreBox" class="score-box">
+        <h3>NILAI PERSENTASE ANDA</h3>
+        <div id="scoreVal" class="score-number">0</div>
+        <p id="scoreMsg">Rajin pangkal pandai</p>
+    </div>
+
+    <div class="card">
+        <h1>Latihan 30 Soal Pilihan Ganda - Bahasa Inggris</h1>
+        <form id="quiz30">
+            <script>
+                const dataQ = [
+                    {q: "What number comes right before 10?", a: ["Eight", "Nine", "Eleven"], c: "B"},
+                    {q: "Translate 'Buku' to English.", a: ["Book", "Ruler", "Pencil"], c: "A"},
+                    {q: "How do you say '8' in English?", a: ["Seven", "Eight", "Nine"], c: "B"},
+                    {q: "A: 'What is your name?' B: '______ name is Ali.'", a: ["My", "Your", "His"], c: "A"},
+                    {q: "A: 'How old are you?' B: 'I am ______ years old.' (9)", a: ["Eight", "Nine", "Ten"], c: "B"},
+                    {q: "What do you say when you make a mistake?", a: ["Thank you", "I am sorry", "Good morning"], c: "B"},
+                    {q: "Response to 'I am sorry':", a: ["It's okay", "You're welcome", "Good bye"], c: "A"},
+                    {q: "What is 'Penggaris' in English?", a: ["Pencil", "Eraser", "Ruler"], c: "C"},
+                    {q: "Number '13' in English is...", a: ["Thirteen", "Thirty", "Three"], c: "A"},
+                    {q: "Number '18' in English is...", a: ["Eighty", "Eighteen", "Eighty-one"], c: "B"},
+                    {q: "Siti likes to cook. Her hobby is...", a: ["Cooking", "Reading", "Dancing"], c: "A"},
+                    {q: "'Bermain sepak bola' in English is...", a: ["Playing basketball", "Playing football", "Swimming"], c: "B"},
+                    {q: "I ______ like singing. (Saya tidak suka bernyanyi)", a: ["do not", "am not", "is not"], c: "A"},
+                    {q: "She ______ reading books. (Suka)", a: ["like", "likes", "liking"], c: "B"},
+                    {q: "What stationery is used to write?", a: ["Pencil", "Eraser", "Ruler"], c: "A"},
+                    {q: "What is 'Tempat Pensil' in English?", a: ["Pencil case", "Book case", "Bag"], c: "A"},
+                    {q: "Translate: '14'", a: ["Fourteen", "Forty", "Four"], c: "A"},
+                    {q: "Translate: '17'", a: ["Seventeen", "Seventy", "Seven"], c: "A"},
+                    {q: "A: 'I am sorry for coming late.' B: '______'", a: ["No problem", "Nice to meet you", "Fine, thanks"], c: "A"},
+                    {q: "'Menyanyi' in English is...", a: ["Singing", "Dancing", "Drawing"], c: "A"},
+                    {q: "'Menggambar' in English is...", a: ["Drawing", "Writing", "Reading"], c: "A"},
+                    {q: "Translate '7'", a: ["Six", "Seven", "Eight"], c: "B"},
+                    {q: "Translate '11'", a: ["Eleven", "Twelve", "Ten"], c: "A"},
+                    {q: "What do we bring to put books and stationery?", a: ["Bag", "Ruler", "Eraser"], c: "A"},
+                    {q: "'Membaca' in English is...", a: ["Reading", "Writing", "Listening"], c: "A"},
+                    {q: "I have ______ (2) pencils.", a: ["one", "two", "three"], c: "B"},
+                    {q: "'Menari' in English is...", a: ["Dancing", "Singing", "Running"], c: "A"},
+                    {q: "A: 'Do you like swimming?' B: 'Yes, I ______.'", a: ["do", "am", "like"], c: "A"},
+                    {q: "What is 'Tas' in English?", a: ["Bag", "Box", "Desk"], c: "A"},
+                    {q: "Number '20' in English is...", a: ["Twelve", "Twenty", "Two"], c: "B"}
+                ];
+
+                dataQ.forEach((item, index) => {
+                    document.write(`
+                        <div class="question-card" id="qdiv${index+1}">
+                            <p><strong>${index+1}. ${item.q}</strong></p>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="A"> A. ${item.a[0]}</label>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="B"> B. ${item.a[1]}</label>
+                            <label class="option-label"><input type="radio" name="q${index+1}" value="C"> C. ${item.a[2]}</label>
+                            <div class="answer-key" id="k${index+1}">Kunci Jawaban: ${item.c}. ${item.a[item.c === 'A' ? 0 : item.c === 'B' ? 1 : 2]}</div>
+                        </div>
+                    `);
+                });
+            </script>
+            <br>
+            <button type="button" class="btn-submit" onclick="check30()">Periksa Jawaban & Lihat Nilai</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function check30() {
+    let correctCount = 0;
+    const answers = ["B","A","B","A","B","B","A","C","A","B","A","B","A","B","A","A","A","A","A","A","A","B","A","A","A","B","A","A","A","B"];
+
+    for (let i = 1; i <= 30; i++) {
+        let selected = document.querySelector(`input[name="q${i}"]:checked`);
+        let div = document.getElementById(`qdiv${i}`);
+        let keyDiv = document.getElementById(`k${i}`);
+
+        if (selected && selected.value === answers[i-1]) {
+            correctCount++;
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Hitung Nilai Persentase Tanpa % (0 - 100)
+    let scorePercentage = Math.round((correctCount / 30) * 100);
+
+    // Tampilkan Skor di Atas
+    let scoreBox = document.getElementById('scoreBox');
+    let scoreVal = document.getElementById('scoreVal');
+    scoreVal.innerText = scorePercentage;
+    scoreBox.style.display = 'block';
+
+    // Auto-scroll ke paling atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

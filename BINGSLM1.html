@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Inggris - Materi Lengkap & Soal SLM 1</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        .score-number {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .styled-table th, .styled-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .styled-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .question-card {
+            background: #f8fafc;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .question-card.correct {
+            border-left-color: var(--success-color);
+            background-color: #e8f8f5;
+        }
+
+        .question-card.incorrect {
+            border-left-color: var(--error-color);
+            background-color: #fdeaea;
+        }
+
+        .option-label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+
+        .option-label:hover {
+            background: #eef2f7;
+        }
+
+        .answer-key {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .correct .answer-key {
+            color: #27ae60;
+            display: block;
+        }
+
+        .incorrect .answer-key {
+            color: #c0392b;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- KOTAK SKOR DI ATAS -->
+    <div id="scoreBox" class="score-box">
+        <h3>NILAI PILIHAN GANDA</h3>
+        <div id="scoreVal" class="score-number">0</div>
+        <p id="scoreMsg"></p>
+    </div>
+
+    <!-- MATERI LENGKAP -->
+    <div class="card">
+        <h1>Rangkuman Materi Bahasa Inggris - SLM 1</h1>
+        <p><strong>Kelas:</strong> 3.3 Ibnu Khaldun | <strong>Guru Pengampu:</strong> Dhea Fitri Ayuningtyas, S.Pd</p>
+
+        <h2>1. Numbers 1–20 & Stationery (Angka & Alat Tulis)</h2>
+        <p>Memahami angka dalam Bahasa Inggris sangat penting untuk menghitung jumlah benda di sekitar kelas. Berikut adalah daftar angka dan alat tulis wajib:</p>
+        <table class="styled-table">
+            <tr>
+                <th>Angka (Numbers)</th>
+                <th>Ejaan</th>
+                <th>Alat Tulis (Stationery)</th>
+                <th>Arti</th>
+            </tr>
+            <tr><td>1 - 5</td><td>One, Two, Three, Four, Five</td><td>Book / Notebook</td><td>Buku / Buku Catatan</td></tr>
+            <tr><td>6 - 10</td><td>Six, Seven, Eight, Nine, Ten</td><td>Pencil / Pen</td><td>Pensil / Pulpen</td></tr>
+            <tr><td>11 - 15</td><td>Eleven, Twelve, Thirteen, Fourteen, Fifteen</td><td>Eraser / Ruler</td><td>Penghapus / Penggaris</td></tr>
+            <tr><td>16 - 20</td><td>Sixteen, Seventeen, Eighteen, Nineteen, Twenty</td><td>Pencil Case / Bag</td><td>Tempat Pensil / Tas</td></tr>
+        </table>
+
+        <h2>2. Greeting, Telling Name & Age (Memperkenalkan Diri & Umur)</h2>
+        <p>Saat berkenalan dengan teman baru, gunakan pola ungkapan berikut:</p>
+        <ul>
+            <li><strong>Menanyakan nama:</strong> "What is your name?" &rarr; <em>"My name is Ahmad."</em></li>
+            <li><strong>Menanyakan umur:</strong> "How old are you?" &rarr; <em>"I am eight years old."</em> (Saya berumur 8 tahun)</li>
+            <li><strong>Penggunaan To-Be (am/is/are):</strong> 
+                <ul>
+                    <li><strong>I</strong> am...</li>
+                    <li><strong>You / We / They</strong> are...</li>
+                    <li><strong>He / She / It</strong> is...</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>3. Expression of Apologize (Ungkapan Permintaan Maaf)</h2>
+        <p>Ungkapan ini digunakan ketika kita melakukan kesalahan secara tidak sengaja:</p>
+        <ul>
+            <li><strong>Meminta Maaf:</strong>
+                <ul>
+                    <li>"I am sorry for breaking your pencil." (Maafkan saya karena mematahkan pensilmu.)</li>
+                    <li>"I am sorry I am late." (Maaf saya terlambat.)</li>
+                </ul>
+            </li>
+            <li><strong>Merespons Maaf:</strong>
+                <ul>
+                    <li>"It's okay." (Tidak apa-apa.)</li>
+                    <li>"No problem." (Tidak masalah.)</li>
+                    <li>"Never mind." (Jangan dipikirkan.)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>4. Hobbies, Expression of Like & Dislike (Hobi & Kesukaan)</h2>
+        <p>Mengungkapkan hal yang disukai (like) dan tidak disukai (dislike):</p>
+        <table class="styled-table">
+            <tr>
+                <th>Hobi (Hobbies)</th>
+                <th>Ungkapan Suka (Like)</th>
+                <th>Ungkapan Tidak Suka (Dislike)</th>
+            </tr>
+            <tr>
+                <td>Reading (Membaca)<br>Swimming (Berenang)<br>Drawing (Menggambar)<br>Playing football (Bermain bola)</td>
+                <td>
+                    - I like reading.<br>
+                    - She <strong>likes</strong> swimming.<br>
+                    - They like playing football.
+                </td>
+                <td>
+                    - I <strong>do not like</strong> drawing.<br>
+                    - He <strong>does not like</strong> singing.<br>
+                    - We do not like dancing.
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SOAL LATIHAN -->
+    <div class="card">
+        <h2>Latihan Soal SLM 1 (10 PG + 5 Isian)</h2>
+        <form id="quizForm">
+            <h3>Bagian A: Pilihan Ganda (10 Soal)</h3>
+
+            <div class="question-card" id="qdiv1">
+                <p>1. What number comes right after "twelve"?</p>
+                <label class="option-label"><input type="radio" name="q1" value="A"> A. Eleven</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B. Thirteen</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C. Fourteen</label>
+                <div class="answer-key" id="k1">Kunci Jawaban: B. Thirteen</div>
+            </div>
+
+            <div class="question-card" id="qdiv2">
+                <p>2. Complete the sentence: "We put our pencils and erasers in the ______."</p>
+                <label class="option-label"><input type="radio" name="q2" value="A"> A. Pencil case</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B. Ruler</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C. Chair</label>
+                <div class="answer-key" id="k2">Kunci Jawaban: A. Pencil case</div>
+            </div>
+
+            <div class="question-card" id="qdiv3">
+                <p>3. A: "How old are you?" <br> B: "I _____ eight years old."</p>
+                <label class="option-label"><input type="radio" name="q3" value="A"> A. is</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B. am</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C. are</label>
+                <div class="answer-key" id="k3">Kunci Jawaban: B. am</div>
+            </div>
+
+            <div class="question-card" id="qdiv4">
+                <p>4. You accidentally drop your friend's book. What should you say?</p>
+                <label class="option-label"><input type="radio" name="q4" value="A"> A. Thank you very much</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> B. I am so sorry</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> C. You are welcome</label>
+                <div class="answer-key" id="k4">Kunci Jawaban: B. I am so sorry</div>
+            </div>
+
+            <div class="question-card" id="qdiv5">
+                <p>5. Response to an apology: "I'm sorry for being late." &rarr; "______"</p>
+                <label class="option-label"><input type="radio" name="q5" value="A"> A. Goodbye</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> B. It's okay, no problem</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> C. Nice to meet you</label>
+                <div class="answer-key" id="k5">Kunci Jawaban: B. It's okay, no problem</div>
+            </div>
+
+            <div class="question-card" id="qdiv6">
+                <p>6. Sinta loves reading novels and storybooks. Her hobby is...</p>
+                <label class="option-label"><input type="radio" name="q6" value="A"> A. Reading</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> B. Swimming</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> C. Cooking</label>
+                <div class="answer-key" id="k6">Kunci Jawaban: A. Reading</div>
+            </div>
+
+            <div class="question-card" id="qdiv7">
+                <p>7. "Saya tidak suka bermain bola" in English is...</p>
+                <label class="option-label"><input type="radio" name="q7" value="A"> A. I like playing football</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> B. I do not like playing football</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> C. I love playing football</label>
+                <div class="answer-key" id="k7">Kunci Jawaban: B. I do not like playing football</div>
+            </div>
+
+            <div class="question-card" id="qdiv8">
+                <p>8. What is the English translation for number 15?</p>
+                <label class="option-label"><input type="radio" name="q8" value="A"> A. Fifty</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> B. Fifteen</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> C. Five</label>
+                <div class="answer-key" id="k8">Kunci Jawaban: B. Fifteen</div>
+            </div>
+
+            <div class="question-card" id="qdiv9">
+                <p>9. What tool do we use to draw straight lines?</p>
+                <label class="option-label"><input type="radio" name="q9" value="A"> A. Eraser</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> B. Ruler</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> C. Sharpener</label>
+                <div class="answer-key" id="k9">Kunci Jawaban: B. Ruler</div>
+            </div>
+
+            <div class="question-card" id="qdiv10">
+                <p>10. "Berenang" in English is...</p>
+                <label class="option-label"><input type="radio" name="q10" value="A"> A. Singing</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> B. Swimming</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> C. Dancing</label>
+                <div class="answer-key" id="k10">Kunci Jawaban: B. Swimming</div>
+            </div>
+
+            <h3>Bagian B: Isian Singkat (5 Soal)</h3>
+
+            <div class="question-card" id="ediv1">
+                <p>1. Translate to English: "Saya berumur sembilan tahun."</p>
+                <input type="text" id="i1" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek1">Kunci Jawaban: I am nine years old</div>
+            </div>
+
+            <div class="question-card" id="ediv2">
+                <p>2. What stationery do you use to clean pencil writing errors?</p>
+                <input type="text" id="i2" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek2">Kunci Jawaban: Eraser / Rubber</div>
+            </div>
+
+            <div class="question-card" id="ediv3">
+                <p>3. Write the English word for number "20".</p>
+                <input type="text" id="i3" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek3">Kunci Jawaban: Twenty</div>
+            </div>
+
+            <div class="question-card" id="ediv4">
+                <p>4. Expression used to say sorry is called expression of ______.</p>
+                <input type="text" id="i4" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek4">Kunci Jawaban: Apologize / Apology</div>
+            </div>
+
+            <div class="question-card" id="ediv5">
+                <p>5. Translate to English: "Saya suka menggambar."</p>
+                <input type="text" id="i5" placeholder="Tulis jawaban di sini...">
+                <div class="answer-key" id="ek5">Kunci Jawaban: I like drawing</div>
+            </div>
+
+            <br>
+            <button type="button" class="btn-submit" onclick="submitQuiz()">Periksa Jawaban</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function submitQuiz() {
+    let scoreMC = 0;
+    const keysMC = { q1: 'B', q2: 'A', q3: 'B', q4: 'B', q5: 'B', q6: 'A', q7: 'B', q8: 'B', q9: 'B', q10: 'B' };
+
+    // Evaluasi PG
+    for (let i = 1; i <= 10; i++) {
+        let q = 'q' + i;
+        let selected = document.querySelector(`input[name="${q}"]:checked`);
+        let div = document.getElementById('qdiv' + i);
+        let keyDiv = document.getElementById('k' + i);
+
+        if (selected && selected.value === keysMC[q]) {
+            scoreMC += 10;
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Evaluasi Isian (Kemiripan ~50%)
+    const keysEssay = [
+        { keywords: ["nine years old", "i am nine", "i'm nine"], target: "I am nine years old" },
+        { keywords: ["eraser", "penghapus", "rubber"], target: "Eraser / Rubber" },
+        { keywords: ["twenty"], target: "Twenty" },
+        { keywords: ["apologize", "apology", "sorry"], target: "Apologize / Apology" },
+        { keywords: ["i like drawing", "i like draw"], target: "I like drawing" }
+    ];
+
+    for (let i = 1; i <= 5; i++) {
+        let val = document.getElementById('i' + i).value.toLowerCase().trim();
+        let div = document.getElementById('ediv' + i);
+        let keyDiv = document.getElementById('ek' + i);
+        let item = keysEssay[i-1];
+
+        let isMatch = item.keywords.some(kw => val.includes(kw) || kw.includes(val) && val.length > 2);
+
+        if (isMatch && val !== "") {
+            div.className = 'question-card correct';
+        } else {
+            div.className = 'question-card incorrect';
+        }
+        keyDiv.style.display = 'block';
+    }
+
+    // Tampilkan Skor di Atas (Hanya Angka)
+    let scoreBox = document.getElementById('scoreBox');
+    let scoreVal = document.getElementById('scoreVal');
+    scoreVal.innerText = scoreMC;
+    scoreBox.style.display = 'block';
+
+    // Auto-scroll ke paling atas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
