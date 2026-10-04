@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Pendidikan Pancasila - 20 Soal</title>
+<style>
+body{font-family:Arial,sans-serif;line-height:1.6;margin:0;background:#f4f8f5;color:#26352b}
+.container{max-width:900px;margin:auto;padding:25px}
+header{background:#176b45;color:white;padding:25px;border-radius:15px}
+.question{background:white;margin:16px 0;padding:20px;border-radius:12px;box-shadow:0 2px 7px #0001}
+.option{display:block;padding:8px;border-radius:7px;cursor:pointer;margin:4px 0}
+.option:hover{background:#eef7f1}
+button{background:#176b45;color:#fff;border:0;padding:14px 28px;border-radius:8px;font-size:16px;cursor:pointer;font-weight:bold;margin-top:20px;width:100%}
+button:hover{background:#115234}
+
+/* Kotak Nilai di Atas */
+#result{margin:20px 0;padding:18px;background:#eef7f1;border-radius:10px;font-weight:bold;display:none;border:2px solid #176b45}
+.score-number{font-size:36px;color:#176b45;margin:5px 0}
+
+/* Warna Koreksi */
+.correct-user{background:#dff3e5 !important; color:#176b45; font-weight:bold; border: 1px solid #2e7d32;} /* Jawaban benar pilihan user */
+.wrong-user{background:#fde4e4 !important; color:#c0392b; font-weight:bold; border: 1px solid #c0392b;}   /* Jawaban salah pilihan user */
+.show-correct{background:#e8f5e9 !important; color:#2e7d32; font-style:italic;}                      /* Kunci jawaban yang benar */
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>Latihan Pendidikan Pancasila</h1>
+  <p>20 soal pilihan ganda: Bunyi & Simbol, Makna, Penerapan Sila Pancasila, dan Karakter Perumus Pancasila</p>
+</header>
+
+<!-- Hasil Nilai Ditampilkan di Atas -->
+<div id="result"></div>
+
+<form id="quiz">
+
+<!-- Topik 1 -->
+<div class="question"><b>1. Simbol sila Pancasila yang melambangkan tempat berteduh, perlindungan, dan kesatuan bagi seluruh rakyat Indonesia adalah...</b>
+<label class="option"><input type="radio" name="q1" value="a"> A. Bintang emas</label>
+<label class="option"><input type="radio" name="q1" value="b"> B. Pohon beringin</label>
+<label class="option"><input type="radio" name="q1" value="c"> C. Kepala banteng</label>
+<label class="option"><input type="radio" name="q1" value="d"> D. Padi dan kapas</label></div>
+
+<div class="question"><b>2. Perhatikan bunyi sila berikut: "Keadilan sosial bagi seluruh rakyat Indonesia." Simbol yang tepat untuk menggambarkan sila tersebut terletak pada bagian...</b>
+<label class="option"><input type="radio" name="q2" value="a"> A. Kanan atas perisai</label>
+<label class="option"><input type="radio" name="q2" value="b"> B. Kiri bawah perisai</label>
+<label class="option"><input type="radio" name="q2" value="c"> C. Kanan bawah perisai</label>
+<label class="option"><input type="radio" name="q2" value="d"> D. Tengah perisai</label></div>
+
+<div class="question"><b>3. Bunyi sila Pancasila yang disimbolkan oleh rantai emas bergelang bulat dan persegi adalah...</b>
+<label class="option"><input type="radio" name="q3" value="a"> A. Ketuhanan Yang Maha Esa</label>
+<label class="option"><input type="radio" name="q3" value="b"> B. Kemanusiaan yang adil dan beradab</label>
+<label class="option"><input type="radio" name="q3" value="c"> C. Persatuan Indonesia</label>
+<label class="option"><input type="radio" name="q3" value="d"> D. Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan</label></div>
+
+<div class="question"><b>4. Mengapa mata rantai pada simbol sila kedua Pancasila berbentuk segi empat dan lingkaran yang saling menyambung?</b>
+<label class="option"><input type="radio" name="q4" value="a"> A. Melambangkan kekayaan alam Indonesia yang melimpah</label>
+<label class="option"><input type="radio" name="q4" value="b"> B. Melambangkan hubungan antarmanusia yang harus bersatu agar kuat</label>
+<label class="option"><input type="radio" name="q4" value="c"> C. Melambangkan tempat musyawarah yang aman bagi rakyat</label>
+<label class="option"><input type="radio" name="q4" value="d"> D. Melambangkan kesuburan dan pangan yang cukup</label></div>
+
+<div class="question"><b>5. Sila Pancasila yang menekankan bahwa rakyat Indonesia adalah makhluk yang mempercayai adanya Tuhan Yang Maha Esa disimbolkan dengan gambar...</b>
+<label class="option"><input type="radio" name="q5" value="a"> A. Padi dan kapas dengan latar putih</label>
+<label class="option"><input type="radio" name="q5" value="b"> B. Kepala banteng dengan latar merah</label>
+<label class="option"><input type="radio" name="q5" value="c"> C. Rantai emas dengan latar merah</label>
+<label class="option"><input type="radio" name="q5" value="d"> D. Bintang emas dengan latar hitam</label></div>
+
+<!-- Topik 2 -->
+<div class="question"><b>6. Makna dari warna latar belakang merah pada perisai yang memuat simbol kepala banteng adalah...</b>
+<label class="option"><input type="radio" name="q6" value="a"> A. Kesuburan dan kemakmuran</label>
+<label class="option"><input type="radio" name="q6" value="b"> B. Keberanian dalam membela kebenaran</label>
+<label class="option"><input type="radio" name="q6" value="c"> C. Kesucian dan ketulusan hati</label>
+<label class="option"><input type="radio" name="q6" value="d"> D. Kedamaian dan keabadian</label></div>
+
+<div class="question"><b>7. Sila kelima Pancasila mengandung makna bahwa setiap warga negara Indonesia berhak mendapatkan...</b>
+<label class="option"><input type="radio" name="q7" value="a"> A. Hak pilih yang sama sejak lahir</label>
+<label class="option"><input type="radio" name="q7" value="b"> B. Perlakuan yang adil dalam kehidupan sosial dan pemenuhan kebutuhan pokok</label>
+<label class="option"><input type="radio" name="q7" value="c"> C. Kebebasan mendirikan tempat ibadah tanpa aturan</label>
+<label class="option"><input type="radio" name="q7" value="d"> D. Pujian dan penghargaan dari pemerintah setiap hari</label></div>
+
+<div class="question"><b>8. Kepala banteng dipilih sebagai simbol sila keempat Pancasila karena banteng merupakan hewan sosial yang suka berkumpul. Makna dari sifat ini dalam kehidupan bernegara adalah...</b>
+<label class="option"><input type="radio" name="q8" value="a"> A. Rakyat Indonesia harus selalu bekerja di ladang bersama-sama</label>
+<label class="option"><input type="radio" name="q8" value="b"> B. Pengambilan keputusan harus dilakukan melalui musyawarah dan diskusi</label>
+<label class="option"><input type="radio" name="q8" value="c"> C. Menunjukkan bahwa bangsa Indonesia adalah bangsa yang ditakuti</label>
+<label class="option"><input type="radio" name="q8" value="d"> D. Mengajarkan rakyat untuk suka berpindah-pindah tempat tinggal</label></div>
+
+<div class="question"><b>9. Salah satu makna penting dari sila ketiga Pancasila, "Persatuan Indonesia", adalah...</b>
+<label class="option"><input type="radio" name="q9" value="a"> A. Mengutamakan kepentingan golongan sendiri di atas kepentingan bersama</label>
+<label class="option"><input type="radio" name="q9" value="b"> B. Menjaga keutuhan negara dengan menghargai segala perbedaan suku dan budaya</label>
+<label class="option"><input type="radio" name="q9" value="c"> C. Memaksa semua orang agar memiliki suku dan bahasa yang sama</label>
+<label class="option"><input type="radio" name="q9" value="d"> D. Menolak bekerja sama dengan orang yang berbeda daerah</label></div>
+
+<div class="question"><b>10. Simbol padi dan kapas melambangkan pangan dan sandang. Hal ini bermakna bahwa tujuan utama negara adalah mencapai...</b>
+<label class="option"><input type="radio" name="q10" value="a"> A. Kemenangan dalam setiap perlombaan dunia</label>
+<label class="option"><input type="radio" name="q10" value="b"> B. Kemakmuran dan kesejahteraan yang merata bagi rakyat</label>
+<label class="option"><input type="radio" name="q10" value="c"> C. Jumlah penduduk yang paling banyak di Asia</label>
+<label class="option"><input type="radio" name="q10" value="d"> D. Pembangunan gedung-gedung bertingkat yang mewah</label></div>
+
+<!-- Topik 3 -->
+<div class="question"><b>11. Di sekolah, Andi melihat temannya terjatuh dari sepeda lalu segera menolong dan mengantarkannya ke UKS. Tindakan Andi merupakan penerapan Pancasila, khususnya sila ke-...</b>
+<label class="option"><input type="radio" name="q11" value="a"> A. 1</label>
+<label class="option"><input type="radio" name="q11" value="b"> B. 2</label>
+<label class="option"><input type="radio" name="q11" value="c"> C. 3</label>
+<label class="option"><input type="radio" name="q11" value="d"> D. 4</label></div>
+
+<div class="question"><b>12. Keluarga Pak Budi mengadakan diskusi di ruang tamu untuk menentukan tujuan liburan akhir tahun. Setiap anggota keluarga memberikan pendapat dengan sopan. Kegiatan ini adalah contoh penerapan sila keempat Pancasila di lingkungan...</b>
+<label class="option"><input type="radio" name="q12" value="a"> A. Sekolah</label>
+<label class="option"><input type="radio" name="q12" value="b"> B. Rumah</label>
+<label class="option"><input type="radio" name="q12" value="c"> C. Masyarakat</label>
+<label class="option"><input type="radio" name="q12" value="d"> D. Tempat bermain</label></div>
+
+<div class="question"><b>13. Perhatikan beberapa tindakan berikut!<br>
+1) Mengikuti upacara bendera dengan khidmat.<br>
+2) Menghormati tetangga yang sedang beribadah.<br>
+3) Menggunakan produk buatan dalam negeri.<br>
+4) Membagi makanan secara adil kepada adik.<br>
+Tindakan yang mencerminkan penerapan sila ketiga Pancasila ditunjukkan oleh nomor...</b>
+<label class="option"><input type="radio" name="q13" value="a"> A. 1 dan 2</label>
+<label class="option"><input type="radio" name="q13" value="b"> B. 1 dan 3</label>
+<label class="option"><input type="radio" name="q13" value="c"> C. 2 dan 4</label>
+<label class="option"><input type="radio" name="q13" value="d"> D. 3 dan 4</label></div>
+
+<div class="question"><b>14. Saat bermain di lapangan desa, Doni tidak mau berteman dengan Eko karena Eko berasal dari daerah yang berbeda. Sikap Doni tersebut tidak sesuai dengan pengamalan Pancasila sila...</b>
+<label class="option"><input type="radio" name="q14" value="a"> A. Pertama</label>
+<label class="option"><input type="radio" name="q14" value="b"> B. Kedua</label>
+<label class="option"><input type="radio" name="q14" value="c"> C. Ketiga</label>
+<label class="option"><input type="radio" name="q14" value="d"> D. Keempat</label></div>
+
+<div class="question"><b>15. Membantu warga yang terkena musibah banjir secara sukarela dan tidak membeda-bedakan bantuan merupakan wujud nyata penerapan sila kelima Pancasila di lingkungan...</b>
+<label class="option"><input type="radio" name="q15" value="a"> A. Sekolah</label>
+<label class="option"><input type="radio" name="q15" value="b"> B. Rumah</label>
+<label class="option"><input type="radio" name="q15" value="c"> C. Masyarakat</label>
+<label class="option"><input type="radio" name="q15" value="d"> D. Kelas</label></div>
+
+<!-- Topik 4 -->
+<div class="question"><b>16. Para perumus Pancasila berasal dari berbagai daerah, suku, dan agama yang berbeda. Namun, mereka dapat menyelesaikan tugas dengan baik karena memiliki karakter...</b>
+<label class="option"><input type="radio" name="q16" value="a"> A. Mementingkan pendapat sendiri</label>
+<label class="option"><input type="radio" name="q16" value="b"> B. Egois dan keras kepala</label>
+<label class="option"><input type="radio" name="q16" value="c"> C. Menghargai perbedaan dan toleransi</label>
+<label class="option"><input type="radio" name="q16" value="d"> D. Selalu ingin menang sendiri</label></div>
+
+<div class="question"><b>17. Ketika menyampaikan usulan dasar negara, para tokoh bangsa saling mendengarkan dan tidak menyela pembicaraan orang lain. Sikap utama yang bisa kita teladani dari peristiwa tersebut adalah...</b>
+<label class="option"><input type="radio" name="q17" value="a"> A. Sikap tidak acuh</label>
+<label class="option"><input type="radio" name="q17" value="b"> B. Sikap demokratis dan saling menghormati</label>
+<label class="option"><input type="radio" name="q17" value="c"> C. Sikap ingin dipuji orang lain</label>
+<label class="option"><input type="radio" name="q17" value="d"> D. Sikap pasrah tanpa usaha</label></div>
+
+<div class="question"><b>18. Para tokoh perumus Pancasila rela meluangkan waktu, tenaga, dan pikiran demi kemerdekaan bangsa Indonesia tanpa mengharapkan imbalan. Karakter ini disebut dengan...</b>
+<label class="option"><input type="radio" name="q18" value="a"> A. Rendah hati</label>
+<label class="option"><input type="radio" name="q18" value="b"> B. Cinta tanah air dan rela berkorban</label>
+<label class="option"><input type="radio" name="q18" value="c"> C. Hemat dan bersahaja</label>
+<label class="option"><input type="radio" name="q18" value="d"> D. Pemberani di jalan yang salah</label></div>
+
+<div class="question"><b>19. Manakah contoh sikap di kelas yang meneladani karakter jiwa besar para perumus Pancasila saat pendapat mereka tidak terpilih?</b>
+<label class="option"><input type="radio" name="q19" value="a"> A. Marah dan keluar dari ruang kelas</label>
+<label class="option"><input type="radio" name="q19" value="b"> B. Menerima keputusan musyawarah kelas dengan ikhlas dan tetap mendukungnya</label>
+<label class="option"><input type="radio" name="q19" value="c"> C. Memaksa teman lain agar setuju dengan pendapatnya</label>
+<label class="option"><input type="radio" name="q19" value="d"> D. Tidak mau mengikuti kegiatan kelas lagi</label></div>
+
+<div class="question"><b>20. Nilai kebersamaan yang paling menonjol dari para perumus Pancasila saat sidang BPUPKI adalah...</b>
+<label class="option"><input type="radio" name="q20" value="a"> A. Berdebat sampai bermusuhan</label>
+<label class="option"><input type="radio" name="q20" value="b"> B. Mengutamakan persatuan bangsa di atas kepentingan pribadi atau golongan</label>
+<label class="option"><input type="radio" name="q20" value="c"> C. Memilih berdiam diri agar sidang cepat selesai</label>
+<label class="option"><input type="radio" name="q20" value="d"> D. Mengikuti pendapat tokoh yang paling kaya saja</label></div>
+
+<button type="button" onclick="checkQuiz()">Periksa Jawaban</button>
+</form>
+</div>
+
+<script>
+const key = {
+  q1:'b', q2:'c', q3:'b', q4:'b', q5:'d',
+  q6:'b', q7:'b', q8:'b', q9:'b', q10:'b',
+  q11:'b', q12:'b', q13:'b', q14:'c', q15:'c',
+  q16:'c', q17:'b', q18:'b', q19:'b', q20:'b'
+};
+
+function checkQuiz() {
+  let score = 0;
+  const totalQuestions = 20;
+
+  for (const q in key) {
+    const correctVal = key[q];
+    const chosenInput = document.querySelector(`input[name="${q}"]:checked`);
+    const allInputs = document.querySelectorAll(`input[name="${q}"]`);
+
+    // Reset warna pada semua pilihan
+    allInputs.forEach(input => {
+      const label = input.closest('.option');
+      label.classList.remove('correct-user', 'wrong-user', 'show-correct');
+    });
+
+    // Tampilkan indikator kunci jawaban yang benar
+    const correctInput = document.querySelector(`input[name="${q}"][value="${correctVal}"]`);
+    if (correctInput) {
+      const correctLabel = correctInput.closest('.option');
+      correctLabel.classList.add('show-correct');
+    }
+
+    // Periksa jawaban pengguna
+    if (chosenInput) {
+      const chosenLabel = chosenInput.closest('.option');
+      if (chosenInput.value === correctVal) {
+        score++;
+        chosenLabel.classList.remove('show-correct');
+        chosenLabel.classList.add('correct-user'); // Hijau untuk pilihan benar
+      } else {
+        chosenLabel.classList.add('wrong-user');   // Merah untuk pilihan salah
+      }
+    }
+  }
+
+  // Hitung Nilai Persentase Bulat Tanpa Tanda Persen
+  const nilai = Math.round((score / totalQuestions) * 100);
+
+  // Tampilkan Hasil di Kotak Atas
+  const resultDiv = document.getElementById('result');
+  resultDiv.style.display = 'block';
+  resultDiv.innerHTML = `
+    <span>NILAI AKHIR:</span>
+    <div class="score-number">${nilai}</div>
+    <span>Skor Benar: ${score} dari ${totalQuestions} Soal</span>
+  `;
+
+  // Scroll otomatis ke paling atas
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
