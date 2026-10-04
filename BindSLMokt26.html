@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Bahasa Indonesia Kelas 3 SD</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 20px;
+    color: #222;
+  }
+  .container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.10);
+  }
+  h1 { text-align:center; margin-bottom:5px; }
+  .subtitle { text-align:center; color:#555; margin-bottom:25px; }
+  .petunjuk {
+    background:#eef5ff;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+  }
+  .soal {
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:18px;
+  }
+  .soal h3 { margin-top:0; }
+  .bacaan {
+    background:#fafafa;
+    border-left:4px solid #777;
+    padding:12px;
+    line-height:1.6;
+    margin:10px 0 15px;
+  }
+  label {
+    display:block;
+    padding:11px;
+    margin:7px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+  }
+  label:hover { background:#f3f3f3; }
+  input { margin-right:8px; }
+  .benar {
+    background:#c8f7c5 !important;
+    border-color:#36a33d !important;
+  }
+  .salah {
+    background:#ffc9c9 !important;
+    border-color:#d33 !important;
+  }
+  .jawaban-benar {
+    color:#17852a;
+    font-weight:bold;
+    margin-top:10px;
+  }
+  .jawaban-salah {
+    color:#c22;
+    font-weight:bold;
+    margin-top:10px;
+  }
+  button {
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    background:#1769aa;
+    color:white;
+  }
+  button:hover { background:#0d548b; }
+  #hasil {
+    display:none;
+    text-align:center;
+    margin:25px 0;
+    padding:20px;
+    border-radius:12px;
+    background:#eef8ee;
+    border:2px solid #55a955;
+  }
+  .nilai { font-size:30px; font-weight:bold; }
+  .reset {
+    background:#777;
+    margin-top:10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Bahasa Indonesia</h1>
+<div class="subtitle">Latihan Kelas 3 SD • 30 Soal • Tingkat Intermediate</div>
+
+<div class="petunjuk">
+<b>Petunjuk:</b><br>
+Pilih satu jawaban yang paling tepat. Setelah selesai, tekan tombol
+<b>Periksa Jawaban</b>. Jawaban benar akan berwarna hijau dan jawaban salah
+akan berwarna merah.
+</div>
+
+<form id="quiz"></form>
+
+<div id="hasil">
+  <div>Hasil Latihan</div>
+  <div class="nilai" id="nilai"></div>
+  <div id="jumlah"></div>
+</div>
+
+<button type="button" onclick="periksa()">Periksa Jawaban</button>
+<button type="button" class="reset" onclick="location.reload()">Ulangi Latihan</button>
+</div>
+
+<script>
+const soal = [
+{
+q:"Bacalah teks berikut!<div class='bacaan'>Setiap pagi, banyak warga Jakarta menggunakan transportasi umum untuk pergi bekerja dan bersekolah. Bus TransJakarta menjadi salah satu pilihan karena dapat mengangkut banyak penumpang. Menggunakan transportasi umum juga dapat mengurangi jumlah kendaraan di jalan.</div>Ide pokok paragraf tersebut adalah ...",
+o:["Bus TransJakarta hanya digunakan oleh pelajar.","Transportasi umum menjadi pilihan warga Jakarta.","Jalan di Jakarta selalu ramai kendaraan.","Warga Jakarta lebih suka menggunakan kendaraan pribadi."], a:1
+},
+{
+q:"Bacalah teks berikut!<div class='bacaan'>Taman kota merupakan tempat yang penting bagi masyarakat. Di taman, orang dapat berolahraga, bermain, atau sekadar menikmati udara segar. Tanaman yang ada di taman juga membuat lingkungan menjadi lebih hijau.</div>Informasi yang sesuai dengan teks adalah ...",
+o:["Taman hanya digunakan untuk berolahraga.","Taman kota tidak membutuhkan tanaman.","Taman dapat digunakan untuk berbagai kegiatan.","Taman hanya boleh dikunjungi pada pagi hari."], a:2
+},
+{
+q:"Bacalah teks berikut!<div class='bacaan'>Rani memiliki kebiasaan membaca buku sebelum tidur. Ia biasanya membaca selama 20 menit. Menurut Rani, membaca membuatnya mendapatkan banyak pengetahuan dan kosakata baru.</div>Ide pokok teks tersebut adalah ...",
+o:["Rani suka tidur malam.","Rani memiliki kebiasaan membaca sebelum tidur.","Rani membaca selama dua puluh menit.","Rani mempunyai banyak buku."], a:1
+},
+{
+q:"Perhatikan kalimat berikut!<div class='bacaan'>Lingkungan sekolah yang bersih membuat siswa merasa nyaman belajar.</div>Informasi yang dapat disimpulkan dari kalimat tersebut adalah ...",
+o:["Siswa tidak suka belajar di sekolah.","Kebersihan sekolah dapat membuat siswa nyaman.","Sekolah harus memiliki banyak ruang kelas.","Semua siswa harus membersihkan rumah."], a:1
+},
+{
+q:"Bacalah teks berikut!<div class='bacaan'>Pada hari Minggu, Dimas dan keluarganya pergi ke Monas. Mereka melihat taman yang luas dan berfoto bersama. Setelah itu, mereka membeli makanan di sekitar kawasan Monas.</div>Kegiatan yang <b>tidak dilakukan</b> Dimas dan keluarganya adalah ...",
+o:["Berfoto","Melihat taman","Membeli makanan","Bermain di pantai"], a:3
+},
+{
+q:"Kalimat yang menggunakan tanda tanya dengan tepat adalah ...",
+o:["Siapa nama gurumu.","Siapa nama gurumu!","Siapa nama gurumu?","Siapa nama gurumu,"], a:2
+},
+{
+q:"Kalimat yang menggunakan tanda seru dengan tepat adalah ...",
+o:["Wah, indah sekali pemandangan itu!","Wah, indah sekali pemandangan itu?","Wah, indah sekali pemandangan itu.","Wah, indah sekali pemandangan itu,"], a:0
+},
+{
+q:"Pilihlah kalimat yang menggunakan tanda koma dengan tepat!",
+o:["Ibu membeli beras minyak dan telur.","Ibu membeli beras, minyak, dan telur.","Ibu membeli, beras minyak dan telur.","Ibu, membeli beras minyak dan telur."], a:1
+},
+{
+q:"Tanda baca yang tepat untuk melengkapi kalimat berikut adalah ...<div class='bacaan'>Ayah berkata, \"Jangan bermain di jalan ...</div>",
+o:["."," ,","!","?"], a:2
+},
+{
+q:"Kalimat berikut yang penggunaan tanda bacanya paling tepat adalah ...",
+o:["\"Kapan kamu berangkat\" tanya Budi.","\"Kapan kamu berangkat?\" tanya Budi.","\"Kapan kamu berangkat!\" tanya Budi.","\"Kapan kamu berangkat.\" tanya Budi."], a:1
+},
+{
+q:"Manakah yang merupakan kalimat tunggal?",
+o:["Rina membaca buku dan adiknya menggambar.","Rina membaca buku di perpustakaan.","Rina membaca buku lalu pergi bermain.","Rina membaca buku sedangkan Dito menulis."], a:1
+},
+{
+q:"Kalimat tunggal yang tepat adalah ...",
+o:["Siti menyapu halaman.","Siti menyapu halaman dan ibu memasak.","Siti menyapu halaman lalu mencuci piring.","Siti menyapu halaman ketika ayah datang."], a:0
+},
+{
+q:"Perbaikan huruf kapital yang tepat adalah ...<div class='bacaan'>pada hari senin, budi pergi ke sekolah.</div>",
+o:["Pada hari senin, Budi pergi ke sekolah.","Pada Hari Senin, Budi pergi ke Sekolah.","Pada hari Senin, Budi pergi ke sekolah.","pada Hari Senin, budi pergi ke sekolah."], a:2
+},
+{
+q:"Penulisan nama tempat yang benar adalah ...",
+o:["monas berada di jakarta.","Monas berada di jakarta.","Monas berada di Jakarta.","monas berada di Jakarta."], a:2
+},
+{
+q:"Kalimat yang menggunakan huruf kapital dengan tepat adalah ...",
+o:["Aku tinggal di Jalan Melati, Jakarta.","Aku tinggal di jalan melati, jakarta.","Aku tinggal di Jalan melati, Jakarta.","Aku tinggal di jalan Melati, jakarta."], a:0
+},
+{
+q:"Wawancara adalah kegiatan ...",
+o:["membaca cerita di depan kelas","tanya jawab untuk mendapatkan informasi","menulis puisi bersama teman","menggambar seseorang"], a:1
+},
+{
+q:"Jika ingin mengetahui cara menjaga kebersihan lingkungan sekolah, narasumber yang paling tepat adalah ...",
+o:["penjaga sekolah","penjual mainan","sopir bus","penjaga toko"], a:0
+},
+{
+q:"Pertanyaan yang paling tepat untuk mengetahui pekerjaan narasumber adalah ...",
+o:["Apakah Anda suka makanan pedas?","Di mana rumah Anda?","Apa pekerjaan Anda sehari-hari?","Berapa umur anak Anda?"], a:2
+},
+{
+q:"Saat melakukan wawancara, sikap yang sebaiknya dilakukan adalah ...",
+o:["memotong pembicaraan narasumber","berbicara dengan suara keras","mendengarkan jawaban dengan sopan","bermain-main saat narasumber berbicara"], a:2
+},
+{
+q:"Bacalah hasil wawancara berikut!<div class='bacaan'><b>Aldi:</b> \"Pak, kapan Bapak mulai menjadi penjaga sekolah?\"<br><b>Pak Hasan:</b> \"Saya mulai bekerja di sekolah ini sejak tahun 2020.\"</div>Informasi yang diperoleh dari wawancara tersebut adalah ...",
+o:["Pak Hasan bekerja sebagai guru sejak 2020.","Pak Hasan menjadi penjaga sekolah sejak 2020.","Aldi menjadi penjaga sekolah sejak 2020.","Pak Hasan tinggal di sekolah sejak 2020."], a:1
+},
+{
+q:"Bacalah puisi berikut!<div class='bacaan'><b>Sekolahku</b><br>Sekolahku tempat belajar<br>Tempat mencari ilmu<br>Bersama teman-teman<br>Kami mengejar cita-cita</div>Tema puisi tersebut adalah ...",
+o:["keluarga","sekolah","lingkungan","permainan"], a:1
+},
+{
+q:"Berdasarkan puisi pada soal nomor 21, apa yang dilakukan anak-anak di sekolah?",
+o:["Mencari ikan","Mencari ilmu","Bermain sepanjang hari","Menjual makanan"], a:1
+},
+{
+q:"Perhatikan bait puisi berikut!<div class='bacaan'>Jakarta kotaku tercinta<br>Ramai kendaraan di jalan<br>Banyak gedung menjulang tinggi<br>Namun tetap indah dipandang</div>Kata <b>tercinta</b> pada puisi tersebut memiliki arti ...",
+o:["sangat disukai","sangat jauh","sangat ramai","sangat mahal"], a:0
+},
+{
+q:"Bacalah puisi berikut!<div class='bacaan'><b>Pohon di Halaman</b><br>Pohon rindang memberi teduh<br>Daunnya menari tertiup angin<br>Burung hinggap di dahannya<br>Membuat halaman terasa nyaman</div>Perasaan yang tergambar dalam puisi tersebut adalah ...",
+o:["ketakutan","kenyamanan","kemarahan","kesedihan"], a:1
+},
+{
+q:"Kalimat yang paling cocok digunakan sebagai baris puisi tentang hujan adalah ...",
+o:["Hujan turun membasahi bumi.","Saya membeli sepatu di toko.","Ayah pergi bekerja pagi tadi.","Kakak sedang mengerjakan PR."], a:0
+},
+{
+q:"Bacalah kalimat berikut!<div class='bacaan'>Taman itu sangat <b>asri</b> karena dipenuhi pepohonan dan bunga.</div>Arti kata <b>asri</b> adalah ...",
+o:["kotor dan berantakan","indah dan nyaman","panas dan gersang","ramai dan bising"], a:1
+},
+{
+q:"Bacalah teks berikut!<div class='bacaan'>Perpustakaan sekolahku cukup luas. Rak-rak buku tersusun rapi. Ruangan itu memiliki jendela besar sehingga cahaya matahari dapat masuk. Suasananya tenang sehingga siswa nyaman membaca.</div>Teks tersebut terutama menggambarkan ...",
+o:["kegiatan siswa di kantin","keadaan perpustakaan sekolah","perjalanan menuju sekolah","kegiatan olahraga"], a:1
+},
+{
+q:"Kata baku yang tepat untuk melengkapi kalimat berikut adalah ...<div class='bacaan'>Siswa harus menjaga kebersihan agar tubuh tetap ....</div>",
+o:["sehat","sehattt","sehat2","sehat banget"], a:0
+},
+{
+q:"Kalimat berikut yang paling efektif adalah ...",
+o:["Rina pergi ke pasar untuk membeli sayur-sayuran sayur.","Rina pergi ke pasar untuk membeli sayuran.","Rina pergi ke pasar untuk membeli sayuran-sayuran yang banyak sekali.","Rina pergi ke pasar untuk membeli banyak sayuran-sayuran."], a:1
+},
+{
+q:"Perhatikan kalimat berikut!<div class='bacaan'>\"Kita harus menjaga kebersihan lingkungan agar tetap nyaman,\" kata Bu Guru.</div>Pesan yang disampaikan Bu Guru adalah ...",
+o:["Kita boleh membuang sampah sembarangan.","Kebersihan lingkungan harus dijaga.","Lingkungan yang kotor lebih nyaman.","Sampah sebaiknya dibiarkan di halaman."], a:1
+}
+];
+
+function acak(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+const quiz = document.getElementById("quiz");
+
+soal.forEach((s, index) => {
+  const div = document.createElement("div");
+  div.className = "soal";
+  div.dataset.answer = s.a;
+
+  const opsi = s.o.map((text, i) => ({text, correct:i === s.a}));
+  const shuffled = acak(opsi);
+
+  div.innerHTML = `<h3>${index+1}. ${s.q}</h3>`;
+  shuffled.forEach((item, i) => {
+    div.innerHTML += `
+      <label>
+        <input type="radio" name="soal${index}" value="${item.correct ? 1 : 0}">
+        ${String.fromCharCode(65+i)}. ${item.text}
+      </label>`;
+  });
+  quiz.appendChild(div);
+});
+
+function periksa() {
+  let benar = 0;
+
+  document.querySelectorAll(".soal").forEach((div, index) => {
+    const pilihan = div.querySelector("input:checked");
+    const labels = div.querySelectorAll("label");
+
+    labels.forEach(label => {
+      label.classList.remove("benar", "salah");
+    });
+
+    let jawabanBenarLabel = null;
+
+    labels.forEach(label => {
+      const input = label.querySelector("input");
+      if (input.value === "1") jawabanBenarLabel = label;
+    });
+
+    if (pilihan) {
+      if (pilihan.value === "1") {
+        benar++;
+        pilihan.parentElement.classList.add("benar");
+      } else {
+        pilihan.parentElement.classList.add("salah");
+        if (jawabanBenarLabel) jawabanBenarLabel.classList.add("benar");
+      }
+    } else {
+      if (jawabanBenarLabel) jawabanBenarLabel.classList.add("benar");
+    }
+  });
+
+  const nilai = Math.round((benar / soal.length) * 100);
+  document.getElementById("nilai").textContent = nilai;
+  document.getElementById("jumlah").textContent =
+    `Jawaban benar: ${benar} dari ${soal.length} soal`;
+
+  document.getElementById("hasil").style.display = "block";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
+</body>
+</html>
