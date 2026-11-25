@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAS Kelas 3 - Hidup Bersama Al-Quran</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --benar-bg: #dcfce7;
+            --benar-border: #16a34a;
+            --benar-text: #14532d;
+            --salah-bg: #fee2e2;
+            --salah-border: #dc2626;
+            --salah-text: #7f1d1d;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(29, 78, 216, 0.18);
+        }
+        header .sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 1.75rem;
+        }
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary-dark);
+        }
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 14px;
+        }
+        .materi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .materi-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+        .materi-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .materi-card li {
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+        .soal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .soal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .badge-soal {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+        .status-benar {
+            background: var(--benar-bg);
+            color: var(--benar-text);
+        }
+        .status-salah {
+            background: var(--salah-bg);
+            color: var(--salah-text);
+        }
+        .pertanyaan {
+            font-weight: 600;
+            margin: 6px 0 12px;
+            font-size: 1rem;
+        }
+        .opsi-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .opsi-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .opsi-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .opsi-label input {
+            margin-top: 3px;
+        }
+        .huruf {
+            font-weight: 700;
+            min-width: 20px;
+        }
+        .pembahasan {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--benar-bg);
+            border-left: 4px solid var(--benar-border);
+            color: var(--benar-text);
+            font-size: 0.92rem;
+        }
+        .soal-card.benar {
+            border-color: var(--benar-border);
+        }
+        .soal-card.salah {
+            border-color: var(--salah-border);
+        }
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-nilai {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nilai:hover {
+            background: var(--primary-dark);
+        }
+        .btn-reset {
+            background: #e2e8f0;
+            color: var(--text);
+        }
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+        #hasil_penilaian {
+            display: none;
+            margin-top: 22px;
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        .skor-angka {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .rincian-skor {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sub">ASESMEN AKHIR SEMESTER (ASAS) • KELAS 3 • TA 2026/2027</div>
+            <h1>Hidup Bersama Al-Quran</h1>
+            <div class="meta">Guru Pengampu: Naya Nurhamzah, S.Pd. • 20 Soal Latihan Pilihan Ganda</div>
+        </header>
+
+        <h2 class="section-title">Ringkasan Materi</h2>
+        <div class="materi-grid">
+            
+            <div class="materi-card">
+                <h3>Surat Al-Quraisy, Al-Fiil, Al-Humazah, &amp; Al-Ashr</h3>
+                <ul>
+                    <li>Melatih membaca, melafalkan dengan tartil, dan menulis ayat-ayat surat Al-Quraisy, Al-Fiil, Al-Humazah, dan Al-Ashr.</li>
+<li>Memahami asbabun nuzul (latar belakang turunnya ayat) dan ciri-ciri surat (Makkiyah/Madaniyah, jumlah ayat).</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Kosakata Pilihan, Kandungan, &amp; Hikmah</h3>
+                <ul>
+                    <li>Al-Quraisy: nikmat keamanan dan rezeki sehingga wajib menyembah pemilik rumah (Ka&#x27;bah).</li>
+<li>Al-Fiil: kekuasaan Allah menggagalkan pasukan bergajah yang hendak menghancurkan Ka&#x27;bah.</li>
+<li>Al-Humazah: peringatan bagi pengumpat dan pencela yang menumpuk harta tanpa memperhatikan hak sesama.</li>
+<li>Al-Ashr: pentingnya memanfaatkan waktu dengan beriman, beramal saleh, serta saling menasihati dalam kebenaran dan kesabaran.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">Latihan Soal (20 Soal)</h2>
+        <form id="form_latihan">
+            
+            <div class="soal-card" id="card_soal_1" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 1</span>
+                    <span class="status-badge" id="status_soal_1"></span>
+                </div>
+                <p class="pertanyaan">Surat Al-Quraisy mengajarkan kita untuk menyembah Allah pemilik rumah, yaitu...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Ka&#x27;bah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Masjid Nabawi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Masjidil Aqsa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Gunung Uhud</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_1" style="display:none;">
+                    <strong>Jawaban Benar: A. Ka&#x27;bah</strong><br>
+                    <span>Pembahasan: Al-Quraisy mengingatkan nikmat keamanan dan rezeki dari Rabb pemilik Ka&#x27;bah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_2" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 2</span>
+                    <span class="status-badge" id="status_soal_2"></span>
+                </div>
+                <p class="pertanyaan">Dua perjalanan dagang yang biasa dilakukan kaum Quraisy disebut perjalanan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Musim dingin dan musim panas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pagi dan petang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Daratan dan lautan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Siang dan malam</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_2" style="display:none;">
+                    <strong>Jawaban Benar: A. Musim dingin dan musim panas</strong><br>
+                    <span>Pembahasan: Kaum Quraisy melakukan perjalanan pada musim dingin dan musim panas.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_3" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 3</span>
+                    <span class="status-badge" id="status_soal_3"></span>
+                </div>
+                <p class="pertanyaan">Surat Al-Fiil menceritakan tentang pasukan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Bergajah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Berkuda</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Berunta</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Berperahu</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_3" style="display:none;">
+                    <strong>Jawaban Benar: A. Bergajah</strong><br>
+                    <span>Pembahasan: Al-Fiil berarti gajah, mengisahkan pasukan bergajah yang ingin menghancurkan Ka&#x27;bah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_4" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 4</span>
+                    <span class="status-badge" id="status_soal_4"></span>
+                </div>
+                <p class="pertanyaan">Pasukan bergajah dihancurkan oleh Allah dengan mengirimkan burung...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Ababil</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Merpati putih</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Elang laut</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pipit</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_4" style="display:none;">
+                    <strong>Jawaban Benar: A. Ababil</strong><br>
+                    <span>Pembahasan: Burung Ababil melempari pasukan bergajah dengan batu dari tanah yang terbakar.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_5" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 5</span>
+                    <span class="status-badge" id="status_soal_5"></span>
+                </div>
+                <p class="pertanyaan">Surat Al-Humazah memperingatkan orang yang suka...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mengumpat dan mencela</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Bersedekah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menjaga amanah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Berbuat baik</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_5" style="display:none;">
+                    <strong>Jawaban Benar: A. Mengumpat dan mencela</strong><br>
+                    <span>Pembahasan: Al-Humazah mencela kebiasaan mengumpat, mencela, dan mengumpulkan harta tanpa peduli sesama.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_6" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 6</span>
+                    <span class="status-badge" id="status_soal_6"></span>
+                </div>
+                <p class="pertanyaan">Surat Al-Ashr dimulai dengan sumpah demi...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Masa / waktu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Bulan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bintang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Lautan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_6" style="display:none;">
+                    <strong>Jawaban Benar: A. Masa / waktu</strong><br>
+                    <span>Pembahasan: Wal-&#x27;ashr berarti demi masa/waktu.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_7" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 7</span>
+                    <span class="status-badge" id="status_soal_7"></span>
+                </div>
+                <p class="pertanyaan">Menurut Q.S. Al-Ashr, manusia berada dalam kerugian kecuali orang yang...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Beriman, beramal saleh, dan saling menasihati</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Sombong dan kikir</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menyia-nyiakan waktu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Suka mencela</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_7" style="display:none;">
+                    <strong>Jawaban Benar: A. Beriman, beramal saleh, dan saling menasihati</strong><br>
+                    <span>Pembahasan: Q.S. Al-Ashr menegaskan keberuntungan bagi yang beriman, beramal saleh, serta saling menasihati dalam kebenaran dan kesabaran.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_8" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 8</span>
+                    <span class="status-badge" id="status_soal_8"></span>
+                </div>
+                <p class="pertanyaan">Saling menasihati dalam Q.S. Al-Ashr meliputi nasihat dalam kebenaran dan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kesabaran</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kemarahan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Keraguan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kelalaian</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_8" style="display:none;">
+                    <strong>Jawaban Benar: A. Kesabaran</strong><br>
+                    <span>Pembahasan: Saling menasihati dalam kebenaran (al-haqq) dan kesabaran (ash-shabr).</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_9" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 9</span>
+                    <span class="status-badge" id="status_soal_9"></span>
+                </div>
+                <p class="pertanyaan">Asbabun nuzul artinya...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Sebab atau latar belakang turunnya ayat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Jumlah halaman mushaf</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nama penerbit Al-Quran</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Cara menjilid buku</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_9" style="display:none;">
+                    <strong>Jawaban Benar: A. Sebab atau latar belakang turunnya ayat</strong><br>
+                    <span>Pembahasan: Asbabun nuzul adalah peristiwa atau sebab yang melatarbelakangi turunnya ayat.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_10" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 10</span>
+                    <span class="status-badge" id="status_soal_10"></span>
+                </div>
+                <p class="pertanyaan">Membaca Al-Quran dengan tartil artinya membaca dengan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pelan, jelas, dan sesuai aturan bacaan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tergesa-gesa tanpa aturan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Berteriak-teriak</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Melompati ayat</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_10" style="display:none;">
+                    <strong>Jawaban Benar: A. Pelan, jelas, dan sesuai aturan bacaan</strong><br>
+                    <span>Pembahasan: Tartil berarti membaca secara teratur, jelas, dan memperhatikan tajwid.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_11" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 11</span>
+                    <span class="status-badge" id="status_soal_11"></span>
+                </div>
+                <p class="pertanyaan">Hikmah mempelajari surat Al-Quraisy adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mensyukuri nikmat keamanan dan rezeki</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menjadi sombong</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Melupakan ibadah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Bersikap boros</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_11" style="display:none;">
+                    <strong>Jawaban Benar: A. Mensyukuri nikmat keamanan dan rezeki</strong><br>
+                    <span>Pembahasan: Kita diajak bersyukur atas nikmat rezeki dan rasa aman.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_12" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 12</span>
+                    <span class="status-badge" id="status_soal_12"></span>
+                </div>
+                <p class="pertanyaan">Hikmah dari kisah dalam surat Al-Fiil adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Yakin bahwa pertolongan dan kekuasaan Allah mengatasi segalanya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Mengandalkan kesombongan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Putus asa menghadapi ancaman</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menghina makhluk lain</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_12" style="display:none;">
+                    <strong>Jawaban Benar: A. Yakin bahwa pertolongan dan kekuasaan Allah mengatasi segalanya</strong><br>
+                    <span>Pembahasan: Allah Maha Kuasa melindungi rumah-Nya dan menolong kebenaran.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_13" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 13</span>
+                    <span class="status-badge" id="status_soal_13"></span>
+                </div>
+                <p class="pertanyaan">Hikmah menjauhi perilaku dalam surat Al-Humazah adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Menjaga lisan dan persaudaraan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menyakiti hati teman</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menimbun harta untuk pamer</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Suka mencari kesalahan orang</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_13" style="display:none;">
+                    <strong>Jawaban Benar: A. Menjaga lisan dan persaudaraan</strong><br>
+                    <span>Pembahasan: Menjaga lisan mencegah permusuhan dan menyakiti orang lain.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_14" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 14</span>
+                    <span class="status-badge" id="status_soal_14"></span>
+                </div>
+                <p class="pertanyaan">Hikmah surat Al-Ashr bagi pelajar adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Memanfaatkan waktu belajar dengan sebaik-baiknya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menunda-nunda tugas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bermain lupa waktu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mudah menyerah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_14" style="display:none;">
+                    <strong>Jawaban Benar: A. Memanfaatkan waktu belajar dengan sebaik-baiknya</strong><br>
+                    <span>Pembahasan: Waktu sangat berharga sehingga harus diisi dengan hal bermanfaat.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_15" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 15</span>
+                    <span class="status-badge" id="status_soal_15"></span>
+                </div>
+                <p class="pertanyaan">Menulis ayat Al-Quran yang baik dilakukan dengan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Hati-hati, teliti, dan memperhatikan harakat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Asal coret</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menghapus bagian penting</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tidak memperhatikan bentuk huruf</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_15" style="display:none;">
+                    <strong>Jawaban Benar: A. Hati-hati, teliti, dan memperhatikan harakat</strong><br>
+                    <span>Pembahasan: Menulis ayat menuntut ketelitian agar tidak mengubah huruf maupun harakat.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_16" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 16</span>
+                    <span class="status-badge" id="status_soal_16"></span>
+                </div>
+                <p class="pertanyaan">Kata &#x27;Al-Fiil&#x27; dalam bahasa Indonesia berarti...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Gajah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Semut</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Lebah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Unta</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_16" style="display:none;">
+                    <strong>Jawaban Benar: A. Gajah</strong><br>
+                    <span>Pembahasan: Al-Fiil artinya gajah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_17" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 17</span>
+                    <span class="status-badge" id="status_soal_17"></span>
+                </div>
+                <p class="pertanyaan">Kata &#x27;Al-Ashr&#x27; sering dikaitkan dengan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Waktu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Hujan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Angin</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pasir</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_17" style="display:none;">
+                    <strong>Jawaban Benar: A. Waktu</strong><br>
+                    <span>Pembahasan: Al-Ashr berarti waktu/masa.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_18" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 18</span>
+                    <span class="status-badge" id="status_soal_18"></span>
+                </div>
+                <p class="pertanyaan">Saling menasihati dengan teman harus dilakukan dengan cara yang...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Santun dan penuh kasih sayang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kasaran dan mengejek</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Memaksa dengan marah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menghina di depan umum</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_18" style="display:none;">
+                    <strong>Jawaban Benar: A. Santun dan penuh kasih sayang</strong><br>
+                    <span>Pembahasan: Nasihat yang baik disampaikan secara santun agar mudah diterima.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_19" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 19</span>
+                    <span class="status-badge" id="status_soal_19"></span>
+                </div>
+                <p class="pertanyaan">Beramal saleh dapat diwujudkan oleh siswa kelas 3 melalui...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Menolong teman dan berbakti kepada orang tua</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Berkata kasar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Mencontek</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mengganggu ibadah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_19" style="display:none;">
+                    <strong>Jawaban Benar: A. Menolong teman dan berbakti kepada orang tua</strong><br>
+                    <span>Pembahasan: Beramal saleh mencakup perbuatan baik yang diridai Allah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_20" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 20</span>
+                    <span class="status-badge" id="status_soal_20"></span>
+                </div>
+                <p class="pertanyaan">Mempelajari isi kandungan surat-surat pendek membantu kita...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mengamalkannya dalam kehidupan sehari-hari</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Cukup menghafal tanpa makna</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Melupakan pelajaran</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Bersikap acuh</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_20" style="display:none;">
+                    <strong>Jawaban Benar: A. Mengamalkannya dalam kehidupan sehari-hari</strong><br>
+                    <span>Pembahasan: Pemahaman kandungan ayat mendorong pengamalan dalam perilaku sehari-hari.</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button type="button" class="btn-nilai" onclick="hitungNilai()">Kumpulkan &amp; Lihat Nilai</button>
+                <button type="button" class="btn-reset" onclick="resetLatihan()">Ulangi Latihan</button>
+            </div>
+        </form>
+
+        <div id="hasil_penilaian">
+            <div>Hasil Penilaian Latihan</div>
+            <div class="skor-angka" id="skor_nilai">0</div>
+            <div class="rincian-skor" id="rincian_jawaban"></div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_SOAL = 20;
+        const BOBOT_PER_SOAL = 100 / TOTAL_SOAL;
+
+        function hitungNilai() {
+            let benar = 0;
+            let salah = 0;
+            let kosong = 0;
+
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const kunci = parseInt(card.getAttribute("data-kunci"), 10);
+                const terpilih = document.querySelector('input[name="soal_' + i + '"]:checked');
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+
+                card.classList.remove("benar", "salah");
+                statusEl.classList.remove("status-benar", "status-salah");
+                pembahasanEl.style.display = "block";
+
+                if (!terpilih) {
+                    kosong++;
+                    salah++;
+                    card.classList.add("salah");
+                    statusEl.textContent = "Belum dijawab";
+                    statusEl.classList.add("status-salah");
+                } else {
+                    const nilaiUser = parseInt(terpilih.value, 10);
+                    if (nilaiUser === kunci) {
+                        benar++;
+                        card.classList.add("benar");
+                        statusEl.textContent = "Benar";
+                        statusEl.classList.add("status-benar");
+                    } else {
+                        salah++;
+                        card.classList.add("salah");
+                        statusEl.textContent = "Kurang tepat";
+                        statusEl.classList.add("status-salah");
+                    }
+                }
+            }
+
+            const skorAkhir = Math.round(benar * BOBOT_PER_SOAL);
+            let predikat = "Perlu bimbingan";
+            if (skorAkhir >= 90) predikat = "Sangat Baik";
+            else if (skorAkhir >= 75) predikat = "Baik";
+            else if (skorAkhir >= 60) predikat = "Cukup";
+
+            const hasilBox = document.getElementById("hasil_penilaian");
+            document.getElementById("skor_nilai").textContent = "Nilai: " + skorAkhir + " / 100 (" + predikat + ")";
+            document.getElementById("rincian_jawaban").textContent =
+                "Benar: " + benar + " soal • Salah/Kosong: " + salah + " soal (Tidak terjawab: " + kosong + " soal)";
+
+            hasilBox.style.display = "block";
+            hasilBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function resetLatihan() {
+            document.getElementById("form_latihan").reset();
+            document.getElementById("hasil_penilaian").style.display = "none";
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+                card.classList.remove("benar", "salah");
+                statusEl.textContent = "";
+                statusEl.className = "status-badge";
+                pembahasanEl.style.display = "none";
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

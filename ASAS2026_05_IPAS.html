@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAS Kelas 3 - IPAS</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --benar-bg: #dcfce7;
+            --benar-border: #16a34a;
+            --benar-text: #14532d;
+            --salah-bg: #fee2e2;
+            --salah-border: #dc2626;
+            --salah-text: #7f1d1d;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(29, 78, 216, 0.18);
+        }
+        header .sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 1.75rem;
+        }
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary-dark);
+        }
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 14px;
+        }
+        .materi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .materi-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+        .materi-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .materi-card li {
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+        .soal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .soal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .badge-soal {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+        .status-benar {
+            background: var(--benar-bg);
+            color: var(--benar-text);
+        }
+        .status-salah {
+            background: var(--salah-bg);
+            color: var(--salah-text);
+        }
+        .pertanyaan {
+            font-weight: 600;
+            margin: 6px 0 12px;
+            font-size: 1rem;
+        }
+        .opsi-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .opsi-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .opsi-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .opsi-label input {
+            margin-top: 3px;
+        }
+        .huruf {
+            font-weight: 700;
+            min-width: 20px;
+        }
+        .pembahasan {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--benar-bg);
+            border-left: 4px solid var(--benar-border);
+            color: var(--benar-text);
+            font-size: 0.92rem;
+        }
+        .soal-card.benar {
+            border-color: var(--benar-border);
+        }
+        .soal-card.salah {
+            border-color: var(--salah-border);
+        }
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-nilai {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nilai:hover {
+            background: var(--primary-dark);
+        }
+        .btn-reset {
+            background: #e2e8f0;
+            color: var(--text);
+        }
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+        #hasil_penilaian {
+            display: none;
+            margin-top: 22px;
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        .skor-angka {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .rincian-skor {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sub">ASESMEN AKHIR SEMESTER (ASAS) • KELAS 3 • TA 2026/2027</div>
+            <h1>IPAS</h1>
+            <div class="meta">Guru Pengampu: Bagus Isra Pambudi, S.Pd. • 20 Soal Latihan Pilihan Ganda</div>
+        </header>
+
+        <h2 class="section-title">Ringkasan Materi</h2>
+        <div class="materi-grid">
+            
+            <div class="materi-card">
+                <h3>Pancaindra &amp; Fungsinya</h3>
+                <ul>
+                    <li>Mata untuk melihat, telinga untuk mendengar, hidung untuk mencium bau, lidah untuk mengecap rasa, dan kulit untuk meraba/merasakan sentuhan.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Keluarga, Tradisi Budaya, &amp; Norma</h3>
+                <ul>
+                    <li>Anggota keluarga memiliki hubungan kekerabatan dan peran masing-masing serta melestarikan tradisi budaya keluarga dengan sopan santun.</li>
+<li>Setiap anggota masyarakat memiliki peran dan tugas sesuai norma yang berlaku agar tercipta kerukunan.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Siklus Hidup Makhluk Hidup &amp; Pelestarian</h3>
+                <ul>
+                    <li>Siklus hidup manusia berlangsung dari bayi, anak-anak, remaja, dewasa, hingga lansia.</li>
+<li>Hewan dan tumbuhan mengalami tahapan pertumbuhan dan perkembangan (ada yang bermetamorfosis dan ada yang tidak); perlu dijaga habitat dan kelestariannya.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">Latihan Soal (20 Soal)</h2>
+        <form id="form_latihan">
+            
+            <div class="soal-card" id="card_soal_1" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 1</span>
+                    <span class="status-badge" id="status_soal_1"></span>
+                </div>
+                <p class="pertanyaan">Indra yang berfungsi untuk melihat benda di sekitar adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Telinga</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Mata</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Hidung</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Lidah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_1" style="display:none;">
+                    <strong>Jawaban Benar: B. Mata</strong><br>
+                    <span>Pembahasan: Mata berfungsi sebagai indra penglihatan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_2" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 2</span>
+                    <span class="status-badge" id="status_soal_2"></span>
+                </div>
+                <p class="pertanyaan">Indra pengecap rasa manis, asam, asin, dan pahit adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kulit</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Lidah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Hidung</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mata</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_2" style="display:none;">
+                    <strong>Jawaban Benar: B. Lidah</strong><br>
+                    <span>Pembahasan: Lidah berfungsi mengecap berbagai rasa.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_3" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 3</span>
+                    <span class="status-badge" id="status_soal_3"></span>
+                </div>
+                <p class="pertanyaan">Indra yang berfungsi mencium aroma bunga atau masakan adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Hidung</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Telinga</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Kulit</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Lidah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_3" style="display:none;">
+                    <strong>Jawaban Benar: A. Hidung</strong><br>
+                    <span>Pembahasan: Hidung adalah indra penciuman.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_4" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 4</span>
+                    <span class="status-badge" id="status_soal_4"></span>
+                </div>
+                <p class="pertanyaan">Telinga berfungsi sebagai indra...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Peraba</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pendengaran</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Penglihatan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pengecap</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_4" style="display:none;">
+                    <strong>Jawaban Benar: B. Pendengaran</strong><br>
+                    <span>Pembahasan: Telinga berfungsi mendengar bunyi dan suara.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_5" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 5</span>
+                    <span class="status-badge" id="status_soal_5"></span>
+                </div>
+                <p class="pertanyaan">Kulit dapat merasakan permukaan benda yang kasar atau halus karena kulit berfungsi sebagai indra...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Peraba</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pencium</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Pengecap</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pendengar</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_5" style="display:none;">
+                    <strong>Jawaban Benar: A. Peraba</strong><br>
+                    <span>Pembahasan: Kulit berfungsi sebagai indra peraba.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_6" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 6</span>
+                    <span class="status-badge" id="status_soal_6"></span>
+                </div>
+                <p class="pertanyaan">Hubungan antara anak dan orang tua kandung disebut hubungan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kekerabatan keluarga</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tetangga jauh</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Teman sekelas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pedagang dan pembeli</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_6" style="display:none;">
+                    <strong>Jawaban Benar: A. Kekerabatan keluarga</strong><br>
+                    <span>Pembahasan: Orang tua dan anak merupakan bagian dari hubungan keluarga.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_7" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 7</span>
+                    <span class="status-badge" id="status_soal_7"></span>
+                </div>
+                <p class="pertanyaan">Salah satu cara melestarikan tradisi budaya keluarga adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mengikuti dan mempelajarinya dengan bangga</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menganggapnya ketinggalan zaman</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Melupakannya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Melarang anggota keluarga</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_7" style="display:none;">
+                    <strong>Jawaban Benar: A. Mengikuti dan mempelajarinya dengan bangga</strong><br>
+                    <span>Pembahasan: Tradisi baik patut dilestarikan agar tidak punah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_8" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 8</span>
+                    <span class="status-badge" id="status_soal_8"></span>
+                </div>
+                <p class="pertanyaan">Urutan siklus hidup manusia yang benar adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Bayi - anak-anak - remaja - dewasa - lansia</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Dewasa - bayi - lansia - anak-anak</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Lansia - dewasa - remaja - anak-anak - bayi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Anak-anak - bayi - dewasa - lansia</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_8" style="display:none;">
+                    <strong>Jawaban Benar: A. Bayi - anak-anak - remaja - dewasa - lansia</strong><br>
+                    <span>Pembahasan: Manusia tumbuh dari bayi, anak-anak, remaja, dewasa, hingga lansia.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_9" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 9</span>
+                    <span class="status-badge" id="status_soal_9"></span>
+                </div>
+                <p class="pertanyaan">Tahap pertumbuhan manusia setelah masa bayi adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Anak-anak</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Lansia</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Dewasa penuh</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pensiun</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_9" style="display:none;">
+                    <strong>Jawaban Benar: A. Anak-anak</strong><br>
+                    <span>Pembahasan: Setelah bayi, manusia memasuki masa kanak-kanak.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_10" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 10</span>
+                    <span class="status-badge" id="status_soal_10"></span>
+                </div>
+                <p class="pertanyaan">Peran siswa di lingkungan rumah yang sesuai norma adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Membantu orang tua sesuai kemampuan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Bermain sepanjang hari tanpa aturan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Membantah nasihat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Merusak perabotan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_10" style="display:none;">
+                    <strong>Jawaban Benar: A. Membantu orang tua sesuai kemampuan</strong><br>
+                    <span>Pembahasan: Membantu orang tua adalah peran positif anak di rumah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_11" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 11</span>
+                    <span class="status-badge" id="status_soal_11"></span>
+                </div>
+                <p class="pertanyaan">Tahapan awal pertumbuhan tanaman kacang hijau umumnya dimulai dari...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Biji berkecambah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Buah matang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Daun gugur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Batang mengering</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_11" style="display:none;">
+                    <strong>Jawaban Benar: A. Biji berkecambah</strong><br>
+                    <span>Pembahasan: Tanaman dari biji diawali dengan perkecambahan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_12" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 12</span>
+                    <span class="status-badge" id="status_soal_12"></span>
+                </div>
+                <p class="pertanyaan">Hewan yang mengalami metamorfosis salah satunya adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kupu-kupu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kucing</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Ayam</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Sapi</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_12" style="display:none;">
+                    <strong>Jawaban Benar: A. Kupu-kupu</strong><br>
+                    <span>Pembahasan: Kupu-kupu mengalami perubahan bentuk bertahap (telur, ulat, kepompong, kupu-kupu).</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_13" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 13</span>
+                    <span class="status-badge" id="status_soal_13"></span>
+                </div>
+                <p class="pertanyaan">Cara melestarikan hewan langka di lingkungan sekitar adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tidak berburu liar dan menjaga habitatnya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menangkap untuk diperjualbelikan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menebang hutan sembarangan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Membuang sampah ke sungai</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_13" style="display:none;">
+                    <strong>Jawaban Benar: A. Tidak berburu liar dan menjaga habitatnya</strong><br>
+                    <span>Pembahasan: Menjaga habitat dan tidak berburu melindungi kelestarian hewan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_14" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 14</span>
+                    <span class="status-badge" id="status_soal_14"></span>
+                </div>
+                <p class="pertanyaan">Menyiram tanaman secara rutin dan tidak menginjak tunas muda termasuk upaya...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Merusak lingkungan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Melestarikan tumbuhan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Mencemari tanah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menghambat pertumbuhan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_14" style="display:none;">
+                    <strong>Jawaban Benar: B. Melestarikan tumbuhan</strong><br>
+                    <span>Pembahasan: Perawatan rutin membantu tumbuhan tumbuh dan lestari.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_15" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 15</span>
+                    <span class="status-badge" id="status_soal_15"></span>
+                </div>
+                <p class="pertanyaan">Cuaca cerah ditandai dengan matahari bersinar terang dan langit...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Cenderung biru/terang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Gelap pekat penuh awan badai</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Selalu hujan deras</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Dipenuhi salju tebal</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_15" style="display:none;">
+                    <strong>Jawaban Benar: A. Cenderung biru/terang</strong><br>
+                    <span>Pembahasan: Cuaca cerah umumnya memiliki sinar matahari terang dan langit cerah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_16" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 16</span>
+                    <span class="status-badge" id="status_soal_16"></span>
+                </div>
+                <p class="pertanyaan">Saat cuaca hujan, perlengkapan yang tepat disiapkan saat keluar rumah adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Payung atau jas hujan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kacamata hitam pantai</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Kipas angin meja</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Selimut tebal di jalan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_16" style="display:none;">
+                    <strong>Jawaban Benar: A. Payung atau jas hujan</strong><br>
+                    <span>Pembahasan: Payung atau jas hujan melindungi tubuh dari air hujan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_17" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 17</span>
+                    <span class="status-badge" id="status_soal_17"></span>
+                </div>
+                <p class="pertanyaan">Sikap saling menghormati antarwarga di lingkungan sekitar menciptakan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kerukunan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Perselisihan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Ketidaknyamanan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Keributan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_17" style="display:none;">
+                    <strong>Jawaban Benar: A. Kerukunan</strong><br>
+                    <span>Pembahasan: Sikap saling menghormati menumbuhkan kerukunan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_18" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 18</span>
+                    <span class="status-badge" id="status_soal_18"></span>
+                </div>
+                <p class="pertanyaan">Anggota keluarga yang paling tua dalam rumah tangga biasanya disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kakek/nenek atau orang tua</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Adik bungsu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Sepupu termuda</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Keponakan kecil</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_18" style="display:none;">
+                    <strong>Jawaban Benar: A. Kakek/nenek atau orang tua</strong><br>
+                    <span>Pembahasan: Orang tua dan kakek/nenek merupakan generasi yang lebih tua di keluarga.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_19" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 19</span>
+                    <span class="status-badge" id="status_soal_19"></span>
+                </div>
+                <p class="pertanyaan">Menjaga kebersihan lingkungan sekitar rumah merupakan tanggung jawab...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Seluruh warga</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Hanya petugas kebersihan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Hanya anak-anak</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tamu yang datang</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_19" style="display:none;">
+                    <strong>Jawaban Benar: A. Seluruh warga</strong><br>
+                    <span>Pembahasan: Menjaga kebersihan lingkungan adalah tanggung jawab bersama.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_20" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 20</span>
+                    <span class="status-badge" id="status_soal_20"></span>
+                </div>
+                <p class="pertanyaan">Perubahan cuaca dalam waktu singkat dapat memengaruhi...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Aktivitas harian dan pakaian yang dipakai</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Jumlah hari dalam seminggu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nama-nama bulan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Simbol negara</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_20" style="display:none;">
+                    <strong>Jawaban Benar: A. Aktivitas harian dan pakaian yang dipakai</strong><br>
+                    <span>Pembahasan: Cuaca memengaruhi kegiatan sehari-hari dan pilihan pakaian.</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button type="button" class="btn-nilai" onclick="hitungNilai()">Kumpulkan &amp; Lihat Nilai</button>
+                <button type="button" class="btn-reset" onclick="resetLatihan()">Ulangi Latihan</button>
+            </div>
+        </form>
+
+        <div id="hasil_penilaian">
+            <div>Hasil Penilaian Latihan</div>
+            <div class="skor-angka" id="skor_nilai">0</div>
+            <div class="rincian-skor" id="rincian_jawaban"></div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_SOAL = 20;
+        const BOBOT_PER_SOAL = 100 / TOTAL_SOAL;
+
+        function hitungNilai() {
+            let benar = 0;
+            let salah = 0;
+            let kosong = 0;
+
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const kunci = parseInt(card.getAttribute("data-kunci"), 10);
+                const terpilih = document.querySelector('input[name="soal_' + i + '"]:checked');
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+
+                card.classList.remove("benar", "salah");
+                statusEl.classList.remove("status-benar", "status-salah");
+                pembahasanEl.style.display = "block";
+
+                if (!terpilih) {
+                    kosong++;
+                    salah++;
+                    card.classList.add("salah");
+                    statusEl.textContent = "Belum dijawab";
+                    statusEl.classList.add("status-salah");
+                } else {
+                    const nilaiUser = parseInt(terpilih.value, 10);
+                    if (nilaiUser === kunci) {
+                        benar++;
+                        card.classList.add("benar");
+                        statusEl.textContent = "Benar";
+                        statusEl.classList.add("status-benar");
+                    } else {
+                        salah++;
+                        card.classList.add("salah");
+                        statusEl.textContent = "Kurang tepat";
+                        statusEl.classList.add("status-salah");
+                    }
+                }
+            }
+
+            const skorAkhir = Math.round(benar * BOBOT_PER_SOAL);
+            let predikat = "Perlu bimbingan";
+            if (skorAkhir >= 90) predikat = "Sangat Baik";
+            else if (skorAkhir >= 75) predikat = "Baik";
+            else if (skorAkhir >= 60) predikat = "Cukup";
+
+            const hasilBox = document.getElementById("hasil_penilaian");
+            document.getElementById("skor_nilai").textContent = "Nilai: " + skorAkhir + " / 100 (" + predikat + ")";
+            document.getElementById("rincian_jawaban").textContent =
+                "Benar: " + benar + " soal • Salah/Kosong: " + salah + " soal (Tidak terjawab: " + kosong + " soal)";
+
+            hasilBox.style.display = "block";
+            hasilBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function resetLatihan() {
+            document.getElementById("form_latihan").reset();
+            document.getElementById("hasil_penilaian").style.display = "none";
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+                card.classList.remove("benar", "salah");
+                statusEl.textContent = "";
+                statusEl.className = "status-badge";
+                pembahasanEl.style.display = "none";
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

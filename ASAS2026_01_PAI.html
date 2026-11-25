@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAS Kelas 3 - PAI</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --benar-bg: #dcfce7;
+            --benar-border: #16a34a;
+            --benar-text: #14532d;
+            --salah-bg: #fee2e2;
+            --salah-border: #dc2626;
+            --salah-text: #7f1d1d;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(29, 78, 216, 0.18);
+        }
+        header .sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 1.75rem;
+        }
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary-dark);
+        }
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 14px;
+        }
+        .materi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .materi-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+        .materi-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .materi-card li {
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+        .soal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .soal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .badge-soal {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+        .status-benar {
+            background: var(--benar-bg);
+            color: var(--benar-text);
+        }
+        .status-salah {
+            background: var(--salah-bg);
+            color: var(--salah-text);
+        }
+        .pertanyaan {
+            font-weight: 600;
+            margin: 6px 0 12px;
+            font-size: 1rem;
+        }
+        .opsi-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .opsi-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .opsi-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .opsi-label input {
+            margin-top: 3px;
+        }
+        .huruf {
+            font-weight: 700;
+            min-width: 20px;
+        }
+        .pembahasan {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--benar-bg);
+            border-left: 4px solid var(--benar-border);
+            color: var(--benar-text);
+            font-size: 0.92rem;
+        }
+        .soal-card.benar {
+            border-color: var(--benar-border);
+        }
+        .soal-card.salah {
+            border-color: var(--salah-border);
+        }
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-nilai {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nilai:hover {
+            background: var(--primary-dark);
+        }
+        .btn-reset {
+            background: #e2e8f0;
+            color: var(--text);
+        }
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+        #hasil_penilaian {
+            display: none;
+            margin-top: 22px;
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        .skor-angka {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .rincian-skor {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sub">ASESMEN AKHIR SEMESTER (ASAS) • KELAS 3 • TA 2026/2027</div>
+            <h1>PAI</h1>
+            <div class="meta">Guru Pengampu: Rahmat Hidayat, S.Pd. • 20 Soal Latihan Pilihan Ganda</div>
+        </header>
+
+        <h2 class="section-title">Ringkasan Materi</h2>
+        <div class="materi-grid">
+            
+            <div class="materi-card">
+                <h3>Q.S. Al-&#x27;Alaq Ayat 1-5</h3>
+                <ul>
+                    <li>Perintah membaca (iqra) dengan menyebut nama Tuhan yang menciptakan.</li>
+<li>Mengingatkan bahwa manusia diciptakan dari segumpal darah (&#x27;alaq) dan Allah Maha Pemurah yang mengajarkan manusia melalui pena (&#x27;alam bil-qalam).</li>
+<li>Menumbuhkan semangat belajar dan menuntut ilmu sejak dini.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Hukum Bacaan Qalqalah</h3>
+                <ul>
+                    <li>Qalqalah berarti memantul pada huruf qalqalah yang berharakat sukun/mati (asli atau karena waqaf).</li>
+<li>Huruf qalqalah ada 5: ba (ب), jim (ج), dal (د), ta (ط), qaf (ق) — sering diingat sebagai &#x27;baju di toko&#x27;.</li>
+<li>Terbagi menjadi qalqalah sughra (sukun di tengah kata, pantulan ringan) dan qalqalah kubra (sukun di akhir kata karena waqaf, pantulan lebih jelas).</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Sifat Allah Swt. &amp; Asmaulhusna</h3>
+                <ul>
+                    <li>Sifat wajib bagi Allah adalah sifat yang pasti ada pada Allah; sifat mustahil adalah kebalikannya; sifat jaiz adalah boleh dilakukan atau tidak dilakukan.</li>
+<li>Al-Wahhab berarti Maha Pemberi karunia tanpa pamrih.</li>
+<li>Al-Kabir berarti Maha Besar, baik zat, kekuasaan, maupun keagungan-Nya.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Husnuzan, Puasa Ramadan, &amp; Kisah Nabi Muhammad Saw.</h3>
+                <ul>
+                    <li>Husnuzan berarti berprasangka baik kepada Allah Swt. (yakin atas ketetapan dan pertolongan-Nya) serta kepada sesama manusia.</li>
+<li>Puasa Ramadan wajib bagi muslim yang memenuhi syarat (beragama Islam, baligh/mumayyiz, berakal, mampu, suci dari haid/nifas bagi perempuan), melatih kejujuran, kesabaran, dan kepedulian.</li>
+<li>Masa kanak-kanak Nabi Muhammad Saw. meneladankan kejujuran (Al-Amin), amanah, kasih sayang, dan kemandirian (seperti menggembala kambing).</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">Latihan Soal (20 Soal)</h2>
+        <form id="form_latihan">
+            
+            <div class="soal-card" id="card_soal_1" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 1</span>
+                    <span class="status-badge" id="status_soal_1"></span>
+                </div>
+                <p class="pertanyaan">Perintah pertama yang turun dalam Q.S. Al-&#x27;Alaq ayat 1 adalah perintah untuk...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Membaca</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Berpuasa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bersedekah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Berpergian</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_1" style="display:none;">
+                    <strong>Jawaban Benar: A. Membaca</strong><br>
+                    <span>Pembahasan: Q.S. Al-&#x27;Alaq ayat 1 diawali dengan perintah &#x27;Iqra&#x27; yang berarti bacalah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_2" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 2</span>
+                    <span class="status-badge" id="status_soal_2"></span>
+                </div>
+                <p class="pertanyaan">Dalam Q.S. Al-&#x27;Alaq, manusia dijelaskan diciptakan dari...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tanah liat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Segumpal darah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Cahaya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Api</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_2" style="display:none;">
+                    <strong>Jawaban Benar: B. Segumpal darah</strong><br>
+                    <span>Pembahasan: Ayat ke-2 menyebutkan manusia diciptakan dari &#x27;alaq (segumpal darah).</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_3" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 3</span>
+                    <span class="status-badge" id="status_soal_3"></span>
+                </div>
+                <p class="pertanyaan">Allah mengajarkan manusia dengan perantara...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pena (al-qalam)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Angin</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bintang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Gunung</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_3" style="display:none;">
+                    <strong>Jawaban Benar: A. Pena (al-qalam)</strong><br>
+                    <span>Pembahasan: Ayat ke-4 menjelaskan bahwa Allah mengajar manusia dengan perantara pena.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_4" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 4</span>
+                    <span class="status-badge" id="status_soal_4"></span>
+                </div>
+                <p class="pertanyaan">Pesan pokok Q.S. Al-&#x27;Alaq 1-5 mendorong siswa untuk...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Malas belajar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Semangat menuntut ilmu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Sombong karena pandai</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menjauhi buku</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_4" style="display:none;">
+                    <strong>Jawaban Benar: B. Semangat menuntut ilmu</strong><br>
+                    <span>Pembahasan: Ayat-ayat ini memotivasi umat Islam untuk gemar membaca dan menuntut ilmu.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_5" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 5</span>
+                    <span class="status-badge" id="status_soal_5"></span>
+                </div>
+                <p class="pertanyaan">Huruf qalqalah berjumlah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="0">
+                    <span class="huruf">A.</span>
+                    <span>3 huruf</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="1">
+                    <span class="huruf">B.</span>
+                    <span>4 huruf</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="2">
+                    <span class="huruf">C.</span>
+                    <span>5 huruf</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="3">
+                    <span class="huruf">D.</span>
+                    <span>6 huruf</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_5" style="display:none;">
+                    <strong>Jawaban Benar: C. 5 huruf</strong><br>
+                    <span>Pembahasan: Huruf qalqalah ada 5: ba, jim, dal, ta, dan qaf.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_6" data-kunci="3">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 6</span>
+                    <span class="status-badge" id="status_soal_6"></span>
+                </div>
+                <p class="pertanyaan">Bacaan qalqalah terjadi apabila huruf qalqalah berharakat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Fathah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kasrah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Dhammah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Sukun (mati)</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_6" style="display:none;">
+                    <strong>Jawaban Benar: D. Sukun (mati)</strong><br>
+                    <span>Pembahasan: Qalqalah terjadi saat huruf qalqalah berharakat sukun/mati.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_7" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 7</span>
+                    <span class="status-badge" id="status_soal_7"></span>
+                </div>
+                <p class="pertanyaan">Qalqalah yang pantulannya terdengar ringan di tengah kalimat disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Qalqalah kubra</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Qalqalah sughra</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Idgham</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Ikhfa</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_7" style="display:none;">
+                    <strong>Jawaban Benar: B. Qalqalah sughra</strong><br>
+                    <span>Pembahasan: Qalqalah sughra terjadi ketika huruf qalqalah bersukun asli di tengah kata.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_8" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 8</span>
+                    <span class="status-badge" id="status_soal_8"></span>
+                </div>
+                <p class="pertanyaan">Sifat yang pasti ada pada zat Allah Swt. disebut sifat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mustahil</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Jaiz</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Wajib</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Sunnah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_8" style="display:none;">
+                    <strong>Jawaban Benar: C. Wajib</strong><br>
+                    <span>Pembahasan: Sifat wajib adalah sifat yang pasti ada pada Allah Swt.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_9" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 9</span>
+                    <span class="status-badge" id="status_soal_9"></span>
+                </div>
+                <p class="pertanyaan">Sifat yang tidak mungkin ada pada Allah Swt. disebut sifat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Wajib</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Mustahil</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Jaiz</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mubah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_9" style="display:none;">
+                    <strong>Jawaban Benar: B. Mustahil</strong><br>
+                    <span>Pembahasan: Sifat mustahil adalah kebalikan dari sifat wajib dan mustahil ada pada Allah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_10" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 10</span>
+                    <span class="status-badge" id="status_soal_10"></span>
+                </div>
+                <p class="pertanyaan">Sifat jaiz bagi Allah Swt. artinya...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pasti terjadi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Wajib dilakukan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Boleh dilakukan atau tidak dilakukan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Dilarang dilakukan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_10" style="display:none;">
+                    <strong>Jawaban Benar: C. Boleh dilakukan atau tidak dilakukan</strong><br>
+                    <span>Pembahasan: Sifat jaiz adalah kebebasan Allah untuk berbuat sesuatu atau meninggalkannya.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_11" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 11</span>
+                    <span class="status-badge" id="status_soal_11"></span>
+                </div>
+                <p class="pertanyaan">Asmaulhusna Al-Wahhab memiliki arti Allah Maha...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Besar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pemberi karunia</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Mendengar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Melihat</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_11" style="display:none;">
+                    <strong>Jawaban Benar: B. Pemberi karunia</strong><br>
+                    <span>Pembahasan: Al-Wahhab berarti Maha Pemberi karunia.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_12" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 12</span>
+                    <span class="status-badge" id="status_soal_12"></span>
+                </div>
+                <p class="pertanyaan">Asmaulhusna Al-Kabir memiliki arti Allah Maha...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Besar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pengampun</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Penyayang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Bijaksana</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_12" style="display:none;">
+                    <strong>Jawaban Benar: A. Besar</strong><br>
+                    <span>Pembahasan: Al-Kabir berarti Maha Besar.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_13" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 13</span>
+                    <span class="status-badge" id="status_soal_13"></span>
+                </div>
+                <p class="pertanyaan">Sikap berprasangka baik kepada Allah Swt. dan sesama disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Suuzan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Husnuzan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Riya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Takabur</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_13" style="display:none;">
+                    <strong>Jawaban Benar: B. Husnuzan</strong><br>
+                    <span>Pembahasan: Husnuzan berarti berprasangka baik.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_14" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 14</span>
+                    <span class="status-badge" id="status_soal_14"></span>
+                </div>
+                <p class="pertanyaan">Contoh husnuzan kepada teman yang lupa membawa pensil adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Menuduhnya sengaja</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Mengejeknya di depan kelas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Mengira ia lupa atau tertinggal di rumah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tidak mau menyapanya</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_14" style="display:none;">
+                    <strong>Jawaban Benar: C. Mengira ia lupa atau tertinggal di rumah</strong><br>
+                    <span>Pembahasan: Berprasangka baik berarti mencari alasan yang wajar dan positif.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_15" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 15</span>
+                    <span class="status-badge" id="status_soal_15"></span>
+                </div>
+                <p class="pertanyaan">Puasa pada bulan Ramadan hukumnya...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Sunnah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Makruh</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Wajib bagi yang memenuhi syarat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Haram</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_15" style="display:none;">
+                    <strong>Jawaban Benar: C. Wajib bagi yang memenuhi syarat</strong><br>
+                    <span>Pembahasan: Puasa Ramadan wajib bagi umat Islam yang memenuhi syarat.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_16" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 16</span>
+                    <span class="status-badge" id="status_soal_16"></span>
+                </div>
+                <p class="pertanyaan">Salah satu hikmah berpuasa Ramadan adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Melatih kesabaran dan kepedulian</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Membuat boros makanan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menjadikan pemarah</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Melupakan kewajiban</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_16" style="display:none;">
+                    <strong>Jawaban Benar: A. Melatih kesabaran dan kepedulian</strong><br>
+                    <span>Pembahasan: Puasa melatih kesabaran, pengendalian diri, dan empati kepada yang kurang mampu.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_17" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 17</span>
+                    <span class="status-badge" id="status_soal_17"></span>
+                </div>
+                <p class="pertanyaan">Sebelum berpuasa, umat Islam dianjurkan makan pada waktu...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Sahur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tengah malam</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Dzuhur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Ashar</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_17" style="display:none;">
+                    <strong>Jawaban Benar: A. Sahur</strong><br>
+                    <span>Pembahasan: Makan sahur dilakukan sebelum waktu subuh sebagai bekal berpuasa.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_18" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 18</span>
+                    <span class="status-badge" id="status_soal_18"></span>
+                </div>
+                <p class="pertanyaan">Waktu berbuka puasa Ramadan ditandai dengan masuknya waktu...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Subuh</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Dzuhur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Maghrib</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Isya</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_18" style="display:none;">
+                    <strong>Jawaban Benar: C. Maghrib</strong><br>
+                    <span>Pembahasan: Puasa berakhir saat matahari terbenam yaitu waktu Maghrib.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_19" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 19</span>
+                    <span class="status-badge" id="status_soal_19"></span>
+                </div>
+                <p class="pertanyaan">Sejak kecil, Nabi Muhammad Saw. dikenal jujur dan terpercaya sehingga bergelar...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Al-Amin</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Al-Faruq</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="2">
+                    <span class="huruf">C.</span>
+                    <span>As-Siddiq</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Al-Hafiz</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_19" style="display:none;">
+                    <strong>Jawaban Benar: A. Al-Amin</strong><br>
+                    <span>Pembahasan: Nabi Muhammad Saw. dijuluki Al-Amin yang artinya dapat dipercaya.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_20" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 20</span>
+                    <span class="status-badge" id="status_soal_20"></span>
+                </div>
+                <p class="pertanyaan">Pekerjaan masa kecil Nabi Muhammad Saw. yang melatih kesabaran adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Berdagang ke negeri jauh</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menggembala kambing</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menjadi hakim</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Membangun istana</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_20" style="display:none;">
+                    <strong>Jawaban Benar: B. Menggembala kambing</strong><br>
+                    <span>Pembahasan: Sejak kecil Nabi Muhammad Saw. menggembala kambing dengan penuh tanggung jawab.</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button type="button" class="btn-nilai" onclick="hitungNilai()">Kumpulkan &amp; Lihat Nilai</button>
+                <button type="button" class="btn-reset" onclick="resetLatihan()">Ulangi Latihan</button>
+            </div>
+        </form>
+
+        <div id="hasil_penilaian">
+            <div>Hasil Penilaian Latihan</div>
+            <div class="skor-angka" id="skor_nilai">0</div>
+            <div class="rincian-skor" id="rincian_jawaban"></div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_SOAL = 20;
+        const BOBOT_PER_SOAL = 100 / TOTAL_SOAL;
+
+        function hitungNilai() {
+            let benar = 0;
+            let salah = 0;
+            let kosong = 0;
+
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const kunci = parseInt(card.getAttribute("data-kunci"), 10);
+                const terpilih = document.querySelector('input[name="soal_' + i + '"]:checked');
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+
+                card.classList.remove("benar", "salah");
+                statusEl.classList.remove("status-benar", "status-salah");
+                pembahasanEl.style.display = "block";
+
+                if (!terpilih) {
+                    kosong++;
+                    salah++;
+                    card.classList.add("salah");
+                    statusEl.textContent = "Belum dijawab";
+                    statusEl.classList.add("status-salah");
+                } else {
+                    const nilaiUser = parseInt(terpilih.value, 10);
+                    if (nilaiUser === kunci) {
+                        benar++;
+                        card.classList.add("benar");
+                        statusEl.textContent = "Benar";
+                        statusEl.classList.add("status-benar");
+                    } else {
+                        salah++;
+                        card.classList.add("salah");
+                        statusEl.textContent = "Kurang tepat";
+                        statusEl.classList.add("status-salah");
+                    }
+                }
+            }
+
+            const skorAkhir = Math.round(benar * BOBOT_PER_SOAL);
+            let predikat = "Perlu bimbingan";
+            if (skorAkhir >= 90) predikat = "Sangat Baik";
+            else if (skorAkhir >= 75) predikat = "Baik";
+            else if (skorAkhir >= 60) predikat = "Cukup";
+
+            const hasilBox = document.getElementById("hasil_penilaian");
+            document.getElementById("skor_nilai").textContent = "Nilai: " + skorAkhir + " / 100 (" + predikat + ")";
+            document.getElementById("rincian_jawaban").textContent =
+                "Benar: " + benar + " soal • Salah/Kosong: " + salah + " soal (Tidak terjawab: " + kosong + " soal)";
+
+            hasilBox.style.display = "block";
+            hasilBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function resetLatihan() {
+            document.getElementById("form_latihan").reset();
+            document.getElementById("hasil_penilaian").style.display = "none";
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+                card.classList.remove("benar", "salah");
+                statusEl.textContent = "";
+                statusEl.className = "status-badge";
+                pembahasanEl.style.display = "none";
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

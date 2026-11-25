@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAS Kelas 3 - Bahasa Indonesia</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --benar-bg: #dcfce7;
+            --benar-border: #16a34a;
+            --benar-text: #14532d;
+            --salah-bg: #fee2e2;
+            --salah-border: #dc2626;
+            --salah-text: #7f1d1d;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(29, 78, 216, 0.18);
+        }
+        header .sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 1.75rem;
+        }
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary-dark);
+        }
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 14px;
+        }
+        .materi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .materi-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+        .materi-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .materi-card li {
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+        .soal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .soal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .badge-soal {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+        .status-benar {
+            background: var(--benar-bg);
+            color: var(--benar-text);
+        }
+        .status-salah {
+            background: var(--salah-bg);
+            color: var(--salah-text);
+        }
+        .pertanyaan {
+            font-weight: 600;
+            margin: 6px 0 12px;
+            font-size: 1rem;
+        }
+        .opsi-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .opsi-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .opsi-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .opsi-label input {
+            margin-top: 3px;
+        }
+        .huruf {
+            font-weight: 700;
+            min-width: 20px;
+        }
+        .pembahasan {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--benar-bg);
+            border-left: 4px solid var(--benar-border);
+            color: var(--benar-text);
+            font-size: 0.92rem;
+        }
+        .soal-card.benar {
+            border-color: var(--benar-border);
+        }
+        .soal-card.salah {
+            border-color: var(--salah-border);
+        }
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-nilai {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nilai:hover {
+            background: var(--primary-dark);
+        }
+        .btn-reset {
+            background: #e2e8f0;
+            color: var(--text);
+        }
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+        #hasil_penilaian {
+            display: none;
+            margin-top: 22px;
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        .skor-angka {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .rincian-skor {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sub">ASESMEN AKHIR SEMESTER (ASAS) • KELAS 3 • TA 2026/2027</div>
+            <h1>Bahasa Indonesia</h1>
+            <div class="meta">Guru Pengampu: Yanti Purnamasari, S.Pd. • 20 Soal Latihan Pilihan Ganda</div>
+        </header>
+
+        <h2 class="section-title">Ringkasan Materi</h2>
+        <div class="materi-grid">
+            
+            <div class="materi-card">
+                <h3>Jenis Teks, Ide Pokok, &amp; Ide Pendukung</h3>
+                <ul>
+                    <li>Teks deskripsi menggambarkan objek/suasana secara rinci seolah pembaca melihat, mendengar, atau merasakannya.</li>
+<li>Teks eksposisi memaparkan pendapat atau informasi disertai alasan/fakta; teks eksplanasi menjelaskan proses terjadinya suatu peristiwa (alam atau sosial).</li>
+<li>Ide pokok adalah gagasan utama paragraf; ide pendukung menjelaskan atau merinci ide pokok.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Tanda Baca, Huruf Kapital, &amp; Kalimat Tunggal</h3>
+                <ul>
+                    <li>Tanda titik (.) di akhir kalimat berita; tanda koma (,) untuk perincian atau jeda; tanda tanya (?) di kalimat tanya; tanda seru (!) untuk perintah/ajakan/seruan; tanda hubung (-) untuk kata ulang atau menyambung suku kata.</li>
+<li>Huruf kapital dipakai di awal kalimat, nama orang, nama tempat/geografis, hari, dan bulan.</li>
+<li>Kalimat tunggal terdiri atas satu klausa/satu pola utama (umumnya subjek dan predikat).</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Wawancara, Puisi Anak, &amp; Kosakata</h3>
+                <ul>
+                    <li>Wawancara adalah tanya jawab untuk memperoleh informasi dari narasumber menggunakan kata tanya (apa, siapa, kapan, di mana, mengapa, bagaimana).</li>
+<li>Puisi anak tersusun atas bait dan baris dengan pilihan kata yang padat dan penuh makna/perasaan.</li>
+<li>Kosakata baku sesuai kaidah bahasa Indonesia resmi, sedangkan kosakata serapan berasal dari bahasa lain (daerah atau asing) yang disesuaikan ejaannya.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">Latihan Soal (20 Soal)</h2>
+        <form id="form_latihan">
+            
+            <div class="soal-card" id="card_soal_1" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 1</span>
+                    <span class="status-badge" id="status_soal_1"></span>
+                </div>
+                <p class="pertanyaan">Teks yang menggambarkan suatu objek secara rinci seolah pembaca melihat langsung disebut teks...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Deskripsi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Narasi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Prosedur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Cerpen</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_1" style="display:none;">
+                    <strong>Jawaban Benar: A. Deskripsi</strong><br>
+                    <span>Pembahasan: Teks deskripsi melukiskan objek/suasana secara jelas dan terperinci.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_2" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 2</span>
+                    <span class="status-badge" id="status_soal_2"></span>
+                </div>
+                <p class="pertanyaan">Teks yang menjelaskan proses terjadinya suatu fenomena alam atau sosial disebut teks...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Eksplanasi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pantun</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Iklan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Dongeng</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_2" style="display:none;">
+                    <strong>Jawaban Benar: A. Eksplanasi</strong><br>
+                    <span>Pembahasan: Teks eksplanasi menjelaskan bagaimana dan mengapa suatu proses terjadi.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_3" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 3</span>
+                    <span class="status-badge" id="status_soal_3"></span>
+                </div>
+                <p class="pertanyaan">Teks yang memaparkan pendapat atau gagasan disertai alasan/fakta disebut teks...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Eksposisi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Puisi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Surat pribadi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Dialog</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_3" style="display:none;">
+                    <strong>Jawaban Benar: A. Eksposisi</strong><br>
+                    <span>Pembahasan: Teks eksposisi menyajikan informasi dan argumen/penjelasan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_4" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 4</span>
+                    <span class="status-badge" id="status_soal_4"></span>
+                </div>
+                <p class="pertanyaan">Gagasan utama yang menjadi inti sebuah paragraf disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Ide pokok</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Judul</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Penutup</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tanda baca</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_4" style="display:none;">
+                    <strong>Jawaban Benar: A. Ide pokok</strong><br>
+                    <span>Pembahasan: Ide pokok adalah gagasan utama dalam paragraf.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_5" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 5</span>
+                    <span class="status-badge" id="status_soal_5"></span>
+                </div>
+                <p class="pertanyaan">Kalimat yang merinci atau menjelaskan ide pokok disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Ide pendukung</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Judul bab</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Daftar isi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kata pengantar</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_5" style="display:none;">
+                    <strong>Jawaban Benar: A. Ide pendukung</strong><br>
+                    <span>Pembahasan: Ide pendukung mendukung dan memperjelas ide pokok.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_6" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 6</span>
+                    <span class="status-badge" id="status_soal_6"></span>
+                </div>
+                <p class="pertanyaan">Tanda baca yang tepat untuk mengakhiri kalimat berita adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tanda tanya (?)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tanda seru (!)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Tanda titik (.)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tanda hubung (-)</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_6" style="display:none;">
+                    <strong>Jawaban Benar: A. Tanda tanya (?)</strong><br>
+                    <span>Pembahasan: Kalimat berita diakhiri tanda titik (.).</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_7" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 7</span>
+                    <span class="status-badge" id="status_soal_7"></span>
+                </div>
+                <p class="pertanyaan">Tanda baca yang digunakan di akhir kalimat tanya adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tanda titik (.)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tanda koma (,)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Tanda tanya (?)</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tanda titik dua (:)</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_7" style="display:none;">
+                    <strong>Jawaban Benar: C. Tanda tanya (?)</strong><br>
+                    <span>Pembahasan: Kalimat tanya diakhiri tanda tanya (?).</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_8" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 8</span>
+                    <span class="status-badge" id="status_soal_8"></span>
+                </div>
+                <p class="pertanyaan">Penulisan huruf kapital yang tepat terdapat pada kalimat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="0">
+                    <span class="huruf">A.</span>
+                    <span>andi pergi ke jakarta hari senin.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Andi pergi ke Jakarta hari Senin.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="2">
+                    <span class="huruf">C.</span>
+                    <span>andi pergi ke Jakarta hari senin.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Andi pergi ke jakarta hari Senin.</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_8" style="display:none;">
+                    <strong>Jawaban Benar: B. Andi pergi ke Jakarta hari Senin.</strong><br>
+                    <span>Pembahasan: Huruf kapital digunakan di awal kalimat, nama orang, nama kota, dan nama hari.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_9" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 9</span>
+                    <span class="status-badge" id="status_soal_9"></span>
+                </div>
+                <p class="pertanyaan">Orang yang memberikan informasi saat kegiatan wawancara disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pewawancara</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Narasumber</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Moderator</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Penyunting</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_9" style="display:none;">
+                    <strong>Jawaban Benar: B. Narasumber</strong><br>
+                    <span>Pembahasan: Narasumber adalah pihak yang diwawancarai untuk memberi informasi.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_10" data-kunci="2">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 10</span>
+                    <span class="status-badge" id="status_soal_10"></span>
+                </div>
+                <p class="pertanyaan">Kata tanya yang tepat untuk menanyakan waktu terjadinya peristiwa adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Siapa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Di mana</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Kapan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mengapa</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_10" style="display:none;">
+                    <strong>Jawaban Benar: C. Kapan</strong><br>
+                    <span>Pembahasan: Kata tanya &#x27;kapan&#x27; digunakan untuk menanyakan waktu.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_11" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 11</span>
+                    <span class="status-badge" id="status_soal_11"></span>
+                </div>
+                <p class="pertanyaan">Bagian puisi anak yang terdiri atas beberapa baris disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Bait</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Paragraf</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bab</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kalimat majemuk</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_11" style="display:none;">
+                    <strong>Jawaban Benar: A. Bait</strong><br>
+                    <span>Pembahasan: Kumpulan baris dalam puisi disebut bait.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_12" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 12</span>
+                    <span class="status-badge" id="status_soal_12"></span>
+                </div>
+                <p class="pertanyaan">Kalimat yang hanya memiliki satu gagasan/klausa utama disebut kalimat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tunggal</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Majemuk bertingkat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Tanya</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Perintah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_12" style="display:none;">
+                    <strong>Jawaban Benar: A. Tunggal</strong><br>
+                    <span>Pembahasan: Kalimat tunggal mengandung satu inti kalimat/klausa.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_13" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 13</span>
+                    <span class="status-badge" id="status_soal_13"></span>
+                </div>
+                <p class="pertanyaan">Contoh kalimat tunggal yang tepat adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Rina membaca buku di perpustakaan.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Rina membaca buku lalu adik tidur.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Meskipun hujan, kami tetap berangkat.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Ayah mencuci mobil dan ibu memasak.</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_13" style="display:none;">
+                    <strong>Jawaban Benar: A. Rina membaca buku di perpustakaan.</strong><br>
+                    <span>Pembahasan: Kalimat &#x27;Rina membaca buku di perpustakaan&#x27; merupakan kalimat tunggal.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_14" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 14</span>
+                    <span class="status-badge" id="status_soal_14"></span>
+                </div>
+                <p class="pertanyaan">Kata yang sesuai dengan pedoman ejaan bahasa Indonesia yang resmi disebut kosakata...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tidak baku</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Baku</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Gaul</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Daerah</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_14" style="display:none;">
+                    <strong>Jawaban Benar: B. Baku</strong><br>
+                    <span>Pembahasan: Kosakata baku mengikuti kaidah bahasa Indonesia yang benar.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_15" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 15</span>
+                    <span class="status-badge" id="status_soal_15"></span>
+                </div>
+                <p class="pertanyaan">Penulisan kata baku yang benar di bawah ini adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Apotek</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Apotik</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nafas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Jaman</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_15" style="display:none;">
+                    <strong>Jawaban Benar: A. Apotek</strong><br>
+                    <span>Pembahasan: Bentuk baku dari apotik adalah &#x27;apotek&#x27;.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_16" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 16</span>
+                    <span class="status-badge" id="status_soal_16"></span>
+                </div>
+                <p class="pertanyaan">Kata yang berasal dari bahasa lain lalu disesuaikan dengan ejaan bahasa Indonesia disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kosakata serapan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kata ganti</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Kata depan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kata seru</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_16" style="display:none;">
+                    <strong>Jawaban Benar: A. Kosakata serapan</strong><br>
+                    <span>Pembahasan: Kosakata serapan diadaptasi dari bahasa asing atau daerah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_17" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 17</span>
+                    <span class="status-badge" id="status_soal_17"></span>
+                </div>
+                <p class="pertanyaan">Tanda hubung (-) dapat digunakan untuk menulis...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kata ulang seperti anak-anak</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Akhir kalimat berita</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nama hari</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Awal paragraf</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_17" style="display:none;">
+                    <strong>Jawaban Benar: A. Kata ulang seperti anak-anak</strong><br>
+                    <span>Pembahasan: Tanda hubung digunakan antara lain pada kata ulang seperti anak-anak.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_18" data-kunci="1">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 18</span>
+                    <span class="status-badge" id="status_soal_18"></span>
+                </div>
+                <p class="pertanyaan">Tanda seru (!) tepat digunakan pada kalimat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Apakah kamu sudah sarapan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tolong tutup pintu itu!</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Ibu membeli apel dan jeruk.</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kapan kereta berangkat</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_18" style="display:none;">
+                    <strong>Jawaban Benar: B. Tolong tutup pintu itu!</strong><br>
+                    <span>Pembahasan: Tanda seru dipakai pada kalimat perintah, ajakan, atau seruan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_19" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 19</span>
+                    <span class="status-badge" id="status_soal_19"></span>
+                </div>
+                <p class="pertanyaan">Langkah pertama yang sebaiknya dilakukan sebelum wawancara adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Menyusun daftar pertanyaan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Menerbitkan berita</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menutup pembicaraan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menghapus catatan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_19" style="display:none;">
+                    <strong>Jawaban Benar: A. Menyusun daftar pertanyaan</strong><br>
+                    <span>Pembahasan: Menyiapkan pertanyaan membantu wawancara berjalan terarah.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_20" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 20</span>
+                    <span class="status-badge" id="status_soal_20"></span>
+                </div>
+                <p class="pertanyaan">Menemukan informasi penting dalam puisi anak dapat dilakukan dengan...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Membaca cermat tiap baris dan bait</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Melewatkan seluruh bait</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Mengubah judul saja</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menghitung jumlah halaman</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_20" style="display:none;">
+                    <strong>Jawaban Benar: A. Membaca cermat tiap baris dan bait</strong><br>
+                    <span>Pembahasan: Membaca cermat membantu memahami makna dan pesan puisi.</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button type="button" class="btn-nilai" onclick="hitungNilai()">Kumpulkan &amp; Lihat Nilai</button>
+                <button type="button" class="btn-reset" onclick="resetLatihan()">Ulangi Latihan</button>
+            </div>
+        </form>
+
+        <div id="hasil_penilaian">
+            <div>Hasil Penilaian Latihan</div>
+            <div class="skor-angka" id="skor_nilai">0</div>
+            <div class="rincian-skor" id="rincian_jawaban"></div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_SOAL = 20;
+        const BOBOT_PER_SOAL = 100 / TOTAL_SOAL;
+
+        function hitungNilai() {
+            let benar = 0;
+            let salah = 0;
+            let kosong = 0;
+
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const kunci = parseInt(card.getAttribute("data-kunci"), 10);
+                const terpilih = document.querySelector('input[name="soal_' + i + '"]:checked');
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+
+                card.classList.remove("benar", "salah");
+                statusEl.classList.remove("status-benar", "status-salah");
+                pembahasanEl.style.display = "block";
+
+                if (!terpilih) {
+                    kosong++;
+                    salah++;
+                    card.classList.add("salah");
+                    statusEl.textContent = "Belum dijawab";
+                    statusEl.classList.add("status-salah");
+                } else {
+                    const nilaiUser = parseInt(terpilih.value, 10);
+                    if (nilaiUser === kunci) {
+                        benar++;
+                        card.classList.add("benar");
+                        statusEl.textContent = "Benar";
+                        statusEl.classList.add("status-benar");
+                    } else {
+                        salah++;
+                        card.classList.add("salah");
+                        statusEl.textContent = "Kurang tepat";
+                        statusEl.classList.add("status-salah");
+                    }
+                }
+            }
+
+            const skorAkhir = Math.round(benar * BOBOT_PER_SOAL);
+            let predikat = "Perlu bimbingan";
+            if (skorAkhir >= 90) predikat = "Sangat Baik";
+            else if (skorAkhir >= 75) predikat = "Baik";
+            else if (skorAkhir >= 60) predikat = "Cukup";
+
+            const hasilBox = document.getElementById("hasil_penilaian");
+            document.getElementById("skor_nilai").textContent = "Nilai: " + skorAkhir + " / 100 (" + predikat + ")";
+            document.getElementById("rincian_jawaban").textContent =
+                "Benar: " + benar + " soal • Salah/Kosong: " + salah + " soal (Tidak terjawab: " + kosong + " soal)";
+
+            hasilBox.style.display = "block";
+            hasilBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function resetLatihan() {
+            document.getElementById("form_latihan").reset();
+            document.getElementById("hasil_penilaian").style.display = "none";
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+                card.classList.remove("benar", "salah");
+                statusEl.textContent = "";
+                statusEl.className = "status-badge";
+                pembahasanEl.style.display = "none";
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>

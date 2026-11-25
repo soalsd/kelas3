@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAS Kelas 3 - Seni Budaya</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --benar-bg: #dcfce7;
+            --benar-border: #16a34a;
+            --benar-text: #14532d;
+            --salah-bg: #fee2e2;
+            --salah-border: #dc2626;
+            --salah-text: #7f1d1d;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 64px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(29, 78, 216, 0.18);
+        }
+        header .sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 1.75rem;
+        }
+        header .meta {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary-dark);
+        }
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 14px;
+        }
+        .materi-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .materi-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+        }
+        .materi-card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .materi-card li {
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+        .soal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+        .soal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .badge-soal {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+        .status-benar {
+            background: var(--benar-bg);
+            color: var(--benar-text);
+        }
+        .status-salah {
+            background: var(--salah-bg);
+            color: var(--salah-text);
+        }
+        .pertanyaan {
+            font-weight: 600;
+            margin: 6px 0 12px;
+            font-size: 1rem;
+        }
+        .opsi-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .opsi-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .opsi-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .opsi-label input {
+            margin-top: 3px;
+        }
+        .huruf {
+            font-weight: 700;
+            min-width: 20px;
+        }
+        .pembahasan {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: var(--benar-bg);
+            border-left: 4px solid var(--benar-border);
+            color: var(--benar-text);
+            font-size: 0.92rem;
+        }
+        .soal-card.benar {
+            border-color: var(--benar-border);
+        }
+        .soal-card.salah {
+            border-color: var(--salah-border);
+        }
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-nilai {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nilai:hover {
+            background: var(--primary-dark);
+        }
+        .btn-reset {
+            background: #e2e8f0;
+            color: var(--text);
+        }
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+        #hasil_penilaian {
+            display: none;
+            margin-top: 22px;
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        .skor-angka {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .rincian-skor {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sub">ASESMEN AKHIR SEMESTER (ASAS) • KELAS 3 • TA 2026/2027</div>
+            <h1>Seni Budaya</h1>
+            <div class="meta">Guru Pengampu: Asih Febriani, S.Pd. • 20 Soal Latihan Pilihan Ganda</div>
+        </header>
+
+        <h2 class="section-title">Ringkasan Materi</h2>
+        <div class="materi-grid">
+            
+            <div class="materi-card">
+                <h3>Seni Rupa: Menggambar, Unsur, &amp; Ragam Hias</h3>
+                <ul>
+                    <li>Tahapan menggambar umumnya meliputi menentukan ide/tema, membuat sketsa, memilih alat/bahan (pensil, krayon, cat air, kertas), mewarnai, dan finishing.</li>
+<li>Unsur seni rupa antara lain garis, bentuk, warna, dan tekstur (kasar, halus, licin, bergerigi).</li>
+<li>Komik menyampaikan cerita bergambar berurutan; seni dekoratif dan ragam hias (termasuk membatik) menghias permukaan dengan motif tertentu.</li>
+                </ul>
+            </div>
+            
+            <div class="materi-card">
+                <h3>Seni Musik: Unsur Musik &amp; Alat Musik</h3>
+                <ul>
+                    <li>Bunyi teratur membentuk irama (pola ketukan/panjang-pendek bunyi) dan nada (tinggi-rendahnya bunyi).</li>
+<li>Interval adalah jarak antar-nada; harmoni adalah keselarasan bunyi yang dimainkan bersama.</li>
+<li>Alat musik ritmis mengatur irama tanpa nada tetap (gendang, rebana, marakas); alat musik melodis memainkan rangkaian nada/melodi (pianika, recorder, gitar).</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">Latihan Soal (20 Soal)</h2>
+        <form id="form_latihan">
+            
+            <div class="soal-card" id="card_soal_1" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 1</span>
+                    <span class="status-badge" id="status_soal_1"></span>
+                </div>
+                <p class="pertanyaan">Langkah awal sebelum mewarnai gambar adalah membuat...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Sketsa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Bingkai mahal</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Pameran</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_1" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pigura kaca</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_1" style="display:none;">
+                    <strong>Jawaban Benar: A. Sketsa</strong><br>
+                    <span>Pembahasan: Sketsa dibuat sebagai rancangan awal gambar.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_2" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 2</span>
+                    <span class="status-badge" id="status_soal_2"></span>
+                </div>
+                <p class="pertanyaan">Alat yang biasa digunakan untuk membuat garis dan sketsa gambar adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pensil</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Sendok</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Palu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_2" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Gunting kain</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_2" style="display:none;">
+                    <strong>Jawaban Benar: A. Pensil</strong><br>
+                    <span>Pembahasan: Pensil digunakan untuk membuat sketsa dan garis.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_3" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 3</span>
+                    <span class="status-badge" id="status_soal_3"></span>
+                </div>
+                <p class="pertanyaan">Cerita bergambar yang disusun berurutan dengan balon kata disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Komik</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Poster</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Grafik</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_3" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Peta</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_3" style="display:none;">
+                    <strong>Jawaban Benar: A. Komik</strong><br>
+                    <span>Pembahasan: Komik menampilkan cerita melalui gambar berurutan dan teks/balon kata.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_4" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 4</span>
+                    <span class="status-badge" id="status_soal_4"></span>
+                </div>
+                <p class="pertanyaan">Kesan permukaan benda yang dapat diraba atau dilihat keadaannya disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Tekstur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Irama</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nada</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_4" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Birama</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_4" style="display:none;">
+                    <strong>Jawaban Benar: A. Tekstur</strong><br>
+                    <span>Pembahasan: Tekstur berkaitan dengan permukaan kasar, halus, atau bergerigi.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_5" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 5</span>
+                    <span class="status-badge" id="status_soal_5"></span>
+                </div>
+                <p class="pertanyaan">Contoh benda bertekstur halus adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Kaca atau permukaan kertas licin</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Kulit durian</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Batu kali kasar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_5" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Amplop kasar</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_5" style="display:none;">
+                    <strong>Jawaban Benar: A. Kaca atau permukaan kertas licin</strong><br>
+                    <span>Pembahasan: Kaca dan kertas licin memiliki permukaan halus.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_6" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 6</span>
+                    <span class="status-badge" id="status_soal_6"></span>
+                </div>
+                <p class="pertanyaan">Unsur seni rupa yang terbentuk dari titik-titik yang memanjang disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Garis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Nada</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Irama</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_6" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tempo</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_6" style="display:none;">
+                    <strong>Jawaban Benar: A. Garis</strong><br>
+                    <span>Pembahasan: Garis adalah unsur dasar seni rupa.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_7" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 7</span>
+                    <span class="status-badge" id="status_soal_7"></span>
+                </div>
+                <p class="pertanyaan">Merah, kuning, dan biru termasuk contoh unsur...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Warna</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Irama</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Gerak lokomotor</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_7" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Ketukan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_7" style="display:none;">
+                    <strong>Jawaban Benar: A. Warna</strong><br>
+                    <span>Pembahasan: Merah, kuning, dan biru adalah warna.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_8" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 8</span>
+                    <span class="status-badge" id="status_soal_8"></span>
+                </div>
+                <p class="pertanyaan">Teknik menghias kain dengan motif tradisional menggunakan malam/canting disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Membatik</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Memahat</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menenun bambu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_8" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Menganyam rotan</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_8" style="display:none;">
+                    <strong>Jawaban Benar: A. Membatik</strong><br>
+                    <span>Pembahasan: Membatik adalah seni menghias kain dengan pola/motif khas.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_9" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 9</span>
+                    <span class="status-badge" id="status_soal_9"></span>
+                </div>
+                <p class="pertanyaan">Ragam hias dekoratif berfungsi untuk...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Memperindah permukaan benda</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Merusak bentuk asli</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menghilangkan warna</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_9" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Membuat benda berat</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_9" style="display:none;">
+                    <strong>Jawaban Benar: A. Memperindah permukaan benda</strong><br>
+                    <span>Pembahasan: Ragam hias memperindah karya atau benda.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_10" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 10</span>
+                    <span class="status-badge" id="status_soal_10"></span>
+                </div>
+                <p class="pertanyaan">Tinggi atau rendahnya suatu bunyi dalam musik disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Nada</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tekstur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Sketsa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_10" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Garis</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_10" style="display:none;">
+                    <strong>Jawaban Benar: A. Nada</strong><br>
+                    <span>Pembahasan: Nada adalah bunyi yang memiliki tinggi rendah tertentu.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_11" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 11</span>
+                    <span class="status-badge" id="status_soal_11"></span>
+                </div>
+                <p class="pertanyaan">Pola ketukan atau panjang pendeknya bunyi yang teratur disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Irama</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Warna</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bentuk</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_11" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Komik</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_11" style="display:none;">
+                    <strong>Jawaban Benar: A. Irama</strong><br>
+                    <span>Pembahasan: Irama berkaitan dengan pola bunyi dan ketukan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_12" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 12</span>
+                    <span class="status-badge" id="status_soal_12"></span>
+                </div>
+                <p class="pertanyaan">Jarak antara satu nada dengan nada lainnya disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Interval</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tekstur</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Sketsa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_12" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Pigura</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_12" style="display:none;">
+                    <strong>Jawaban Benar: A. Interval</strong><br>
+                    <span>Pembahasan: Interval adalah jarak antar-nada.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_13" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 13</span>
+                    <span class="status-badge" id="status_soal_13"></span>
+                </div>
+                <p class="pertanyaan">Keselarasan bunyi yang dimainkan secara bersama disebut...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Harmoni</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Sketsa</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Garis tepi</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_13" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kuas</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_13" style="display:none;">
+                    <strong>Jawaban Benar: A. Harmoni</strong><br>
+                    <span>Pembahasan: Harmoni tercipta dari paduan bunyi yang selaras.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_14" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 14</span>
+                    <span class="status-badge" id="status_soal_14"></span>
+                </div>
+                <p class="pertanyaan">Alat musik yang berfungsi mengatur irama tanpa memiliki nada tetap disebut alat musik...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Ritmis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Melodis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Elektrik</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_14" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tiup logam</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_14" style="display:none;">
+                    <strong>Jawaban Benar: A. Ritmis</strong><br>
+                    <span>Pembahasan: Alat musik ritmis mengatur irama/ketukan.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_15" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 15</span>
+                    <span class="status-badge" id="status_soal_15"></span>
+                </div>
+                <p class="pertanyaan">Contoh alat musik ritmis adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Gendang dan rebana</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Pianika dan recorder</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Biola dan piano</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_15" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Seruling melodis</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_15" style="display:none;">
+                    <strong>Jawaban Benar: A. Gendang dan rebana</strong><br>
+                    <span>Pembahasan: Gendang dan rebana tidak bernada tetap dan berfungsi mengatur irama.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_16" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 16</span>
+                    <span class="status-badge" id="status_soal_16"></span>
+                </div>
+                <p class="pertanyaan">Alat musik yang dapat memainkan rangkaian nada atau melodi lagu disebut alat musik...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Melodis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Ritmis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Perkusi kasar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_16" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Kertas</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_16" style="display:none;">
+                    <strong>Jawaban Benar: A. Melodis</strong><br>
+                    <span>Pembahasan: Alat musik melodis memainkan melodi/nada.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_17" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 17</span>
+                    <span class="status-badge" id="status_soal_17"></span>
+                </div>
+                <p class="pertanyaan">Contoh alat musik melodis adalah...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Pianika</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Tamborin tanpa nada</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Marakas</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_17" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Simbal</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_17" style="display:none;">
+                    <strong>Jawaban Benar: A. Pianika</strong><br>
+                    <span>Pembahasan: Pianika memainkan nada-nada melodi.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_18" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 18</span>
+                    <span class="status-badge" id="status_soal_18"></span>
+                </div>
+                <p class="pertanyaan">Krayon dan pensil warna termasuk bahan/alat untuk...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Mewarnai gambar</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Memotong kayu</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Menjahit baju</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_18" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Mengukur suhu</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_18" style="display:none;">
+                    <strong>Jawaban Benar: A. Mewarnai gambar</strong><br>
+                    <span>Pembahasan: Krayon dan pensil warna dipakai untuk mewarnai.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_19" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 19</span>
+                    <span class="status-badge" id="status_soal_19"></span>
+                </div>
+                <p class="pertanyaan">Bentuk lingkaran, segitiga, dan persegi termasuk unsur...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Bentuk</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Irama</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Nada</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_19" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Tempo</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_19" style="display:none;">
+                    <strong>Jawaban Benar: A. Bentuk</strong><br>
+                    <span>Pembahasan: Lingkaran, segitiga, dan persegi adalah bentuk geometris.</span>
+                </div>
+            </div>
+            
+            <div class="soal-card" id="card_soal_20" data-kunci="0">
+                <div class="soal-header">
+                    <span class="badge-soal">Soal 20</span>
+                    <span class="status-badge" id="status_soal_20"></span>
+                </div>
+                <p class="pertanyaan">Memainkan alat musik bersama teman dengan kompak akan menghasilkan bunyi yang...</p>
+                <div class="opsi-group">
+                    
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="0">
+                    <span class="huruf">A.</span>
+                    <span>Harmonis</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="1">
+                    <span class="huruf">B.</span>
+                    <span>Sumbang</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="2">
+                    <span class="huruf">C.</span>
+                    <span>Bising tak beraturan</span>
+                </label>
+                
+                <label class="opsi-label">
+                    <input type="radio" name="soal_20" value="3">
+                    <span class="huruf">D.</span>
+                    <span>Terputus-putus</span>
+                </label>
+                
+                </div>
+                <div class="pembahasan" id="pembahasan_20" style="display:none;">
+                    <strong>Jawaban Benar: A. Harmonis</strong><br>
+                    <span>Pembahasan: Kekompakan membuat permainan musik terdengar harmonis.</span>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button type="button" class="btn-nilai" onclick="hitungNilai()">Kumpulkan &amp; Lihat Nilai</button>
+                <button type="button" class="btn-reset" onclick="resetLatihan()">Ulangi Latihan</button>
+            </div>
+        </form>
+
+        <div id="hasil_penilaian">
+            <div>Hasil Penilaian Latihan</div>
+            <div class="skor-angka" id="skor_nilai">0</div>
+            <div class="rincian-skor" id="rincian_jawaban"></div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_SOAL = 20;
+        const BOBOT_PER_SOAL = 100 / TOTAL_SOAL;
+
+        function hitungNilai() {
+            let benar = 0;
+            let salah = 0;
+            let kosong = 0;
+
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const kunci = parseInt(card.getAttribute("data-kunci"), 10);
+                const terpilih = document.querySelector('input[name="soal_' + i + '"]:checked');
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+
+                card.classList.remove("benar", "salah");
+                statusEl.classList.remove("status-benar", "status-salah");
+                pembahasanEl.style.display = "block";
+
+                if (!terpilih) {
+                    kosong++;
+                    salah++;
+                    card.classList.add("salah");
+                    statusEl.textContent = "Belum dijawab";
+                    statusEl.classList.add("status-salah");
+                } else {
+                    const nilaiUser = parseInt(terpilih.value, 10);
+                    if (nilaiUser === kunci) {
+                        benar++;
+                        card.classList.add("benar");
+                        statusEl.textContent = "Benar";
+                        statusEl.classList.add("status-benar");
+                    } else {
+                        salah++;
+                        card.classList.add("salah");
+                        statusEl.textContent = "Kurang tepat";
+                        statusEl.classList.add("status-salah");
+                    }
+                }
+            }
+
+            const skorAkhir = Math.round(benar * BOBOT_PER_SOAL);
+            let predikat = "Perlu bimbingan";
+            if (skorAkhir >= 90) predikat = "Sangat Baik";
+            else if (skorAkhir >= 75) predikat = "Baik";
+            else if (skorAkhir >= 60) predikat = "Cukup";
+
+            const hasilBox = document.getElementById("hasil_penilaian");
+            document.getElementById("skor_nilai").textContent = "Nilai: " + skorAkhir + " / 100 (" + predikat + ")";
+            document.getElementById("rincian_jawaban").textContent =
+                "Benar: " + benar + " soal • Salah/Kosong: " + salah + " soal (Tidak terjawab: " + kosong + " soal)";
+
+            hasilBox.style.display = "block";
+            hasilBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function resetLatihan() {
+            document.getElementById("form_latihan").reset();
+            document.getElementById("hasil_penilaian").style.display = "none";
+            for (let i = 1; i <= TOTAL_SOAL; i++) {
+                const card = document.getElementById("card_soal_" + i);
+                const statusEl = document.getElementById("status_soal_" + i);
+                const pembahasanEl = document.getElementById("pembahasan_" + i);
+                card.classList.remove("benar", "salah");
+                statusEl.textContent = "";
+                statusEl.className = "status-badge";
+                pembahasanEl.style.display = "none";
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
